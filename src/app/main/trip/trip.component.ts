@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Trip } from './trip';
 import { Trips } from './mock-trips';
+import { TripService } from "./trip.service";
 
 @Component({
   selector: 'app-trip',
@@ -9,9 +10,20 @@ import { Trips } from './mock-trips';
 })
 export class TripComponent implements OnInit {
 
-  constructor() { }
+  trips: Trip[];
+
+  getTrips(): void{
+    this.tripService.getTrips()
+        .subscribe(trips => this.trips = trips);
+  }
+
+  showTrips(): void {
+    this.getTrips();
+  }
+  constructor(private tripService: TripService) { }
 
   ngOnInit() {
+    //this.getTrips();
   }
 
 }

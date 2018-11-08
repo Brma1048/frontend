@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TripComponent } from './main/trip/trip.component';
 
 const routes: Routes = [
-  {path: "",redirectTo: "/trip", pathMatch: "full"},
+  //{path: "",redirectTo: "/trip", pathMatch: "full"},
   { path: 'trip', component: TripComponent }
 ];
 

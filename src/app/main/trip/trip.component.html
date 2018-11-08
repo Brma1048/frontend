@@ -1,3 +1,18 @@
-<p>
-  trip works!
-</p>
+<h1>Alle Trips</h1>
+
+<button class="btn btn-primary" (click)="showTrips()">Klick mich</button>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Ziel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trip of trips">
+      <th scope="row">{{trip.id}}</th>
+      <td>{{trip.gpsStart}}</td>
+    </tr>
+    </tbody>
+</table>
+
