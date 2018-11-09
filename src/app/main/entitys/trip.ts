@@ -1,3 +1,6 @@
+import { Car } from "./car";
+import { Driver } from "./driver";
+
 export class Trip {
     id: string;
     gpsStart: string;
@@ -8,5 +11,8 @@ export class Trip {
     wayPoints: Array<string>; //TODO
     customerName: string;
     projectName: string;
+
+    car: Car;
+    driver: Driver;
 
 }

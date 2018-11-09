@@ -1,6 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Trip } from './main/trip/trip';
-import { Trips } from './main/trip/mock-trips';
+import { Trip } from './main/entitys/trip';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
@@ -19,7 +18,12 @@ export class InMemoryDataService implements InMemoryDbService {
                     "N50.419016° , E006.750000°"
             ],
             "customerName": "Hans",
-            "customerProject": "Microservices Nr.5"
+            "projectName": "Microservices",
+            "driver" : [
+              {
+                "name": "Theo"
+              }      
+            ]
         }
       ]
         

@@ -5,14 +5,27 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Ziel</th>
+      <th scope="col">Start</th>
+      <th scope="col">Ende</th>
+      <th scope="col">Geschäftlich</th>
+      <th scope="col">Kilometerstand Beginn</th>
+      <th scope="col">Kilometerstand Ende</th>
+      <th scope="col">Kunde</th>
+      <th scope="col">Projekt</th>
+      <th scope="col">Fahrer</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let trip of trips">
       <th scope="row">{{trip.id}}</th>
       <td>{{trip.gpsStart}}</td>
+      <td>{{trip.gpsEnd}}</td>
+      <td>{{trip.tripBusiness}}</td>
+      <td>{{trip.startOdometer}}</td>
+      <td>{{trip.endOdometer}}</td>
+      <td>{{trip.customerName}}</td>
+      <td>{{trip.projectName}}</td>
+      <td>{{trip.driver}}</td>
     </tr>
     </tbody>
 </table>
-
