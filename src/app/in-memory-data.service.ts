@@ -24,7 +24,28 @@ export class InMemoryDataService implements InMemoryDbService {
                 "name": "Theo"
               }      
             ]
-        }
+        },
+        {
+          "id": "1",
+          "gpsStart": "N50.418716° , E006.750000°",
+          "gpsEnd": "N50.318516° , E006.750000°",
+          "tripBuinsness": true,
+          "startOdometer": 25698,
+          "endOdometer": 25700,
+          "wayPoints": [
+                  "N50.418716° , E006.750000°",
+                  "N50.418816° , E006.750000°",
+                  "N50.418916° , E006.750000°",
+                  "N50.419016° , E006.750000°"
+          ],
+          "customerName": "MHP",
+          "projectName": "HSKA Projekt",
+          "driver" : [
+            {
+              "name": "Jürgen"
+            }      
+          ]
+      }
       ]
         
     return {trips};
