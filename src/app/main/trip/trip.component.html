@@ -28,7 +28,7 @@
         <td>{{trip.customerName}}</td>
         <td>{{trip.projectName}}</td>
         <td>{{trip.driver[0].name}}</td>
-        <td><a routerLink="/detail"> <fa-icon [icon]="faInfo"></fa-icon></a></td>
+        <td><a routerLink="/detail/{{trip.id}}">More Details <fa-icon [icon]="faInfo"></fa-icon></a></td>
     </tr>
     </tbody>
 </table>

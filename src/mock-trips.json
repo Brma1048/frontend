@@ -6,10 +6,15 @@
     "startOdometer": 25698,
     "endOdometer": 25700,
     "wayPoints": [
-            "N50.418716° , E006.750000°",
-            "N50.418816° , E006.750000°",
-            "N50.418916° , E006.750000°",
-            "N50.419016° , E006.750000°"
+            {
+                "lat": "N50.418716°",
+                "lon": "E006.750000°"
+            },
+            {
+                "lat": "N60.418716°",
+                "lon": "E006.950000°"
+            }
+
     ],
     "customerName": "Hans",
     "customerProject": "Microservices Nr.5"

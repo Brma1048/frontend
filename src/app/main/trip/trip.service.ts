@@ -16,6 +16,11 @@ export class TripService {
     return this.http.get<Trip[]>(this.tripsURL)
     
   }
+  /*
+  getTrip(id: number): Observable<Trip> {
+    return of(this.http.get<Trip[]>(this.tripsURL).find(trip => trip.id === id));
+  }
+  */
 
 
   constructor(private http: HttpClient) { }

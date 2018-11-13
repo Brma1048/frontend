@@ -7,7 +7,7 @@ import { TripDetailComponent } from './main/trip-detail/trip-detail.component';
 const routes: Routes = [
   //{path: "",redirectTo: "/trip", pathMatch: "full"},
   { path: 'trip', component: TripComponent },
-  { path: 'detail', component: TripDetailComponent}
+  { path: 'detail/:id', component: TripDetailComponent}
 ];
 
 @NgModule({
