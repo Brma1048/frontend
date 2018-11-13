@@ -11,11 +11,23 @@ import { TripService } from '../trip/trip.service';
 })
 export class TripDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    /*
+    private route: ActivatedRoute,
+    private tripService: TripService,
+    private location: Location
+    */
+  ) { }
 
-  ngOnInit(){
+  ngOnInit(): void {
+   // this.getTrip();
   }
 
-
-
+  /*
+  getTrip(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.tripService.getTrip(id)
+        .subscribe(trip => this.trip = trip);
+  }
+  */
 }

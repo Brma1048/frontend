@@ -1,5 +1,6 @@
 import { Car } from "./car";
 import { Driver } from "./driver";
+import { WayPoints } from './waypoints';
 
 export class Trip {
     id: string;
@@ -8,9 +9,10 @@ export class Trip {
     tripBusiness: boolean;
     startOdometer: number;
     endOdometer: number;
-    wayPoints: Array<string>; //TODO
+    wayPoints: Array<WayPoints>; //TODO
     customerName: string;
     projectName: string;
+    date: Date;
 
     car: Car;
     driver: Driver;
