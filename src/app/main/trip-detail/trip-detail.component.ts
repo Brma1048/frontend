@@ -15,14 +15,18 @@ export class TripDetailComponent implements OnInit {
     /*
     private route: ActivatedRoute,
     private tripService: TripService,
-    private location: Location
+    
     */
+   private location: Location
   ) { }
 
   ngOnInit(): void {
    // this.getTrip();
   }
 
+  goBack(): void{
+    this.location.back();
+  }
   /*
   getTrip(): void {
     const id = +this.route.snapshot.paramMap.get('id');

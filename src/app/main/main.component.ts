@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-main',
   template: `
   <main>
-    <div class="col col-8">
+    <div class="col col-12">
       <router-outlet></router-outlet>
     </div>
   </main>
