@@ -9,7 +9,9 @@ import { TripComponent } from './main/trip/trip.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; //TUT
-import { InMemoryDataService }  from './in-memory-data.service'; //TUT
+import { InMemoryDataService }  from './in-memory-data.service';
+import { TripDetailComponent } from './main/trip-detail/trip-detail.component'; //TUT
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { InMemoryDataService }  from './in-memory-data.service'; //TUT
     NavComponent,
     MainComponent,
     FooterComponent,
-    TripComponent
+    TripComponent,
+    TripDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { InMemoryDataService }  from './in-memory-data.service'; //TUT
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot( //TUT
       InMemoryDataService, { dataEncapsulation: false } //TUT
-    ) //TUT
+    ), //TUT
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

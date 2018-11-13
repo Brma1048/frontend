@@ -13,19 +13,22 @@
       <th scope="col">Kunde</th>
       <th scope="col">Projekt</th>
       <th scope="col">Fahrer</th>
+      <th scope="col">Detail</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let trip of trips">
-      <th scope="row">{{trip.id}}</th>
-      <td>{{trip.gpsStart}}</td>
-      <td>{{trip.gpsEnd}}</td>
-      <td>{{trip.business}}</td>
-      <td>{{trip.startOdometer}}</td>
-      <td>{{trip.endOdometer}}</td>
-      <td>{{trip.customerName}}</td>
-      <td>{{trip.projectName}}</td>
-      <td>{{trip.driver[0].name}}</td>
+        <th scope="row">{{trip.id}}</th>
+      
+        <td>{{trip.gpsStart}}</td>
+        <td>{{trip.gpsEnd}}</td>
+        <td>{{trip.business}}</td>
+        <td>{{trip.startOdometer}}</td>
+        <td>{{trip.endOdometer}}</td>
+        <td>{{trip.customerName}}</td>
+        <td>{{trip.projectName}}</td>
+        <td>{{trip.driver[0].name}}</td>
+        <td><a routerLink="/detail"> <fa-icon [icon]="faInfo"></fa-icon></a></td>
     </tr>
     </tbody>
 </table>

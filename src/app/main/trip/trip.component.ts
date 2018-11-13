@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Trip } from '../entitys/trip';
 import { TripService } from "./trip.service";
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-trip',
@@ -10,6 +12,7 @@ import { TripService } from "./trip.service";
 export class TripComponent implements OnInit {
 
   trips: Trip[]; 
+  faInfo = faInfo;
 
   getTrips(): void{
     this.tripService.getTrips()
