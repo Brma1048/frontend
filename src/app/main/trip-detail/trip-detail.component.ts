@@ -15,12 +15,19 @@ export class TripDetailComponent implements OnInit {
 
   @Input() trip: Trip;
   constructor(
-    
-   private location: Location
+    private route: ActivatedRoute,
+    private tripService: TripService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
-   
+   this.getTrip();
+  }
+
+  getTrip(): void{
+    const id= +this.route.snapshot.paramMap.get("id");
+    this.tripService.getTrip(id)
+      .subscribe(trip => this.trip = trip);
   }
 
   goBack(): void{
