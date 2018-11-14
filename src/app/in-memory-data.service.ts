@@ -17,7 +17,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     "N50.418916° , E006.750000°",
                     "N50.419016° , E006.750000°"
             ],
-            "customerName": "Hans",
+            "customerName": "CAS Software AG",
             "projectName": "Microservices",
             "driver" : [
               {
@@ -26,7 +26,7 @@ export class InMemoryDataService implements InMemoryDbService {
             ]
         },
         {
-          "id": "1",
+          "id": "2",
           "gpsStart": "N50.418716° , E006.750000°",
           "gpsEnd": "N50.318516° , E006.750000°",
           "tripBuinsness": true,

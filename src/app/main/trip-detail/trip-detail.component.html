@@ -1,20 +1,31 @@
-<h2>Details</h2>
-<br>
-<button class="btn btn-primary nav-tab" (click)="goBack()">Back</button>
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Point of departure</th>
-      <th scope="col">Final location</th>
-      <th scope="col">Purpose of travel</th>
-      <th scope="col">KM before</th>
-      <th scope="col">KM after</th>
-      <th scope="col">Customer</th>
-      <th scope="col">Detail</th>
-    </tr>
-  </thead>
-  <tbody>
-   
-    </tbody>
-</table>
+
+<!--<button class="btn btn-primary nav-tab" (click)="goBack()">Back</button>-->
+
+<div *ngIf="trip">
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Driver</th>
+                    <th scope="col">Startpunkt</th>
+                    <th scope="col">Endpunkt</th>
+                    <th scope="col">KM-Start</th>
+                    <th scope="col">KM-Ende</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <th scope="row">{{trip.id}}</th>
+                <td>{{trip.customerName}}</td>
+                <td>{{trip.driver[0].name}}</td>
+                <td>{{trip.gpsStart}}</td>
+                <td>{{trip.gpsEnd}}</td>
+                <td>{{trip.startOdometer}}</td>
+                <td>{{trip.endOdometer}}</td>
+
+            </tbody>
+        </table>
+    </div>
+</div>

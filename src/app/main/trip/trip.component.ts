@@ -11,6 +11,12 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons';
 })
 export class TripComponent implements OnInit {
 
+  selectedTrip: Trip;
+
+  onSelect(trip: Trip): void{
+    this.selectedTrip = trip;
+  }
+
   trips: Trip[]; 
   faInfo = faInfo;
 
