@@ -14,6 +14,7 @@ import { TripService } from '../trip/trip.service';
 export class TripDetailComponent implements OnInit {
 
   @Input() trip: Trip;
+
   constructor(
     private route: ActivatedRoute,
     private tripService: TripService,
@@ -25,7 +26,7 @@ export class TripDetailComponent implements OnInit {
   }
 
   getTrip(): void{
-    const id= +this.route.snapshot.paramMap.get("id");
+    const id =+ this.route.snapshot.paramMap.get("id");
     this.tripService.getTrip(id)
       .subscribe(trip => this.trip = trip);
   }
