@@ -1,3 +1,27 @@
-<p>
-  logbock works!
-</p>
+<h1>All Lookbocks</h1>
+<button class="btn" (click)="showLockbocks()">Search Lookbocks</button>
+<div class="row">
+  <div class="col-12">
+
+    <div *ngIf="lockbocks">
+        <div class="table-responsive">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Driver</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lockbock of lockbocks" (click)="onSelect(lockbock)">
+              <th scope="row"></th>
+              <td>{{lockbock.driver}}</td>
+              <td><a routerLink="/detail/{{lockbock.driver}}">Details</a></td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { Trip } from "./trip";
-import { Driver } from "selenium-webdriver/safari";
+import { Driver } from "./driver";
 
 export class Logbock{
     
