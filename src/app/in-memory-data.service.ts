@@ -1,54 +1,40 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Trip } from './main/entitys/trip';
+import { Logbock } from './main/entitys/logbock';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-      let trips = [
+      let logbocks = [
         {
-            "id": "1",
-            "gpsStart": "N50.418716° , E006.750000°",
-            "gpsEnd": "N50.318516° , E006.750000°",
-            "tripBuinsness": true,
-            "startOdometer": 25698,
-            "endOdometer": 25700,
-            "wayPoints": [
-                    "N50.418716° , E006.750000°",
-                    "N50.418816° , E006.750000°",
-                    "N50.418916° , E006.750000°",
-                    "N50.419016° , E006.750000°"
-            ],
-            "customerName": "CAS Software AG",
-            "projectName": "Microservices",
-            "driver" : [
-              {
-                "name": "Theo"
-              }      
-            ]
-        },
-        {
-          "id": "2",
-          "gpsStart": "N50.418716° , E006.750000°",
-          "gpsEnd": "N50.318516° , E006.750000°",
-          "tripBuinsness": true,
-          "startOdometer": 25698,
-          "endOdometer": 25700,
-          "wayPoints": [
-                  "N50.418716° , E006.750000°",
-                  "N50.418816° , E006.750000°",
-                  "N50.418916° , E006.750000°",
-                  "N50.419016° , E006.750000°"
-          ],
-          "customerName": "MHP",
-          "projectName": "HSKA Projekt",
-          "driver" : [
+          "trips" : [
             {
-              "name": "Jürgen"
-            }      
+              "id": "1",
+              "gpsStart": "N50.418716° , E006.750000°",
+              "gpsEnd": "N50.318516° , E006.750000°",
+              "tripBuinsness": true,
+              "startOdometer": 25698,
+              "endOdometer": 25700,
+              "wayPoints": [
+                      "N50.418716° , E006.750000°",
+                      "N50.418816° , E006.750000°",
+                      "N50.418916° , E006.750000°",
+                      "N50.419016° , E006.750000°"
+              ],
+              "customerName": "CAS Software AG",
+              "projectName": "Microservices"
+
+            }
+          ],
+          "driver": [
+            {
+              "id": "1",
+              "name" : "Hans"
+            }
           ]
-      }
+        }
       ]
         
-    return {trips};
+    return {logbocks};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.
@@ -56,7 +42,7 @@ export class InMemoryDataService implements InMemoryDbService {
   // the method below returns the initial number (11).
   // if the heroes array is not empty, the method below returns the highest
   // hero id + 1.
-  genId(trips: Trip[]): number {
-    return trips.length > 0 ? Math.max(...trips.map(trip => trip.startOdometer)) + 1 : 11;
+  genId(logbocks: Logbock[]): number {
+    return logbocks.length > 0 ? Math.max(...logbocks.map(Logbock => Logbock.trips[0].startOdometer)) + 1 : 11;
   }
 }
