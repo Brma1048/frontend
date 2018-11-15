@@ -10,14 +10,16 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Driver</th>
+            <th scope="col">Trip ID</th>
             <th scope="col">Details</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let logbock of logbocks" (click)="onSelect(logbock)">
-              <th scope="row"></th>
-              <td>{{logbock.driver}}</td>
-              <td><a routerLink="/detail/{{logbock.driver}}">Details</a></td>
+              <th scope="row">{{logbock.id}}</th>
+              <td>{{logbock.driver[0].name}}</td>
+              <td>{{logbock.trip[0].id}}</td>
+              <td><a routerLink="/trips/{{logbock.id}}">Details</a></td>
           </tr>
           </tbody>
       </table>

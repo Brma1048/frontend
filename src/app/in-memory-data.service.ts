@@ -6,6 +6,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
       let logbocks = [
         {
+          "id" : "1",
           "trips" : [
             {
               "id": "1",

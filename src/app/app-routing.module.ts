@@ -7,7 +7,7 @@ import { LogbockComponent } from './main/logbock/logbock.component';
 
 const routes: Routes = [
   //{path: "",redirectTo: "/trip", pathMatch: "full"},
-  { path: 'trip', component: TripComponent },
+  { path: 'trip/:id', component: TripComponent },
   { path: 'detail/:id', component: TripDetailComponent},
   { path: 'logbock', component: LogbockComponent}
 ];

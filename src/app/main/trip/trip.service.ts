@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -12,6 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TripService {
+
 
   
   private tripsURL = 'api/trips';
@@ -28,7 +30,7 @@ export class TripService {
   return this.http.get<Trip>(url);
   }
 
-
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient) { }
 }
 //
