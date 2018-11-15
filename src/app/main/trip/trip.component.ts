@@ -8,6 +8,7 @@ import { Logbock } from '../entitys/logbock';
 import { LogbockService } from '../logbock/logbock.service';
 
 
+
 @Component({
   selector: 'app-trip',
   templateUrl: './trip.component.html',
@@ -24,7 +25,7 @@ export class TripComponent implements OnInit {
   }
 
   trips: Trip[]; 
-  alletrips: Trip[];
+  nurtrips: Trip[];
   logbocktrips: Trip[];
   faInfo = faInfo;
 
@@ -49,9 +50,9 @@ export class TripComponent implements OnInit {
     private logbockService: LogbockService
     ) { }
 
-    testfunktion(): void{
+    /*testfunktion(): void{
       this.alletrips = this.trips.filter(trips => trips.id === "1");
-    }
+    }*/
   ngOnInit(): void {
     this.getLogbock();
     this.showTrips();
@@ -64,4 +65,9 @@ export class TripComponent implements OnInit {
       .subscribe(logbock => this.logbock = logbock);
   }
 
+  test(): void{
+    this.nurtrips = this.trips.filter(
+        trips => trips.id === this.logbock.id)
+        alert(this.nurtrips[0].id);
+  }
 }

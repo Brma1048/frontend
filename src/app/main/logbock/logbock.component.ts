@@ -27,6 +27,7 @@ export class LogbockComponent implements OnInit {
 
   
   ngOnInit() {
+    this.showLogbocks();
   }
 
 }
