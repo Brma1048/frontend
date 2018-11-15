@@ -1,11 +1,11 @@
 
 
-<h1>Alle Trips</h1>
-<button class="btn" (click)="showTrips()">Trips suchen</button>
+<button class="btn" (click)="testfunktion()">Trips suchen</button>
+
 <div class="row">
   <div class="col-12">
 
-    <div *ngIf="trips">
+    <div *ngIf="alletrips">
         <div class="table-responsive">
       <table class="table table-dark">
         <thead>
@@ -17,9 +17,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let trip of trips" (click)="onSelect(trip)">
-              <th scope="row">{{trip.id}}</th>
-              <td>{{trip.customerName}}</td>
+          <tr *ngFor="let trip of alletrips" (click)="onSelect(trip)">
+              <th scope="row">{{trip.trips[0].id}}</th>
+              <td>{{trip.trips[0].customerName}}</td>
               <td>{{trip.driver[0].name}}</td>
               <td><a routerLink="/detail/{{trip.id}}">Details</a></td>
           </tr>

@@ -18,8 +18,8 @@
           <tr *ngFor="let logbock of logbocks" (click)="onSelect(logbock)">
               <th scope="row">{{logbock.id}}</th>
               <td>{{logbock.driver[0].name}}</td>
-              <td>{{logbock.trip[0].id}}</td>
-              <td><a routerLink="/trips/{{logbock.id}}">Details</a></td>
+              <td>{{logbock.trips[0].id}}</td>
+              <td><a routerLink="/trip/{{logbock.id}}">Details</a></td>
           </tr>
           </tbody>
       </table>

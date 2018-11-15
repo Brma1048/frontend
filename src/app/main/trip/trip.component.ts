@@ -24,11 +24,19 @@ export class TripComponent implements OnInit {
   }
 
   trips: Trip[]; 
+  alletrips: Trip[];
+  logbocktrips: Trip[];
   faInfo = faInfo;
 
   getTrips(): void{
     this.tripService.getTrips()
         .subscribe(trips => this.trips = trips);
+  }
+  
+  getLogbockTrips(): void{
+    const id =+ this.route.snapshot.paramMap.get("id");
+    this.tripService.getLogbockTrips(id)
+      .subscribe(logbocktrips => this.logbocktrips = logbocktrips);
   }
 
   showTrips(): void {
@@ -41,8 +49,14 @@ export class TripComponent implements OnInit {
     private logbockService: LogbockService
     ) { }
 
+    testfunktion(): void{
+      this.alletrips = this.trips.filter(trips => trips.id === "1");
+    }
   ngOnInit(): void {
     this.getLogbock();
+    this.showTrips();
+
+    
   }
   getLogbock(): void{
     const id =+ this.route.snapshot.paramMap.get("id");

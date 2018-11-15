@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Trip } from "../entitys/trip";
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -16,15 +16,20 @@ export class TripService {
 
 
   
-  private tripsURL = 'api/trips';
+  private tripsURL = 'api/logbocks';
   private secondURL = 'http://ip.jsontest.com/';
 
   getTrips(): Observable<Trip[]>{
-    return this.http.get<Trip[]>(this.tripsURL)
+    const data = this.http.get<Trip[]>(this.tripsURL)
+    return data;
     
   }
+  getLogbockTrips(id: number): Observable<Trip[]>{
+    const url = `${this.tripsURL}/${id}`;
+    return this.http.get<Trip[]>(url)
+  }
 
-  
+
   getTrip(id: number): Observable<Trip> {
   const url = `${this.tripsURL}/${id}`;
   return this.http.get<Trip>(url);
