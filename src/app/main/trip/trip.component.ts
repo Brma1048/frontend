@@ -25,7 +25,6 @@ export class TripComponent implements OnInit {
   }
 
   trips: Trip[]; 
-  nurtrips: Trip[];
   logbocktrips: Trip[];
   faInfo = faInfo;
 
@@ -39,6 +38,8 @@ export class TripComponent implements OnInit {
     this.tripService.getLogbockTrips(id)
       .subscribe(logbocktrips => this.logbocktrips = logbocktrips);
   }
+
+  
 
   showTrips(): void {
     this.getTrips();
@@ -55,10 +56,12 @@ export class TripComponent implements OnInit {
     }*/
   ngOnInit(): void {
     this.getLogbock();
-    this.showTrips();
 
+
+    this.showTrips();
     
   }
+
   getLogbock(): void{
     const id =+ this.route.snapshot.paramMap.get("id");
     this.logbockService.getLogbock(id)
@@ -66,8 +69,9 @@ export class TripComponent implements OnInit {
   }
 
   test(): void{
-    this.nurtrips = this.trips.filter(
+    alert(this.logbock.trips[1].id);
+    /*this.nurtrips = this.trips.filter(
         trips => trips.id === this.logbock.id)
-        alert(this.nurtrips[0].id);
+        alert(this.nurtrips[0]);*/
   }
 }
