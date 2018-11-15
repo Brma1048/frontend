@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Trip } from "../entitys/trip";
+import { Logbock } from "../entitys/logbock";
 import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -11,24 +11,18 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class TripService {
+export class LogbockService {
 
-  
-  private tripsURL = 'api/trips';
-  private secondURL = 'http://ip.jsontest.com/';
+  private logbocksURL = "api/logbocks";
 
-  getTrips(): Observable<Trip[]>{
-    return this.http.get<Trip[]>(this.tripsURL)
-    
+  getLogbocks(): Observable<Logbock[]>{
+    return this.http.get<Logbock[]>(this.logbocksURL)
   }
 
-  
-  getTrip(id: number): Observable<Trip> {
-  const url = `${this.tripsURL}/${id}`;
-  return this.http.get<Trip>(url);
-  }
-
+  getLogbock(id: number): Observable<Logbock> {
+    const url = `${this.logbocksURL}/${id}`;
+    return this.http.get<Logbock>(url);
+    }
 
   constructor(private http: HttpClient) { }
 }
-//
