@@ -12,6 +12,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; //TU
 import { InMemoryDataService }  from './in-memory-data.service';
 import { TripDetailComponent } from './main/trip-detail/trip-detail.component'; //TUT
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LogbockComponent } from './logbock/logbock.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MainComponent,
     FooterComponent,
     TripComponent,
-    TripDetailComponent
+    TripDetailComponent,
+    LogbockComponent
   ],
   imports: [
     BrowserModule,

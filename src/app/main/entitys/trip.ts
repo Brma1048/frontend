@@ -15,6 +15,5 @@ export class Trip {
     date: Date;
 
     car: Car;
-    driver: Driver;
 
 }
