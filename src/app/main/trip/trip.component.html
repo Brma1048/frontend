@@ -22,7 +22,7 @@
               <td>{{trip.projectName}}</td>
               <td>{{trip.startOdometer}}</td>
               <td>{{trip.endOdometer}}</td>
-              <td><a routerLink="/detail/{{trip.id}}">Details</a></td>
+              <td><a routerLink="/detail/{{logbock.id}}" [queryParams]="{ tripid: trip.id }">Details</a></td>
           </tr>
           </tbody>
       </table>

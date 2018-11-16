@@ -1,18 +1,19 @@
 
 <button class="btn btn-primary nav-tab" (click)="goBack()">Back</button>
-
+<button class="btn btn-primary nav-tab" (click)="test()">push</button>
 <div *ngIf="trip">
+        
     <div class="table-responsive">
         <table class="table table-dark">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-
                 </tr>
             </thead>
             <tbody>
-                <!---->
-
+                
+                <!--<tr *ngFor="let x of trip" (click)="onSelect(trip)">
+                    <th scope="row">{{x.trips.id}}</th></tr>-->
             </tbody>
         </table>
     </div>
