@@ -8,14 +8,20 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Customer</th>
-            <th scope="col">Details</th>
+            <th scope="col">Kunde</th>
+            <th scope="col">Projekt</th>
+            <th scope="col">KM-Stand Start</th>
+            <th scope="col">KM-Stand Ende</th>
+            <th scope="col">Details</th><!---->
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let trip of logbock.trips" (click)="onSelect(trip)">
               <th scope="row">{{trip.id}}</th>
               <td>{{trip.customerName}}</td>
+              <td>{{trip.projectName}}</td>
+              <td>{{trip.startOdometer}}</td>
+              <td>{{trip.endOdometer}}</td>
               <td><a routerLink="/detail/{{trip.id}}">Details</a></td>
           </tr>
           </tbody>

@@ -6,106 +6,95 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
       let logbocks = [
         {
-          "id" : "1",
-          "trips" : [
+            "trips": [
             {
-              "id": "1",
-              "gpsStart": "N50.418716° , E006.750000°",
-              "gpsEnd": "N50.318516° , E006.750000°",
-              "tripBuinsness": true,
-              "startOdometer": 25698,
-              "endOdometer": 25700,
+              "id": "543",
+              "gpsStart": {
+              "gps_lat": "9.197702072",
+              "gps_lon": "48.892182404"
+              },
+              "gpsEnd": {
+                "gps_lat": "9.197702072",
+                "gps_lon": "48.892182404"
+              },
+              "tripBusiness": true,
+              "startOdometer": 44552423.776,
+              "endOdometer": 45635.75,
               "wayPoints": [
-                      "N50.418716° , E006.750000°",
-                      "N50.418816° , E006.750000°",
-                      "N50.418916° , E006.750000°",
-                      "N50.419016° , E006.750000°"
+                  {
+                  "gps_lat": "9.197702072",
+                  "gps_lon": "48.892182404"
+                  }
               ],
-              "customerName": "CAS Software AG",
-              "projectName": "Microservices"
-
+              "customerName": "IBM",
+              "projectName": "Fleet Management",
+              "startDate": "3919-06-19T21:14:00.000+0000",
+              "endDate": "3914-03-11T10:03:00.000+0000",
+              "car": {
+              "carModel": "911",
+              "carBrand": "Porsche",
+              "id": "24"
+              }
+            }
+            ],
+            "driver": {
+              "id": "123",
+              "name": "Peter",
+              "surname": "Hans",
+              "email": "email@test.de"
             },
+            "id": "123",
+            "_links": {
+            "self": {
+            "href": "http://localhost:8080/logbook/123"
+            }
+            }
+          },
+          {
+            "trips": [
             {
-              "id": "2",
-              "gpsStart": "N50.418716° , E006.750000°",
-              "gpsEnd": "N50.318516° , E006.750000°",
-              "tripBuinsness": true,
-              "startOdometer": 25698,
-              "endOdometer": 25700,
+              "id": "543",
+              "gpsStart": {
+              "gps_lat": "9.197702072",
+              "gps_lon": "48.892182404"
+              },
+              "gpsEnd": {
+                "gps_lat": "9.197702072",
+                "gps_lon": "48.892182404"
+              },
+              "tripBusiness": true,
+              "startOdometer": 44552423.776,
+              "endOdometer": 45635.75,
               "wayPoints": [
-                      "N50.418716° , E006.750000°",
-                      "N50.418816° , E006.750000°",
-                      "N50.418916° , E006.750000°",
-                      "N50.419016° , E006.750000°"
+                  {
+                  "gps_lat": "9.197702072",
+                  "gps_lon": "48.892182404"
+                  }
               ],
-              "customerName": "Maier Media",
-              "projectName": "Microservices"
-
+              "customerName": "IBM",
+              "projectName": "Fleet Management",
+              "startDate": "3919-06-19T21:14:00.000+0000",
+              "endDate": "3914-03-11T10:03:00.000+0000",
+              "car": {
+              "carModel": "911",
+              "carBrand": "Porsche",
+              "id": "24"
+              }
             }
-          ],
-          "driver": [
-            {
-              "id": "1",
-              "name" : "Hans"
+            ],
+            "driver": {
+              "id": "123",
+              "name": "Peter",
+              "surname": "Hans",
+              "email": "email@test.de"
+            },
+            "id": "5",
+            "_links": {
+            "self": {
+            "href": "http://localhost:8080/logbook/5"
             }
-          ]
-        },
-        {
-          "id" : "2",
-          "trips" : [
-            {
-              "id": "1",
-              "gpsStart": "N50.418716° , E006.750000°",
-              "gpsEnd": "N50.318516° , E006.750000°",
-              "tripBuinsness": true,
-              "startOdometer": 25698,
-              "endOdometer": 25700,
-              "wayPoints": [
-                      "N50.418716° , E006.750000°",
-                      "N50.418816° , E006.750000°",
-                      "N50.418916° , E006.750000°",
-                      "N50.419016° , E006.750000°"
-              ],
-              "customerName": "Daimler AG",
-              "projectName": "Microservices"
-
             }
-          ],
-          "driver": [
-            {
-              "id": "2",
-              "name" : "Jürgen"
-            }
-          ]
-        },
-        {
-          "id" : "3",
-          "trips" : [
-            {
-              "id": "1",
-              "gpsStart": "N50.418716° , E006.750000°",
-              "gpsEnd": "N50.318516° , E006.750000°",
-              "tripBuinsness": true,
-              "startOdometer": 25698,
-              "endOdometer": 25700,
-              "wayPoints": [
-                      "N50.418716° , E006.750000°",
-                      "N50.418816° , E006.750000°",
-                      "N50.418916° , E006.750000°",
-                      "N50.419016° , E006.750000°"
-              ],
-              "customerName": "Daimler AG",
-              "projectName": "Microservices"
-
-            }
-          ],
-          "driver": [
-            {
-              "id": "3",
-              "name" : "Dieter"
-            }
-          ]
-        }
+          }
       ]
         
     return {logbocks};

@@ -13,6 +13,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { TripDetailComponent } from './main/trip-detail/trip-detail.component'; //TUT
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogbockComponent } from './main/logbock/logbock.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { LogbockComponent } from './main/logbock/logbock.component';
     LogbockComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, FormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot( //TUT

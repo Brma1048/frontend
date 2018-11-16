@@ -15,19 +15,30 @@ export class LogbockComponent implements OnInit {
   }
 
   logbocks : Logbock[];
+  logbock: Logbock;
+  logbockid: number;
 
   getLogbocks(): void{
     this.logbockService.getLogbocks()
         .subscribe(logbocks => this.logbocks = logbocks);
   }
+  getLogbock(): void{
+    const id = this.logbockid;
+    this.logbockService.getLogbock(id)
+      .subscribe(logbock => this.logbock = logbock);
+  }
+
   showLogbocks(): void {
     this.getLogbocks();
+  }
+  showLogbockbyID(): void{
+    this.getLogbock();
   }
   constructor(private logbockService: LogbockService) { }
 
   
   ngOnInit() {
-    this.showLogbocks();
+    //this.showLogbocks();
   }
 
 }

@@ -13,6 +13,7 @@ const httpOptions = {
 })
 export class LogbockService {
 
+  //private logbocksURL = 'http://localhost:8080/logbook/4';
   private logbocksURL = "api/logbocks";
 
   getLogbocks(): Observable<Logbock[]>{
