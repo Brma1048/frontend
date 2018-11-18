@@ -13,8 +13,8 @@ const httpOptions = {
 })
 export class LogbookService {
 
-  private logbooksURL = 'http://localhost:8080/logbook';
-  //private logbooksURL = "api/logbooks";
+  //private logbooksURL = 'http://localhost:8080/logbook';
+  private logbooksURL = "api/logbooks";
 
   getLogbooks(): Observable<Logbook[]>{
     return this.http.get<Logbook[]>(this.logbooksURL)
