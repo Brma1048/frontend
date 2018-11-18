@@ -18,7 +18,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 "gps_lon": "48.892182404"
               },
               "tripBusiness": true,
-              "startOdometer": 44552423.776,
+              "startOdometer": 44423.776,
               "endOdometer": 45635.75,
               "wayPoints": [
                   {

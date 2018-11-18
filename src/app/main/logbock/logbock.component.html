@@ -1,7 +1,13 @@
 
-<button class="btn" (click)="showLogbocks()">Show All</button>
-<input type=text [(ngModel)]="logbockid"  placeholder="ID">
-<button class="btn" (click)="showLogbockbyID()">Show by ID</button>
+<div class="input-group mb-3">
+    <button class="btn mr-3" (click)="showLogbocks()">Show All</button>
+  <div class="col-xs-3">
+  <input type="text" class="form-control" placeholder="ID" [(ngModel)]="logbockid">
+</div>
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" (click)="showLogbockbyID()">Show by ID</button>
+  </div>
+</div>
 <div class="row">
   <div class="col-12">
     <div *ngIf="logbocks">
