@@ -39,7 +39,7 @@ export class InMemoryDataService implements InMemoryDbService {
             ],
             "driver": {
               "id": "123",
-              "name": "Peter",
+              "name": "Weinbrenner",
               "surname": "Hans",
               "email": "email@test.de"
             },
@@ -53,7 +53,7 @@ export class InMemoryDataService implements InMemoryDbService {
           {
             "trips": [
             {
-              "id": "543",
+              "id": "200",
               "gpsStart": {
               "gps_lat": "9.197702072",
               "gps_lon": "48.892182404"
@@ -80,11 +80,40 @@ export class InMemoryDataService implements InMemoryDbService {
               "carBrand": "Porsche",
               "id": "24"
               }
+            },
+            {
+              "id": "201",
+              "gpsStart": {
+              "gps_lat": "9.197702072",
+              "gps_lon": "48.892182404"
+              },
+              "gpsEnd": {
+                "gps_lat": "9.197702072",
+                "gps_lon": "48.892182404"
+              },
+              "tripBusiness": true,
+              "startOdometer": 44552423.776,
+              "endOdometer": 45635.75,
+              "wayPoints": [
+                  {
+                  "gps_lat": "9.197702072",
+                  "gps_lon": "48.892182404"
+                  }
+              ],
+              "customerName": "Daimler",
+              "projectName": "Fortbildung: Consultant",
+              "startDate": "3919-06-19T21:14:00.000+0000",
+              "endDate": "3914-03-11T10:03:00.000+0000",
+              "car": {
+              "carModel": "911",
+              "carBrand": "Porsche",
+              "id": "24"
+              }
             }
             ],
             "driver": {
               "id": "123",
-              "name": "Peter",
+              "name": "Meier",
               "surname": "Hans",
               "email": "email@test.de"
             },

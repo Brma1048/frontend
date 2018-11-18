@@ -27,7 +27,6 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Driver</th>
-            <th scope="col">Trip ID</th>
             <th scope="col">Details</th>
           </tr>
         </thead>
@@ -35,7 +34,6 @@
           <tr *ngFor="let logbook of logbooks" (click)="onSelect(logbook)">
               <th scope="row">{{logbook.id}}</th>
               <td>{{logbook.driver.name}}</td>
-              <td>{{logbook.trips[0].id}}</td>
               <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
           </tr>
           </tbody>
