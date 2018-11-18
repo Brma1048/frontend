@@ -16,7 +16,7 @@ export class TripService {
 
 
   //private tripsURL = 'http://localhost:8080/logbook/1';
-  private tripsURL = 'api/logbocks';
+  private tripsURL = 'api/logbooks';
   private secondURL = 'http://ip.jsontest.com/';
 
   getTrips(): Observable<Trip[]>{
@@ -24,7 +24,7 @@ export class TripService {
     return data;
     
   }
-  getLogbockTrips(id: number): Observable<Trip[]>{
+  getLogbookTrips(id: number): Observable<Trip[]>{
     const url = `${this.tripsURL}/${id}`;
     return this.http.get<Trip[]>(url)
   }

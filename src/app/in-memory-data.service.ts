@@ -1,10 +1,10 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Trip } from './main/entitys/trip';
-import { Logbock } from './main/entitys/logbock';
+import { Logbook } from './main/entitys/logbook';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-      let logbocks = [
+      let logbooks = [
         {
             "trips": [
             {
@@ -97,7 +97,7 @@ export class InMemoryDataService implements InMemoryDbService {
           }
       ]
         
-    return {logbocks};
+    return {logbooks};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.
@@ -105,7 +105,7 @@ export class InMemoryDataService implements InMemoryDbService {
   // the method below returns the initial number (11).
   // if the heroes array is not empty, the method below returns the highest
   // hero id + 1.
-  genId(logbocks: Logbock[]): number {
-    return logbocks.length > 0 ? Math.max(...logbocks.map(Logbock => Logbock.trips[0].startOdometer)) + 1 : 11;
+  genId(logbooks: Logbook[]): number {
+    return logbooks.length > 0 ? Math.max(...logbooks.map(Logbook => Logbook.trips[0].startOdometer)) + 1 : 11;
   }
 }

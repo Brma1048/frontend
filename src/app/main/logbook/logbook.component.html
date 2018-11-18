@@ -1,16 +1,16 @@
 
 <div class="input-group mb-3">
-    <button class="btn mr-3" (click)="showLogbocks()">Show All</button>
+    <button class="btn mr-3" (click)="showLogbooks()">Show All</button>
   <div class="col-xs-3">
-  <input type="text" class="form-control" placeholder="ID" [(ngModel)]="logbockid">
+  <input type="text" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
 </div>
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" (click)="showLogbockbyID()">Show by ID</button>
+    <button class="btn btn-outline-secondary" type="button" (click)="showLogbookbyID()">Show by ID</button>
   </div>
 </div>
 <div class="row">
   <div class="col-12">
-    <div *ngIf="logbocks">
+    <div *ngIf="logbooks">
       <h3>Alle Fahrtenbücher</h3>
         <div class="table-responsive">
       <table class="table table-dark">
@@ -23,18 +23,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let logbock of logbocks" (click)="onSelect(logbock)">
-              <th scope="row">{{logbock.id}}</th>
-              <td>{{logbock.driver.name}}</td>
-              <td>{{logbock.trips[0].id}}</td>
-              <td><a routerLink="/trip/{{logbock.id}}">Details</a></td>
+          <tr *ngFor="let logbook of logbooks" (click)="onSelect(logbook)">
+              <th scope="row">{{logbook.id}}</th>
+              <td>{{logbook.driver.name}}</td>
+              <td>{{logbook.trips[0].id}}</td>
+              <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
           </tr>
           </tbody>
       </table>
     </div>
     </div>
 
-    <div *ngIf="logbock">
+    <div *ngIf="logbook">
       <h3>Suchergebnisse</h3>
       <div class="table-responsive">
     <table class="table table-dark">
@@ -47,11 +47,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr (click)="onSelect(logbock)">
-            <th scope="row">{{logbock.id}}</th>
-            <td>{{logbock.driver.name}}</td>
-            <td>{{logbock.trips[0].id}}</td>
-            <td><a routerLink="/trip/{{logbock.id}}">Details</a></td>
+        <tr (click)="onSelect(logbook)">
+            <th scope="row">{{logbook.id}}</th>
+            <td>{{logbook.driver.name}}</td>
+            <td>{{logbook.trips[0].id}}</td>
+            <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
         </tr>
         </tbody>
     </table>

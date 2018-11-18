@@ -4,8 +4,8 @@ import { Location } from '@angular/common';
 
 import { Trip } from "../entitys/trip";
 import { TripService } from '../trip/trip.service';
-import { LogbockService } from "../logbock/logbock.service";
-import { Logbock } from '../entitys/logbock';
+import { LogbookService } from "../logbook/logbook.service";
+import { Logbook } from '../entitys/logbook';
 
 
 @Component({
@@ -16,20 +16,20 @@ import { Logbock } from '../entitys/logbock';
 export class TripDetailComponent implements OnInit {
 
   //@Input() trip: Trip;
-  @Input() logbock: Logbock;
+  @Input() logbook: Logbook;
   tripid : string;
   relevantertrip : Trip;
 
   constructor(
     private route: ActivatedRoute,
     private tripService: TripService,
-    private logbockService: LogbockService,
+    private logbookService: LogbookService,
     private location: Location
   ) { }
 
   ngOnInit(): void {
    //this.getTrip();
-   this.getLogbock();
+   this.getLogbook();
    this.route.queryParams.subscribe(params =>{
      this.tripid = params["tripid"];
    })
@@ -40,10 +40,10 @@ export class TripDetailComponent implements OnInit {
     this.tripService.getTrip(id)
       .subscribe(trip => this.trip = trip);
   }*/
-  getLogbock(): void{
+  getLogbook(): void{
     const id =+ this.route.snapshot.paramMap.get("id");
-    this.logbockService.getLogbock(id)
-        .subscribe(logbock => this.logbock = logbock)
+    this.logbookService.getLogbook(id)
+        .subscribe(logbook => this.logbook = logbook)
   }
 
   goBack(): void{
@@ -51,6 +51,6 @@ export class TripDetailComponent implements OnInit {
   }
 
   test(): void{
-    alert(this.logbock.id);
+    alert(this.logbook.id);
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Logbock } from "../entitys/logbock";
+import { Logbook } from "../entitys/logbook";
 import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -11,18 +11,18 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class LogbockService {
+export class LogbookService {
 
-  //private logbocksURL = 'http://localhost:8080/logbook/4';
-  private logbocksURL = "api/logbocks";
+  //private logbooksURL = 'http://localhost:8080/logbook/4';
+  private logbooksURL = "api/logbooks";
 
-  getLogbocks(): Observable<Logbock[]>{
-    return this.http.get<Logbock[]>(this.logbocksURL)
+  getLogbooks(): Observable<Logbook[]>{
+    return this.http.get<Logbook[]>(this.logbooksURL)
   }
 
-  getLogbock(id: number): Observable<Logbock> {
-    const url = `${this.logbocksURL}/${id}`;
-    return this.http.get<Logbock>(url);
+  getLogbook(id: number): Observable<Logbook> {
+    const url = `${this.logbooksURL}/${id}`;
+    return this.http.get<Logbook>(url);
     }
 
   constructor(private http: HttpClient) { }
