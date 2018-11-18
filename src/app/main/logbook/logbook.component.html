@@ -1,13 +1,22 @@
-
-<div class="input-group mb-3">
-    <button class="btn mr-3" (click)="showLogbooks()">Show All</button>
-  <div class="col-xs-3">
-  <input type="text" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
-</div>
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" (click)="showLogbookbyID()">Show by ID</button>
+<div class="row">
+  <div class="col-12">
   </div>
 </div>
+
+<div class="row">
+    <div class="input-group mb-3">
+        <button class="btn mybtn mr-3" (click)="showLogbooks()">Show All</button>
+        <div class="col-xs-3">
+          <input type="text" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
+        </div>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary mybtn" type="button" (click)="showLogbookbyID()">Show by ID</button>
+        </div>
+      </div>
+</div>
+
+
+
 <div class="row">
   <div class="col-12">
     <div *ngIf="logbooks">
