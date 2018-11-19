@@ -8,8 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 import { TripComponent } from './main/trip/trip.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'; 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; //TUT
-import { InMemoryDataService }  from './in-memory-data.service';
 import { TripDetailComponent } from './main/trip-detail/trip-detail.component'; //TUT
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogbookComponent } from './main/logbook/logbook.component';
@@ -29,9 +27,6 @@ import { FormsModule } from '@angular/forms';
     BrowserModule, FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot( //TUT
-      InMemoryDataService, { dataEncapsulation: false } //TUT
-    ), //TUT
     FontAwesomeModule
   ],
   providers: [],
