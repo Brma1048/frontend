@@ -12,7 +12,7 @@
             <th scope="col">Projekt</th>
             <th scope="col">KM-Stand Start</th>
             <th scope="col">KM-Stand Ende</th>
-            <th scope="col">Details</th><!---->
+            <!--<th scope="col">Details</th>-->
           </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
               <td>{{trip.projectName}}</td>
               <td>{{trip.startOdometer}}</td>
               <td>{{trip.endOdometer}}</td>
-              <td><a routerLink="/detail/{{logbook.id}}" [queryParams]="{ tripid: trip.id }">Details</a></td>
+              <!--<td><a routerLink="/detail/{{logbook.id}}" [queryParams]="{ tripid: trip.id }">Details</a></td>-->
           </tr>
           </tbody>
       </table>
