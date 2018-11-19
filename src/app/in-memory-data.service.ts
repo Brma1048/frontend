@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Trip } from './main/entitys/trip';
-import { Logbook } from './main/entitys/logbook';
+import { Trip } from './main/entities/trip';
+import { Logbook } from './main/entities/logbook';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {

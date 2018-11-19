@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Trip } from '../entitys/trip';
+import { Trip } from '../entities/trip';
 import { TripService } from "./trip.service";
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Logbook } from '../entitys/logbook';
+import { Logbook } from '../entities/logbook';
 import { LogbookService } from '../logbook/logbook.service';
 
 

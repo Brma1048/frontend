@@ -2,10 +2,10 @@ import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Trip } from "../entitys/trip";
+import { Trip } from "../entities/trip";
 import { TripService } from '../trip/trip.service';
 import { LogbookService } from "../logbook/logbook.service";
-import { Logbook } from '../entitys/logbook';
+import { Logbook } from '../entities/logbook';
 
 
 @Component({

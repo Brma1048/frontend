@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Logbook } from '../entitys/logbook';
+import { Logbook } from '../entities/logbook';
 import { LogbookService} from "./logbook.service";
 
 @Component({

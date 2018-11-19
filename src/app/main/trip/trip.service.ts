@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Trip } from "../entitys/trip";
+import { Trip } from "../entities/trip";
 import { Observable, of, from } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
