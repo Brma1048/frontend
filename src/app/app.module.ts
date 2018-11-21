@@ -12,6 +12,7 @@ import { TripDetailComponent } from './main/trip-detail/trip-detail.component'; 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogbookComponent } from './main/logbook/logbook.component';
 import { FormsModule } from '@angular/forms';
+import { CreateTripComponent } from './main/create-trip/create-trip.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     TripComponent,
     TripDetailComponent,
     LogbookComponent,
+    CreateTripComponent,
   ],
   imports: [
     BrowserModule, FormsModule,
