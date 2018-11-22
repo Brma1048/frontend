@@ -9,7 +9,10 @@ export class CreateTripComponent implements OnInit {
 
   constructor() { }
 
+  todayDate = Date.now();
+
   ngOnInit() {
+    this.todayDate = Date.now();
   }
 
 }
