@@ -134,7 +134,7 @@ export class InMemoryDataService implements InMemoryDbService {
   // the method below returns the initial number (11).
   // if the heroes array is not empty, the method below returns the highest
   // hero id + 1.
-  genId(logbooks: Logbook[]): number {
+  /*genId(logbooks: Logbook[]): number {
     return logbooks.length > 0 ? Math.max(...logbooks.map(Logbook => Logbook.trips[0].startOdometer)) + 1 : 11;
-  }
+  }*/
 }
