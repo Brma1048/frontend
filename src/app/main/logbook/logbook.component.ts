@@ -18,15 +18,22 @@ export class LogbookComponent implements OnInit {
   logbook: Logbook;
   logbookid: number;
 
-  getLogbooks(): void{
+  /*getLogbooks(): void{
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks);
+  }*/
+  getLogbooks(): void{
+    this.logbooks = this.logbookService.getLogbooks();
   }
+
+
   getLogbook(): void{
     const id = this.logbookid;
     this.logbookService.getLogbook(id)
       .subscribe(logbook => this.logbook = logbook);
   }
+  
+
 
   showLogbooks(): void {
     this.getLogbooks();

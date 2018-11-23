@@ -69,7 +69,7 @@ export class TripComponent implements OnInit {
   }
 
   test(): void{
-    alert(this.logbook.trips[1].id);
+    //alert(this.logbook.trips[1].id);
     /*this.nurtrips = this.trips.filter(
         trips => trips.id === this.logbook.id)
         alert(this.nurtrips[0]);*/

@@ -4,6 +4,10 @@ import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
+declare var require: any
+
+const data : Logbook[] = require("../mocks/logbook-mock.json");
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -17,8 +21,12 @@ export class LogbookService {
   //private logbooksURL = 'api/logbooks';
 
 
-  getLogbooks(): Observable<Logbook[]>{
+  /*getLogbooks(): Observable<Logbook[]>{
     return this.http.get<Logbook[]>(this.logbooksURL)
+  }*/
+  getLogbooks(): Logbook[]{
+    alert(data);
+    return data;
   }
 
   getLogbook(id: number): Observable<Logbook> {

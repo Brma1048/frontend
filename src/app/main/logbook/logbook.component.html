@@ -26,14 +26,16 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Driver</th>
+            <th scope="col">Auto</th>
+            <th scope="col">Aktueller Fahrer</th>
             <th scope="col">Details</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let logbook of logbooks" (click)="onSelect(logbook)">
               <th scope="row">{{logbook.id}}</th>
-              <td>{{logbook.driver.name}}</td>
+              <td>{{logbook.car.carBrand}} {{logbook.car.carModel}}</td>
+              <td>{{logbook.driver.surname}} {{logbook.driver.name}}</td>
               <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
           </tr>
           </tbody>
