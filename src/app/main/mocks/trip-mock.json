@@ -1,0 +1,34 @@
+[
+    {
+        "id":"50",
+        "logbookid":"123616236",
+        "car":{
+           "id":"71273",
+           "carBrand":"Porsche",
+           "carModel":"GTI"
+        },
+        "driver":{
+           "id":"12733",
+           "surname":"Hans",
+           "name":"Meyer"
+        },
+      "customerName" : "Daimler AG",
+      "projectName" : "Tagung Autoverband"
+      },
+      {
+         "id":"10",
+         "logbookid":"51345",
+         "car":{
+            "id":"71273",
+            "carBrand":"Porsche",
+            "carModel":"GTI"
+         },
+         "driver":{
+            "id":"12733",
+            "surname":"Hans",
+            "name":"Meyer"
+         },
+       "customerName" : "Bosch GmbH",
+       "projectName" : "Messe Stuttgart"
+       }
+    ]

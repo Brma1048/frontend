@@ -25,14 +25,15 @@ export class LogbookService {
     return this.http.get<Logbook[]>(this.logbooksURL)
   }*/
   getLogbooks(): Logbook[]{
-    alert(data);
     return data;
   }
 
-  getLogbook(id: number): Observable<Logbook> {
+  /*getLogbook(id: number): Observable<Logbook> {
     const url = `${this.logbooksURL}/${id}`;
     return this.http.get<Logbook>(url);
-    }
-
+  }*/
+  getLogbook(id: string): Logbook{
+    return data.find(l => l.id == id);
+  }
   constructor(private http: HttpClient) { }
 }

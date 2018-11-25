@@ -6,6 +6,7 @@ export class Trip {
     id: string;
     driver: Driver;
     car: Car;
+    logbookid: string;
     
     tripBusiness: boolean;
     startOdometer: number;

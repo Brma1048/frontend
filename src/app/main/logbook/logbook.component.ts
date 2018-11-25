@@ -16,7 +16,7 @@ export class LogbookComponent implements OnInit {
 
   logbooks : Logbook[];
   logbook: Logbook;
-  logbookid: number;
+  logbookid: string;
 
   /*getLogbooks(): void{
     this.logbookService.getLogbooks()
@@ -27,12 +27,14 @@ export class LogbookComponent implements OnInit {
   }
 
 
-  getLogbook(): void{
+  /*getLogbook(): void{
     const id = this.logbookid;
     this.logbookService.getLogbook(id)
       .subscribe(logbook => this.logbook = logbook);
+  }*/
+  getLogbook(): void{
+    this.logbook = this.logbookService.getLogbook(this.logbookid);
   }
-  
 
 
   showLogbooks(): void {
