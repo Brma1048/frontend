@@ -21,12 +21,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr ><!--*ngFor="logbooktrips" (click)="onSelect(trip)"-->
-              <th scope="row">{{logbooktrips.id}}</th>
-              <td>{{logbooktrips.driver.surname}} {{logbooktrips.driver.name}}</td>
-              <td>{{logbooktrips.customerName}}</td>
-              <td>{{logbooktrips.projectName}}</td>
-              <td>{{logbooktrips.endOdometer}}</td>
+          <tr *ngFor="let trips of logbooktrips"><!--*ngFor="logbooktrips" (click)="onSelect(trip)"-->
+              <th scope="row">{{trips.id}}</th>
+              <td>{{trips.driver.surname}} {{trips.driver.name}}</td>
+              <td>{{trips.customerName}}</td>
+              <td>{{trips.projectName}}</td>
+              <td>{{trips.endOdometer}}</td>
               <!--<td><a routerLink="/detail/{{logbook.id}}" [queryParams]="{ tripid: trip.id }">Details</a></td>-->
           </tr>
           </tbody>

@@ -16,6 +16,23 @@
       "projectName" : "Tagung Autoverband"
       },
       {
+         "id":"51",
+         "logbookid":"123616236",
+         "car":{
+            "id":"71273",
+            "carBrand":"Porsche",
+            "carModel":"GTI"
+         },
+         "driver":{
+            "id":"12733",
+            "surname":"Hans",
+            "name":"Meyer"
+         },
+       "customerName" : "Daimler AG",
+       "projectName" : "Schulung ABAS"
+       },
+
+      {
          "id":"10",
          "logbookid":"51345",
          "car":{

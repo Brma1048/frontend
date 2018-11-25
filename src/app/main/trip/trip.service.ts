@@ -27,8 +27,9 @@ export class TripService {
     return null;
     
   }
-  getLogbookTrips(id: string): Trip{
-    return data.find(t => t.logbookid == id);
+  getLogbookTrips(id: string): Trip[]{
+    //return data.find(t => t.logbookid == id);
+    return data.filter(t => t.logbookid === id);
   }
 //
 

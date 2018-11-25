@@ -24,13 +24,14 @@ export class TripComponent implements OnInit {
   }
 
   trips: Trip[]; 
-  logbooktrips: Trip;
+  logbooktrips: Trip[];
   faInfo = faInfo;
   test : string;
 
   getLogbookTrips(): void{
     const id = +this.route.snapshot.paramMap.get('id');
     this.logbooktrips = this.tripService.getLogbookTrips(id.toString());
+    alert(this.logbooktrips);
   }
 
   
