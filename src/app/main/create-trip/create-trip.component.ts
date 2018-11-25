@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateService } from './create.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-create-trip',
@@ -7,12 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateTripComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor(
+    private formBuilder: FormBuilder,
+    private createService: CreateService) { }
 
-  todayDate = Date.now();
 
-  ngOnInit() {
-    this.todayDate = Date.now();
+  form: FormGroup;
+
+  showConsole(): void {
+    this.createService.geoCode();
   }
+  
+  ngOnInit() {
+
+    this.form = this.formBuilder.group({
+      //firstname: ['', [Validators.required, Validators.pattern(/^\w.*$/)]],
+      //lastname: ['', [Validators.required, Validators.pattern(/^\w.*$/)]],
+      startOdometer: ['', [Validators.required]],
+      endOdometer: ['', [Validators.required]],
+      startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]],
+      //private: ['', [Validators.required]],
+      //business: ['', [Validators.required]],
+      //startlocation: ['', [Validators.required]],
+      //endlocation: ['', [Validators.required]]   
+  })
+   
+ }
+
+ onFormSubmit(){
+    console.log(this.form.value)
+}
 
 }
