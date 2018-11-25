@@ -16,17 +16,26 @@ export class LogbookComponent implements OnInit {
 
   logbooks : Logbook[];
   logbook: Logbook;
-  logbookid: number;
+  logbookid: string;
 
-  getLogbooks(): void{
+  /*getLogbooks(): void{
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks);
+  }*/
+  getLogbooks(): void{
+    this.logbooks = this.logbookService.getLogbooks();
   }
-  getLogbook(): void{
+
+
+  /*getLogbook(): void{
     const id = this.logbookid;
     this.logbookService.getLogbook(id)
       .subscribe(logbook => this.logbook = logbook);
+  }*/
+  getLogbook(): void{
+    this.logbook = this.logbookService.getLogbook(this.logbookid);
   }
+
 
   showLogbooks(): void {
     this.getLogbooks();

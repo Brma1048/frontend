@@ -5,6 +5,10 @@ import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/ht
 import { catchError, map, tap } from 'rxjs/operators';
 
 
+declare var require: any
+
+const data : Trip[] = require("../mocks/trip-mock.json");
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -20,13 +24,12 @@ export class TripService {
   private secondURL = 'http://ip.jsontest.com/';
 
   getTrips(): Observable<Trip[]>{
-    const data = this.http.get<Trip[]>(this.tripsURL)
-    return data;
+    return null;
     
   }
-  getLogbookTrips(id: number): Observable<Trip[]>{
-    const url = `${this.tripsURL}/${id}`;
-    return this.http.get<Trip[]>(url)
+  getLogbookTrips(id: string): Trip[]{
+    //return data.find(t => t.logbookid == id);
+    return data.filter(t => t.logbookid === id);
   }
 //
 

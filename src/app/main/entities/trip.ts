@@ -4,6 +4,10 @@ import { WayPoints } from './waypoints';
 
 export class Trip {
     id: string;
+    driver: Driver;
+    car: Car;
+    logbookid: string;
+    
     tripBusiness: boolean;
     startOdometer: number;
     endOdometer: number;
@@ -12,6 +16,5 @@ export class Trip {
     projectName: string;
     startDate: Date;
     endDate: Date;
-    car: Car;
 
 }

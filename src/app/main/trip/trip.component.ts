@@ -17,8 +17,7 @@ import { LogbookService } from '../logbook/logbook.service';
 export class TripComponent implements OnInit {
 
   selectedTrip: Trip;
-//
-@Input() logbook: Logbook;
+
 
   onSelect(trip: Trip): void{
     this.selectedTrip = trip;
@@ -27,22 +26,18 @@ export class TripComponent implements OnInit {
   trips: Trip[]; 
   logbooktrips: Trip[];
   faInfo = faInfo;
+  test : string;
 
-  getTrips(): void{
-    this.tripService.getTrips()
-        .subscribe(trips => this.trips = trips);
-  }
-  
   getLogbookTrips(): void{
-    const id =+ this.route.snapshot.paramMap.get("id");
-    this.tripService.getLogbookTrips(id)
-      .subscribe(logbooktrips => this.logbooktrips = logbooktrips);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.logbooktrips = this.tripService.getLogbookTrips(id.toString());
+    alert(this.logbooktrips);
   }
 
   
 
   showTrips(): void {
-    this.getTrips();
+    this.getLogbookTrips();
   }
   constructor(
     private tripService: TripService,
@@ -51,27 +46,9 @@ export class TripComponent implements OnInit {
     private logbookService: LogbookService
     ) { }
 
-    /*testfunktion(): void{
-      this.alletrips = this.trips.filter(trips => trips.id === "1");
-    }*/
+
   ngOnInit(): void {
-    this.getLogbook();
-
-
     this.showTrips();
-    
   }
 
-  getLogbook(): void{
-    const id =+ this.route.snapshot.paramMap.get("id");
-    this.logbookService.getLogbook(id)
-      .subscribe(logbook => this.logbook = logbook);
-  }
-
-  test(): void{
-    alert(this.logbook.trips[1].id);
-    /*this.nurtrips = this.trips.filter(
-        trips => trips.id === this.logbook.id)
-        alert(this.nurtrips[0]);*/
-  }
 }

@@ -29,7 +29,7 @@ export class TripDetailComponent implements OnInit {
 
   ngOnInit(): void {
    //this.getTrip();
-   this.getLogbook();
+   //this.getLogbook();
    this.route.queryParams.subscribe(params =>{
      this.tripid = params["tripid"];
    })
@@ -40,17 +40,14 @@ export class TripDetailComponent implements OnInit {
     this.tripService.getTrip(id)
       .subscribe(trip => this.trip = trip);
   }*/
-  getLogbook(): void{
+  /*getLogbook(): void{
     const id =+ this.route.snapshot.paramMap.get("id");
     this.logbookService.getLogbook(id)
         .subscribe(logbook => this.logbook = logbook)
-  }
+  }*/
 
   goBack(): void{
     this.location.back();
   }
 
-  test(): void{
-    alert(this.logbook.id);
-  }
 }
