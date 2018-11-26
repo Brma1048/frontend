@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ErrorHandler } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse }    from '@angular/common/http';
 import { Trip, TripResponse } from '../entities/trip';
 
 
@@ -36,6 +36,13 @@ export class CreateService {
     .subscribe(
       res => {
         console.log(res)
+      },
+      (err: HttpErrorResponse) => {
+        if(err.error instanceof Error){
+          console.log("Client Side Error: ", err.error.message)
+        } else {
+          console.log("Server Side Error: ", err.error.message)
+        }
       }
     )
   }
