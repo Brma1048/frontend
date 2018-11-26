@@ -23,7 +23,18 @@ export class CreateTripComponent implements OnInit {
   
   ngOnInit() {
 
-    this.form = this.formBuilder.group({
+    this.form = new FormGroup({
+      firstname: new FormControl(),
+      lastname: new FormControl(),
+      startOdometer: new FormControl(),
+      endOdometer: new FormControl(),
+      startDate: new FormControl(),
+      endDate: new FormControl(),
+      
+
+    })
+
+    /*this.form = this.formBuilder.group({
       //firstname: ['', [Validators.required, Validators.pattern(/^\w.*$/)]],
       //lastname: ['', [Validators.required, Validators.pattern(/^\w.*$/)]],
       startOdometer: ['', [Validators.required]],
@@ -33,9 +44,14 @@ export class CreateTripComponent implements OnInit {
       //private: ['', [Validators.required]],
       //business: ['', [Validators.required]],
       //startlocation: ['', [Validators.required]],
-      //endlocation: ['', [Validators.required]]   
-  })
-   
+      //endlocation: ['', [Validators.required]]
+         
+  }) 
+   */
+ }
+
+ onSubmit(): void {
+   console.log(this.form)
  }
 
  onFormSubmit(){

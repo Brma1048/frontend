@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogbookComponent } from './main/logbook/logbook.component';
 import { FormsModule } from '@angular/forms';
 import { CreateTripComponent } from './main/create-trip/create-trip.component';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -29,10 +30,10 @@ import { CreateTripComponent } from './main/create-trip/create-trip.component';
     BrowserModule, FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-// Hallo
