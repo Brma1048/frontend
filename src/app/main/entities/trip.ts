@@ -8,6 +8,7 @@ export class Trip {
     car: Car;
     logbookid: string;
     
+    
     tripBusiness: boolean;
     startOdometer: number;
     endOdometer: number;
@@ -17,4 +18,18 @@ export class Trip {
     startDate: Date;
     endDate: Date;
 
+}
+
+export interface TripResponse {
+      logbookid: string;
+      firstname: string;
+      lastname: string;
+      driverid: string;
+      art: boolean;
+      startOdometer: number;
+      endOdometer: number;
+      customerName: string;
+      projectName: string;
+      startDate: Date;
+      endDate: Date;
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateService } from './create.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms'
+import { FormControl, FormGroup } from '@angular/forms'
+import { Trip } from '../entities/trip';
+
 
 @Component({
   selector: 'app-create-trip',
@@ -11,7 +13,7 @@ export class CreateTripComponent implements OnInit {
 
   
   constructor(
-    private formBuilder: FormBuilder,
+    
     private createService: CreateService) { }
 
 
@@ -24,38 +26,29 @@ export class CreateTripComponent implements OnInit {
   ngOnInit() {
 
     this.form = new FormGroup({
+      logbookid: new FormControl(),
       firstname: new FormControl(),
       lastname: new FormControl(),
       startOdometer: new FormControl(),
       endOdometer: new FormControl(),
       startDate: new FormControl(),
       endDate: new FormControl(),
+      customername: new FormControl(),
+      projectname: new FormControl(),
+      art: new FormControl(),
+      driverid: new FormControl()
       
 
     })
+  }
 
-    /*this.form = this.formBuilder.group({
-      //firstname: ['', [Validators.required, Validators.pattern(/^\w.*$/)]],
-      //lastname: ['', [Validators.required, Validators.pattern(/^\w.*$/)]],
-      startOdometer: ['', [Validators.required]],
-      endOdometer: ['', [Validators.required]],
-      startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]],
-      //private: ['', [Validators.required]],
-      //business: ['', [Validators.required]],
-      //startlocation: ['', [Validators.required]],
-      //endlocation: ['', [Validators.required]]
-         
-  }) 
-   */
- }
+  add(): void {
+    const newTrip = this.form.value;
+  
+    this.createService.addTrip(newTrip);
 
- onSubmit(): void {
-   console.log(this.form)
- }
+   
+  }
 
- onFormSubmit(){
-    console.log(this.form.value)
-}
-
+ 
 }

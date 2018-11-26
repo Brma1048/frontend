@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
+import { Trip, TripResponse } from '../entities/trip';
+
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreateService {
+
+  private tripsUrl = 'http://localhost:8080/logbook';
 
   geoCode() {
     var location = "Rastatterstraße 77a Karlsruhe"
@@ -21,5 +27,19 @@ export class CreateService {
     })
   }
 
+  addTrip (trip: Trip){
+    return this.http.post('https://jsonplaceholder.typicode.com/posts', trip, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    })
+    .subscribe(
+      res => {
+        console.log(res)
+      }
+    )
+  }
+
   constructor(private http: HttpClient) { }
 }
+

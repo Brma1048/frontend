@@ -1,50 +1,116 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" >
-
-  <div class="form-group">
-    <label for="firstname" class="col-2 col-form-label">Firstname</label>
-    <div class="col-2">
-      <input id="firstname" class="form-control" formControlName="firstname" type="text" value="Enter Firstname" >
+<div class="card text-white bg-secondary ">
+    <div class="card-header ">
+        <span class="ml-1 font-weight-bold">New Trip</span>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label for="lastname" class="col-2 col-form-label">Lastname</label>
-    <div class="col-2">
-      <input id="lastname" class="form-control" formControlName="lastname" type="text" value="Enter Lastname" >
+    <div class="card-body">
+      <form [formGroup]="form"  > <!-- (ngSubmit)="onSubmit()" -->
+
+        <div class="form-group row">
+            <label class="col-2 form-control-label">Art *</label>
+            <div class="col col-10">
+                <div class="radio">
+                    <input type="radio" id="businessInput"
+                        formControlName="art" name="art" value="BUSINESS">
+                    <label class="radio-inline" for="businessInput">
+                        Business
+                    </label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="privateInput"
+                        formControlName="art" name="art" value="PRIVATE">
+                    <label class="radio-inline" for="privateInput">
+                          Private
+                    </label>
+                </div>
+            </div>
+        </div>
+
+       <!--
+        <div class="form-group row">
+            <label for="logbookid" class="col-2 col-form-label">Logbook ID</label>
+            <div class="col-2">
+              <input id="logbookid" class="form-control" formControlName="logbookid" type="text" value="Enter Logbook ID" >
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="driverid" class="col-2 col-form-label">Driver ID</label>
+            <div class="col-2">
+              <input id="driverid" class="form-control" formControlName="driverid" type="text" value="Enter Driver ID" >
+            </div>
+        </div>
+        -->
+
+        <div class="form-group row">
+          <label for="firstname" class="col-2 col-form-label">Firstname</label>
+          <div class="col-2">
+            <input id="firstname" class="form-control" formControlName="firstname" type="text" value="Enter Firstname" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="lastname" class="col-2 col-form-label">Lastname</label>
+          <div class="col-2">
+            <input id="lastname" class="form-control" formControlName="lastname" type="text" value="Enter Lastname" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="customername" class="col-2 col-form-label">Customer name</label>
+            <div class="col-2">
+              <input id="customername" class="form-control" formControlName="customername" type="text" value="Enter Customer name" >
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="projectname" class="col-2 col-form-label">Project name</label>
+            <div class="col-2">
+              <input id="projectname" class="form-control" formControlName="projectname" type="text" value="Enter Project name" >
+            </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="startodometer" class="col-2 col-form-label">Startodometer</label>
+          <div class="col-2">
+            <input id="startodometer" class="form-control" formControlName="startOdometer" type="number" placeholder="Enter as number" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="endodometer" class="col-2 col-form-label">Endodometer</label>
+          <div class="col-2">
+            <input id="endodometer" class="form-control" formControlName="endOdometer" type="number" placeholder="Enter as number" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="startdate" class="col-2 col-form-label">Startdate and time</label>
+          <div class="col-2">
+            <input id="startdate" class="form-control" formControlName="startDate" type="datetime-local" value="" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="enddate" class="col-2 col-form-label">Enddate and time</label>
+          <div class="col-2">
+            <input id="enddate" class="form-control" formControlName="endDate" type="datetime-local" value="" >
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col offset-2">
+                <button class="btn btn-primary" (click)="add()"  [disabled]="!form.valid"> <!-- type="submit"-->
+                    <span class="ml-1">Jetzt anlegen</span>
+                </button>
+            </div>
+        </div>
+        
+
+      </form>
     </div>
-  </div>
-
-  <div class="form-group">
-    <label for="startodometer" class="col-2 col-form-label">Startodometer</label>
-    <div class="col-2">
-      <input id="startodometer" class="form-control" formControlName="startOdometer" type="number" placeholder="Enter as number" >
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="endodometer" class="col-2 col-form-label">Endodometer</label>
-    <div class="col-2">
-      <input id="endodometer" class="form-control" formControlName="endOdometer" type="number" placeholder="Enter as number" >
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="startdate" class="col-2 col-form-label">Startdate and time</label>
-    <div class="col-2">
-      <input id="startdate" class="form-control" formControlName="startDate" type="datetime-local" value="" >
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="enddate" class="col-2 col-form-label">Enddate and time</label>
-    <div class="col-2">
-      <input id="enddate" class="form-control" formControlName="endDate" type="datetime-local" value="" >
-    </div>
-  </div>
-
-  <button type="submit" [disabled]="!form.valid">Submit</button>
-
-</form>
+</div>
 
 
 
