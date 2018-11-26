@@ -12,6 +12,7 @@
       <table class="table table-dark">
         <thead>
           <tr>
+            <th scope="col">Logbook</th>
             <th scope="col">ID</th>
             <th scope="col">Fahrer</th>
             <th scope="col">Kunde</th>
@@ -23,6 +24,7 @@
         <tbody>
           <tr *ngFor="let trips of logbooktrips"><!--*ngFor="logbooktrips" (click)="onSelect(trip)"-->
               <th scope="row">{{trips.id}}</th>
+              <td>{{trips.id}}</td>
               <td>{{trips.driver.surname}} {{trips.driver.name}}</td>
               <td>{{trips.customerName}}</td>
               <td>{{trips.projectName}}</td>

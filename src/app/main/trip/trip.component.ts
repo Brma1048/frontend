@@ -31,7 +31,6 @@ export class TripComponent implements OnInit {
   getLogbookTrips(): void{
     const id = +this.route.snapshot.paramMap.get('id');
     this.logbooktrips = this.tripService.getLogbookTrips(id.toString());
-    alert(this.logbooktrips);
   }
 
   
