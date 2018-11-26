@@ -23,22 +23,23 @@ export class TripService {
   //private tripsURL = 'api/logbooks';
   private secondURL = 'http://ip.jsontest.com/';
 
-  getTrips(): Observable<Trip[]>{
-    return null;
+  getTrips(): Trip[]{
+    return data;
     
   }
   getLogbookTrips(id: string): Trip[]{
     //return data.find(t => t.logbookid == id);
     return data.filter(t => t.logbookid === id);
   }
-//
 
-  getTrip(id: number): Observable<Trip> {
-  const url = `${this.tripsURL}/${id}`;
-  return this.http.get<Trip>(url);
+  getTrip(id: string): Trip {
+    return data.find(t => t.id == id);
+  }
+  
+  getTripByDriverName(name: string): Trip[]{
+    return data.filter(t => t.driver.name === name);
   }
 
   constructor(
     private http: HttpClient) { }
 }
-//

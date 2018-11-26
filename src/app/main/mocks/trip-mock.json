@@ -9,11 +9,13 @@
         },
         "driver":{
            "id":"12733",
-           "surname":"Hans",
-           "name":"Meyer"
+           "surname":"Frank",
+           "name":"Walter"
         },
       "customerName" : "Daimler AG",
-      "projectName" : "Tagung Autoverband"
+      "projectName" : "Tagung Autoverband",
+      "startOdometer" : "520",
+      "endOdometer" : "710"
       },
       {
          "id":"51",
@@ -25,11 +27,13 @@
          },
          "driver":{
             "id":"12733",
-            "surname":"Hans",
-            "name":"Meyer"
+            "surname":"Helmut",
+            "name":"Dornbusch"
          },
        "customerName" : "Daimler AG",
-       "projectName" : "Schulung ABAS"
+       "projectName" : "Schulung ABAS",
+       "startOdometer" : "520",
+       "endOdometer" : "710"
        },
 
       {
@@ -46,6 +50,8 @@
             "name":"Meyer"
          },
        "customerName" : "Bosch GmbH",
-       "projectName" : "Messe Stuttgart"
+       "projectName" : "Messe Stuttgart",
+       "startOdometer" : "520",
+       "endOdometer" : "710"
        }
     ]

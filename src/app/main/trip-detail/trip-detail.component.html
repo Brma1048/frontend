@@ -1,19 +1,27 @@
 
-<button class="btn btn-primary nav-tab" (click)="goBack()">Back</button>
-<button class="btn btn-primary nav-tab" (click)="test()">push</button>
 <div *ngIf="trip">
         
     <div class="table-responsive">
         <table class="table table-dark">
             <thead>
                 <tr>
+                    <th scope="col">Logbook</th>
                     <th scope="col">ID</th>
+                    <th scope="col">Fahrer</th>
+                    <th scope="col">Kunde</th>
+                    <th scope="col">Projekt</th>
+                    <th scope="col">Strecke in Kilometer</th>
                 </tr>
             </thead>
             <tbody>
-                
-                <!--<tr *ngFor="let x of trip" (click)="onSelect(trip)">
-                    <th scope="row">{{x.trips.id}}</th></tr>-->
+                <tr>
+                    <th scope="row">{{trip.logbookid}}</th>
+                    <td>{{trip.id}}</td>
+                    <td>{{trip.driver.surname}} {{trip.driver.name}}</td>
+                    <td>{{trip.customerName}}</td>
+                    <td>{{trip.projectName}}</td>
+                    <td>{{trip.endOdometer - trip.startOdometer}}</td>
+                </tr>
             </tbody>
         </table>
     </div>

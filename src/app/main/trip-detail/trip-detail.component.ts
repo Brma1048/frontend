@@ -15,10 +15,14 @@ import { Logbook } from '../entities/logbook';
 })
 export class TripDetailComponent implements OnInit {
 
-  //@Input() trip: Trip;
-  @Input() logbook: Logbook;
-  tripid : string;
-  relevantertrip : Trip;
+  trip: Trip;
+
+
+  getTrip(): void{
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.trip = this.tripService.getTrip(id.toString());
+    alert(this.trip.id);
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -28,26 +32,9 @@ export class TripDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   //this.getTrip();
-   //this.getLogbook();
-   this.route.queryParams.subscribe(params =>{
-     this.tripid = params["tripid"];
-   })
+    this.getTrip();
   }
 
-  /*getTrip(): void{
-    const id =+ this.route.snapshot.paramMap.get("id");
-    this.tripService.getTrip(id)
-      .subscribe(trip => this.trip = trip);
-  }*/
-  /*getLogbook(): void{
-    const id =+ this.route.snapshot.paramMap.get("id");
-    this.logbookService.getLogbook(id)
-        .subscribe(logbook => this.logbook = logbook)
-  }*/
-
-  goBack(): void{
-    this.location.back();
-  }
+  
 
 }

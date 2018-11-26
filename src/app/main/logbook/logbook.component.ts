@@ -25,13 +25,6 @@ export class LogbookComponent implements OnInit {
   getLogbooks(): void{
     this.logbooks = this.logbookService.getLogbooks();
   }
-
-
-  /*getLogbook(): void{
-    const id = this.logbookid;
-    this.logbookService.getLogbook(id)
-      .subscribe(logbook => this.logbook = logbook);
-  }*/
   getLogbook(): void{
     this.logbook = this.logbookService.getLogbook(this.logbookid);
   }

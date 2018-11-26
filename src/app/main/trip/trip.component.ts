@@ -17,27 +17,54 @@ import { LogbookService } from '../logbook/logbook.service';
 export class TripComponent implements OnInit {
 
   selectedTrip: Trip;
-
+  trips: Trip[]; 
+  logbooktrips: Trip[];
+  faInfo = faInfo;
+  logbookid: string;
+  drivername: string;
 
   onSelect(trip: Trip): void{
     this.selectedTrip = trip;
   }
 
-  trips: Trip[]; 
-  logbooktrips: Trip[];
-  faInfo = faInfo;
-  test : string;
+  
 
   getLogbookTrips(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    this.logbooktrips = this.tripService.getLogbookTrips(id.toString());
+    this.trips = this.tripService.getLogbookTrips(id.toString());//
+  }
+  getLogbookTripsByID(): void{
+    this.trips = this.tripService.getLogbookTrips(this.logbookid);
+  }
+  getTripsByDriverName(): void{
+    this.trips = this.tripService.getTripByDriverName(this.drivername);
+  }
+  getTrips(): void{
+    this.trips = this.tripService.getTrips();
   }
 
   
 
   showTrips(): void {
-    this.getLogbookTrips();
+    // Prüfen ob über Logbook-Componente gekommen oder über Register "Fahrten"
+    const id = +this.route.snapshot.paramMap.get('id');
+    if( id != 0){ //ist über Logbook-Component hier
+      this.getLogbookTrips();
+    }
+    else { //ist über Register "Fahrten" hier
+      this.getTrips();
+    }
   }
+  showTripByLogbookbyID(): void{
+    this.getLogbookTripsByID();
+  }
+  showTripsByDriverName(): void{
+    this.getTripsByDriverName();
+  }
+  showAllTrips(): void{
+    this.getTrips();
+  }
+
   constructor(
     private tripService: TripService,
     private route: ActivatedRoute,
