@@ -35,13 +35,11 @@ export class LogbookComponent implements OnInit {
     //this.logbook = this.logbookService.getLogbook(this.logbookid);
     this.logbookService.getLogbook(this.logbookid)
         .subscribe(logbook => this.logbook = logbook);
-        alert(this.logbook);
     
   }
   getLogbookByDriverLastName(): void{
     this.logbookService.getLogbookByDriverLastName(this.logbookDriverLastName)
         .subscribe(logbook => this.logbook = logbook);
-        alert(this.logbook.id);
   }
 
 
