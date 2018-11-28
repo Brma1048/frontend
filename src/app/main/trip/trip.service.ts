@@ -49,6 +49,11 @@ export class TripService {
     return this.http.get<Trip[]>(url);
   }
 
+  getTripsByCustomerName(name: string): Observable<Trip[]>{
+    const url = `${this.tripsURL}/customer/${name}`;
+    return this.http.get<Trip[]>(url);
+  }
+
   constructor(
     private http: HttpClient) { }
 }
