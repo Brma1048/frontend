@@ -13,18 +13,20 @@ export class CreateService {
 
   private tripsUrl = 'http://localhost:8080/logbook';
 
-  geoCode() {
-    var location = "Rastatterstraße 77a Karlsruhe"
+  geoCode(location: string) {
+    //var location = "Rastatterstraße 77a Karlsruhe"
     return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?', {
       params: {
         address: location,
-        key: 'AIzaSyDpol0dABhIMEpa56as8N556eEbYjiq-D0'
+        key: 'AIzaSyD9HGra1QvpuJZHHsRi3mL5zeMgNwmv7kA'
 
       }
     })
     .subscribe(function(response){
+      //let lat = response.data.results[0].geometry.location.lat;
+      //let lon = response.data.results[0].geometry.location.lon;
       console.log(response);
-    })
+    }) 
   }
 
   addTrip (trip: Trip){

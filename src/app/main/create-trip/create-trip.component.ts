@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateService } from './create.service';
-import { FormControl, FormGroup } from '@angular/forms'
+import { FormControl, FormGroup, Validator, Validators } from '@angular/forms'
 import { Trip } from '../entities/trip';
 
 
@@ -18,25 +18,26 @@ export class CreateTripComponent implements OnInit {
 
 
   form: FormGroup;
+  location: string;
 
   showConsole(): void {
-    this.createService.geoCode();
+    this.createService.geoCode(this.location);
   }
   
   ngOnInit() {
 
     this.form = new FormGroup({
-      logbookid: new FormControl(),
-      firstname: new FormControl(),
-      lastname: new FormControl(),
-      startOdometer: new FormControl(),
-      endOdometer: new FormControl(),
-      startDate: new FormControl(),
-      endDate: new FormControl(),
-      customername: new FormControl(),
-      projectname: new FormControl(),
+      logbookid: new FormControl(Validators.required),
+      firstname: new FormControl(Validators.required),
+      lastname: new FormControl(Validators.required),
+      startOdometer: new FormControl(Validators.required),
+      endOdometer: new FormControl(Validators.required),
+      startDate: new FormControl(Validators.required),
+      endDate: new FormControl(Validators.required),
+      customername: new FormControl(Validators.required),
+      projectname: new FormControl(Validators.required),
       art: new FormControl(),
-      driverid: new FormControl()
+      driverid: new FormControl(Validators.required)
       
 
     })
@@ -49,6 +50,7 @@ export class CreateTripComponent implements OnInit {
 
    
   }
+
 
  
 }
