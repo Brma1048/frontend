@@ -19,25 +19,34 @@ const httpOptions = {
 export class TripService {
 
 
-  private tripsURL = 'http://localhost:8080/logbook';
+  private tripsURL = 'http://localhost:8080/trip/';
   //private tripsURL = 'api/logbooks';
   private secondURL = 'http://ip.jsontest.com/';
 
-  getTrips(): Trip[]{
-    return data;
+  getTrips(): Observable<Trip[]>{
+    //return data;
+    return this.http.get<Trip[]>(this.tripsURL);
     
   }
-  getLogbookTrips(id: string): Trip[]{
-    //return data.find(t => t.logbookid == id);
-    return data.filter(t => t.logbookid === id);
+  getLogbookTrips(id: number): Observable<Trip[]>{
+    //return data.filter(t => t.logbookid === id);
+    const url = `${this.tripsURL}/logbook/${id}`;
+    return this.http.get<Trip[]>(url);
   }
 
-  getTrip(id: string): Trip {
-    return data.find(t => t.id == id);
+  getTrip(id: number): Observable<Trip> {
+    //return data.find(t => t.id == id);
+    const url = `${this.tripsURL}/${id}`;
+    return this.http.get<Trip>(url);
   }
   
-  getTripByDriverName(name: string): Trip[]{
+  getTripsByDriverName(name: string): Trip[]{
     return data.filter(t => t.driver.name === name);
+  }
+
+  getTripsByDriverID(id: number): Observable<Trip[]>{
+    const url = `${this.tripsURL}/driver/${id}`;
+    return this.http.get<Trip[]>(url);
   }
 
   constructor(

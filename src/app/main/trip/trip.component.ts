@@ -20,8 +20,9 @@ export class TripComponent implements OnInit {
   trips: Trip[]; 
   logbooktrips: Trip[];
   faInfo = faInfo;
-  logbookid: string;
+  logbookid: number;
   drivername: string;
+  driverid: number;
 
   onSelect(trip: Trip): void{
     this.selectedTrip = trip;
@@ -31,16 +32,26 @@ export class TripComponent implements OnInit {
 
   getLogbookTrips(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    this.trips = this.tripService.getLogbookTrips(id.toString());//
+    //this.trips = this.tripService.getLogbookTrips(id);
+    this.tripService.getLogbookTrips(id)
+        .subscribe(trips => this.trips = trips);
   }
   getLogbookTripsByID(): void{
-    this.trips = this.tripService.getLogbookTrips(this.logbookid);
+    //this.trips = this.tripService.getLogbookTrips(this.logbookid);
+    this.tripService.getLogbookTrips(this.logbookid)
+        .subscribe(trips => this.trips = trips);
   }
   getTripsByDriverName(): void{
-    this.trips = this.tripService.getTripByDriverName(this.drivername);
+    this.trips = this.tripService.getTripsByDriverName(this.drivername);
   }
   getTrips(): void{
-    this.trips = this.tripService.getTrips();
+    //this.trips = this.tripService.getTrips();
+    this.tripService.getTrips()
+        .subscribe(trips => this.trips = trips);
+  }
+  getTripsByDriverID(): void{
+    this.tripService.getTripsByDriverID(this.driverid)
+        .subscribe(trips => this.trips = trips);
   }
 
   
@@ -52,7 +63,7 @@ export class TripComponent implements OnInit {
       this.getLogbookTrips();
     }
     else { //ist über Register "Fahrten" hier
-      this.getTrips();
+      //this.getTrips();
     }
   }
   showTripByLogbookbyID(): void{
@@ -63,6 +74,9 @@ export class TripComponent implements OnInit {
   }
   showAllTrips(): void{
     this.getTrips();
+  }
+  showTripsByDriverID(): void{
+    this.getTripsByDriverID();
   }
 
   constructor(

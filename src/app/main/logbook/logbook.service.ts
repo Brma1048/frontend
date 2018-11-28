@@ -18,7 +18,7 @@ const httpOptions = {
 export class LogbookService {
 
   private logbooksURL = 'http://localhost:8080/logbook';
-  private logbooksURLName = 'http://localhost:8080/logbook/name';
+  private logbooksURLName = 'http://localhost:8080/logbook/name/';
   //private logbooksURL = 'api/logbooks';
 
 
@@ -38,6 +38,7 @@ export class LogbookService {
   getLogbookByDriverLastName(name: string): Observable<Logbook>{
     const url = `${this.logbooksURLName}/${name}`;
     return this.http.get<Logbook>(url);
+    
   }
   constructor(private http: HttpClient) { }
 }
