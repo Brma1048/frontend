@@ -34,12 +34,19 @@ export class TripService {
     return this.http.get<Trip[]>(url);
   }
 
-  getTrip(id: string): Trip {
-    return data.find(t => t.id == id);
+  getTrip(id: number): Observable<Trip> {
+    //return data.find(t => t.id == id);
+    const url = `${this.tripsURL}/${id}`;
+    return this.http.get<Trip>(url);
   }
   
-  getTripByDriverName(name: string): Trip[]{
+  getTripsByDriverName(name: string): Trip[]{
     return data.filter(t => t.driver.name === name);
+  }
+
+  getTripsByDriverID(id: number): Observable<Trip[]>{
+    const url = `${this.tripsURL}/driver/${id}`;
+    return this.http.get<Trip[]>(url);
   }
 
   constructor(

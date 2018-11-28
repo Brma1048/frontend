@@ -20,8 +20,9 @@ export class TripDetailComponent implements OnInit {
 
   getTrip(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    this.trip = this.tripService.getTrip(id.toString());
-    alert(this.trip.id);
+    //this.trip = this.tripService.getTrip(id.toString());
+    this.tripService.getTrip(id)
+        .subscribe(trip => this.trip = trip);
   }
 
   constructor(

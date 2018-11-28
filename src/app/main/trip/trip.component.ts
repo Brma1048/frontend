@@ -22,6 +22,7 @@ export class TripComponent implements OnInit {
   faInfo = faInfo;
   logbookid: number;
   drivername: string;
+  driverid: number;
 
   onSelect(trip: Trip): void{
     this.selectedTrip = trip;
@@ -41,11 +42,15 @@ export class TripComponent implements OnInit {
         .subscribe(trips => this.trips = trips);
   }
   getTripsByDriverName(): void{
-    this.trips = this.tripService.getTripByDriverName(this.drivername);
+    this.trips = this.tripService.getTripsByDriverName(this.drivername);
   }
   getTrips(): void{
     //this.trips = this.tripService.getTrips();
     this.tripService.getTrips()
+        .subscribe(trips => this.trips = trips);
+  }
+  getTripsByDriverID(): void{
+    this.tripService.getTripsByDriverID(this.driverid)
         .subscribe(trips => this.trips = trips);
   }
 
@@ -69,6 +74,9 @@ export class TripComponent implements OnInit {
   }
   showAllTrips(): void{
     this.getTrips();
+  }
+  showTripsByDriverID(): void{
+    this.getTripsByDriverID();
   }
 
   constructor(
