@@ -4,7 +4,7 @@
         <button class="btn mybtn mr-3"><a routerLink="/create">Fahrt erstellen</a></button>
         <button class="btn mybtn mr-3"(click)="showAllTrips()">Alle Fahrten</button><!---->
         <div class="col-xs-3">
-          <input type="text" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
+          <input type="number" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
         </div>
         <div class="input-group-append">
           <button class="btn btn-outline-secondary mybtn" type="button" (click)="showTripByLogbookbyID()">Show by Logbbok ID</button>

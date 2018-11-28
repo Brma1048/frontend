@@ -28,9 +28,10 @@ export class TripService {
     return this.http.get<Trip[]>(this.tripsURL);
     
   }
-  getLogbookTrips(id: string): Trip[]{
-    //return data.find(t => t.logbookid == id);
-    return data.filter(t => t.logbookid === id);
+  getLogbookTrips(id: number): Observable<Trip[]>{
+    //return data.filter(t => t.logbookid === id);
+    const url = `${this.tripsURL}/logbook/${id}`;
+    return this.http.get<Trip[]>(url);
   }
 
   getTrip(id: string): Trip {

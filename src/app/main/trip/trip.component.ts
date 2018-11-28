@@ -20,7 +20,7 @@ export class TripComponent implements OnInit {
   trips: Trip[]; 
   logbooktrips: Trip[];
   faInfo = faInfo;
-  logbookid: string;
+  logbookid: number;
   drivername: string;
 
   onSelect(trip: Trip): void{
@@ -31,10 +31,14 @@ export class TripComponent implements OnInit {
 
   getLogbookTrips(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    this.trips = this.tripService.getLogbookTrips(id.toString());//
+    //this.trips = this.tripService.getLogbookTrips(id);
+    this.tripService.getLogbookTrips(id)
+        .subscribe(trips => this.trips = trips);
   }
   getLogbookTripsByID(): void{
-    this.trips = this.tripService.getLogbookTrips(this.logbookid);
+    //this.trips = this.tripService.getLogbookTrips(this.logbookid);
+    this.tripService.getLogbookTrips(this.logbookid)
+        .subscribe(trips => this.trips = trips);
   }
   getTripsByDriverName(): void{
     this.trips = this.tripService.getTripByDriverName(this.drivername);
@@ -54,7 +58,7 @@ export class TripComponent implements OnInit {
       this.getLogbookTrips();
     }
     else { //ist über Register "Fahrten" hier
-      this.getTrips();
+      //this.getTrips();
     }
   }
   showTripByLogbookbyID(): void{
