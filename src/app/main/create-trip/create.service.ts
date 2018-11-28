@@ -30,7 +30,7 @@ export class CreateService {
   }
 
   addTrip (trip: Trip){
-    return this.http.post('http://localhost:8080/createTrip', trip, {
+    return this.http.post('https://jsonplaceholder.typicode.com/posts', trip, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
