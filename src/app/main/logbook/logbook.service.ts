@@ -18,22 +18,26 @@ const httpOptions = {
 export class LogbookService {
 
   private logbooksURL = 'http://localhost:8080/logbook';
+  private logbooksURLName = 'http://localhost:8080/logbook/name';
   //private logbooksURL = 'api/logbooks';
 
 
-  /*getLogbooks(): Observable<Logbook[]>{
-    return this.http.get<Logbook[]>(this.logbooksURL)
-  }*/
-  getLogbooks(): Logbook[]{
-    return data;
+  getLogbooks(): Observable<Logbook[]>{
+    return this.http.get<Logbook[]>(this.logbooksURL);
   }
 
   /*getLogbook(id: number): Observable<Logbook> {
     const url = `${this.logbooksURL}/${id}`;
     return this.http.get<Logbook>(url);
   }*/
-  getLogbook(id: string): Logbook{
-    return data.find(l => l.id == id);
+  getLogbook(id: number): Observable<Logbook>{
+    const url = `${this.logbooksURL}/${id}`;
+    return this.http.get<Logbook>(url);
+  }
+
+  getLogbookByDriverLastName(name: string): Observable<Logbook>{
+    const url = `${this.logbooksURLName}/${name}`;
+    return this.http.get<Logbook>(url);
   }
   constructor(private http: HttpClient) { }
 }
