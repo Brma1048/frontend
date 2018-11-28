@@ -37,9 +37,9 @@
         </thead>
         <tbody>
           <tr *ngFor="let trips of trips">
-              <th scope="row">{{trips.logbookid}}</th>
+              <th scope="row">{{trips.logbook.id}}</th>
               <td>{{trips.id}}</td>
-              <td>{{trips.driver.surname}} {{trips.driver.name}}</td>
+              <td>{{trips.logbook.driver.firstName}} {{trips.logbook.driver.lastName}}</td>
               <td>{{trips.customerName}}</td>
               <td>{{trips.projectName}}</td>
               <td><a routerLink="/trip-detail/{{trips.id}}">Details</a></td>

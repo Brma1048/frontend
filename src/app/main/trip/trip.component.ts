@@ -40,7 +40,9 @@ export class TripComponent implements OnInit {
     this.trips = this.tripService.getTripByDriverName(this.drivername);
   }
   getTrips(): void{
-    this.trips = this.tripService.getTrips();
+    //this.trips = this.tripService.getTrips();
+    this.tripService.getTrips()
+        .subscribe(trips => this.trips = trips);
   }
 
   
