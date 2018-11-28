@@ -26,7 +26,7 @@
             </div>
         </div>
 
-       <!--
+       
         <div class="form-group row">
             <label for="logbookid" class="col-2 col-form-label">Logbook ID</label>
             <div class="col-2">
@@ -40,7 +40,7 @@
               <input id="driverid" class="form-control" formControlName="driverid" type="text" value="Enter Driver ID" >
             </div>
         </div>
-        -->
+        
 
         <div class="form-group row">
           <label for="firstname" class="col-2 col-form-label">Firstname *</label>
@@ -98,6 +98,22 @@
           </div>
         </div>
 
+        <!--
+        <div class="form-group row">
+          <label for="lat" class="col-2 col-form-label">Lat</label>
+          <div class="col-2">
+            <input id="lat" class="form-control" formControlName="lat" type="" value="${lat}" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="lon" class="col-2 col-form-label">Lon</label>
+          <div class="col-2">
+            <input id="lon" class="form-control" formControlName="lon" type="datetime-local" value="${lon}" >
+          </div>
+        </div>
+        -->
+
 
         <div class="form-group row">
             <div class="col offset-2">
@@ -106,10 +122,29 @@
                 </button>
             </div>
         </div>
+
+        <div class="form-group row">
+          <div class="col offset-2">
+              <button class="btn btn-primary" (click)="showConsole()"  >
+                  <span class="ml-1">Get Geocode</span>
+              </button>
+          </div>
+      </div>
         
 
       </form>
 
       <small>* sind Pflichtfelder bei Business-Trip</small>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="location">
+        <div class="input-group-append">
+          <button class="btn  btn-primary" type="button">Button</button>
+        </div>
+      </div>
     </div>
+
+    
+
 </div>
+
