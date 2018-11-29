@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Trip } from '../entities/trip';
-import { TripService } from './trip.service';
+import { TripService } from "./trip.service";
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -17,7 +17,7 @@ import { LogbookService } from '../logbook/logbook.service';
 export class TripComponent implements OnInit {
 
   selectedTrip: Trip;
-  trips: Trip[];
+  trips: Trip[]; 
   logbooktrips: Trip[];
   faInfo = faInfo;
   logbookid: number;
@@ -25,70 +25,65 @@ export class TripComponent implements OnInit {
   driverid: number;
   customername: string;
 
-  onSelect(trip: Trip): void {
+  onSelect(trip: Trip): void{
     this.selectedTrip = trip;
   }
 
-  getLogbookTrips(): void {
+  
+
+  getLogbookTrips(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    // this.trips = this.tripService.getLogbookTrips(id);
+    //this.trips = this.tripService.getLogbookTrips(id);
     this.tripService.getLogbookTrips(id)
         .subscribe(trips => this.trips = trips);
   }
-
-  getLogbookTripsByID(): void {
-    // this.trips = this.tripService.getLogbookTrips(this.logbookid);
+  getLogbookTripsByID(): void{
+    //this.trips = this.tripService.getLogbookTrips(this.logbookid);
     this.tripService.getLogbookTrips(this.logbookid)
         .subscribe(trips => this.trips = trips);
   }
-
-  getTripsByDriverName(): void {
+  getTripsByDriverName(): void{
     this.trips = this.tripService.getTripsByDriverName(this.drivername);
   }
-
-  getTrips(): void {
-    // this.trips = this.tripService.getTrips();
+  getTrips(): void{
+    //this.trips = this.tripService.getTrips();
     this.tripService.getTrips()
         .subscribe(trips => this.trips = trips);
   }
-
-  getTripsByDriverID(): void {
+  getTripsByDriverID(): void{
     this.tripService.getTripsByDriverID(this.driverid)
         .subscribe(trips => this.trips = trips);
   }
-
-  getTripsByCustomerName(): void {
+  getTripsByCustomerName(): void{
     this.tripService.getTripsByCustomerName(this.customername)
         .subscribe(trips => this.trips = trips);
   }
 
+  
+
   showTrips(): void {
     // Prüfen ob über Logbook-Componente gekommen oder über Register "Fahrten"
     const id = +this.route.snapshot.paramMap.get('id');
-    if ( id !== 0) { // ist über Logbook-Component hier
+    if( id != 0){ //ist über Logbook-Component hier
       this.getLogbookTrips();
-    } else { // ist über Register "Fahrten" hier
-      // this.getTrips();
+    }
+    else { //ist über Register "Fahrten" hier
+      //this.getTrips();
     }
   }
-
-  showTripByLogbookbyID(): void {
+  showTripByLogbookbyID(): void{
     this.getLogbookTripsByID();
   }
-
-  showTripsByDriverName(): void {
+  showTripsByDriverName(): void{
     this.getTripsByDriverName();
   }
-
-  showAllTrips(): void {
+  showAllTrips(): void{
     this.getTrips();
   }
-
-  showTripsByDriverID(): void {
+  showTripsByDriverID(): void{
     this.getTripsByDriverID();
   }
-
-  showTripsByCustomerName(): void {
+  showTripsByCustomerName(): void{
     this.getTripsByCustomerName();
   }
 

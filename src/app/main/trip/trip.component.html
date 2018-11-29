@@ -1,13 +1,13 @@
 
 <div class="row">
-    <div class="input-group col-12 mb-3">
-        <button class="btn btn-primary mr-3"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
-        <button class="btn btn-primary mr-3"(click)="showAllTrips()">All Trips</button><!---->
+    <div class="input-group mb-3">
+        <button class="btn mybtn mr-3"><a routerLink="/create">Fahrt erstellen</a></button>
+        <button class="btn mybtn mr-3"(click)="showAllTrips()">Alle Fahrten</button><!---->
         <div class="col-xs-2">
           <input type="number" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
         </div>
         <div class="input-group-append">
-          <button class="btn btn-primary mr-3" type="button" (click)="showTripByLogbookbyID()">Show by Logbook ID</button>
+          <button class="btn btn-outline-secondary mybtn" type="button" (click)="showTripByLogbookbyID()">Show by Logbbok ID</button>
         </div>
         <!--<div class="col-xs-2">
           <input type="text" class="form-control" placeholder="Fahrer Name" [(ngModel)]="drivername">
@@ -19,13 +19,13 @@
           <input type="number" class="form-control" placeholder="Fahrer ID" [(ngModel)]="driverid">
         </div>
         <div class="input-group-append">
-          <button class="btn btn-primary mr-3" type="button" (click)="showTripsByDriverID()">Show by Driver ID</button>
+          <button class="btn btn-outline-secondary mybtn" type="button" (click)="showTripsByDriverID()">Show by Driver ID</button>
         </div>
         <div class="col-xs-2">
           <input type="text" class="form-control" placeholder="Kunden Name" [(ngModel)]="customername">
         </div>
         <div class="input-group-append">
-          <button class="btn btn-primary mr-3" type="button" (click)="showTripsByCustomerName()">Show by Customer Name</button>
+          <button class="btn btn-outline-secondary mybtn" type="button" (click)="showTripsByCustomerName()">Show by Customer Name</button>
         </div>
           
     </div>   

@@ -4,11 +4,11 @@
     </div>
 
     <div class="card-body">
-      <form [formGroup]="form">
+      <form [formGroup]="form"  > <!-- (ngSubmit)="onSubmit()" -->
 
         <div class="form-group row">
           <label for="id" class="col-2 col-form-label">ID</label>
-          <div class="col-2">
+          <div class="col-4">
             <input id="id" class="form-control" formControlName="id" type="number" placeholder="Enter as number" >
           </div>
         </div>
@@ -36,57 +36,142 @@
         <div formGroupName="logbook">
           <div class="form-group row">
               <label for="logbookid" class="col-2 col-form-label">Logbook ID</label>
-              <div class="col-2">
+              <div class="col-4">
                 <input id="logbookid" class="form-control" formControlName="id" type="text" value="Enter Logbook ID" >
               </div>
           </div>
         </div>
 
+        <!--
+        <div formGroupName="startOdometer">
+          <div class="form-group row">
+            <label for="gpsLat" class="col-2 col-form-label">Gps Lat *</label>
+            <div class="col-2">
+              <input id="gpsLat" class="form-control" formControlName="gpsLat" type="number" placeholder="Enter as number" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="gpsLon" class="col-2 col-form-label">Gps Lon *</label>
+            <div class="col-2">
+              <input id="gpsLon" class="form-control" formControlName="gpsLon" type="number" placeholder="Enter as number" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="startdate" class="col-2 col-form-label">Startdate and time *</label>
+            <div class="col-2">
+              <input id="startdate" class="form-control" formControlName="startDate" type="datetime-local" value="" >
+            </div>
+          </div>
+        </div>
+
+        <div formGroupName="endOdometer">
+          <div class="form-group row">
+            <label for="gpsLat" class="col-2 col-form-label">Gps Lat *</label>
+            <div class="col-2">
+              <input id="gpsLat" class="form-control" formControlName="gpsLat" type="number" placeholder="Enter as number" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="gpsLon" class="col-2 col-form-label">Gps Lon *</label>
+            <div class="col-2">
+              <input id="gpsLon" class="form-control" formControlName="gpsLon" type="number" placeholder="Enter as number" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="enddate" class="col-2 col-form-label">Enddate and time *</label>
+            <div class="col-2">
+              <input id="enddate" class="form-control" formControlName="endDate" type="datetime-local" value="" >
+            </div>
+          </div>
+        </div>
+        -->
+        
+        
+        <!--
+        <div class="form-group row">
+            <label for="driverid" class="col-2 col-form-label">Driver ID</label>
+            <div class="col-2">
+              <input id="driverid" class="form-control" formControlName="driverid" type="text" value="Enter Driver ID" >
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="firstname" class="col-2 col-form-label">Firstname *</label>
+          <div class="col-2">
+            <input id="firstname" class="form-control" formControlName="firstname" type="text" value="Enter Firstname" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="lastname" class="col-2 col-form-label">Lastname *</label>
+          <div class="col-2">
+            <input id="lastname" class="form-control" formControlName="lastname" type="text" value="Enter Lastname" >
+          </div>
+        </div>
+        -->
+
         <div class="form-group row">
           <label for="startOdometer" class="col-2 col-form-label">Start Odometer *</label>
-          <div class="col-2">
+          <div class="col-4">
             <input id="startOdometer" class="form-control" formControlName="startOdometer" type="number" placeholder="Enter as number" >
           </div>
         </div>
 
         <div class="form-group row">
           <label for="endOdometer" class="col-2 col-form-label">End Odometer *</label>
-          <div class="col-2">
+          <div class="col-4">
             <input id="endOdometer" class="form-control" formControlName="endOdometer" type="number" placeholder="Enter as number" >
           </div>
         </div>
 
         <div class="form-group row">
             <label for="customerName" class="col-2 col-form-label">Customer name *</label>
-            <div class="col-2">
+            <div class="col-4">
               <input id="customerName" class="form-control" formControlName="customerName" type="text" value="Enter Customer name" >
             </div>
         </div>
 
         <div class="form-group row">
             <label for="projectName" class="col-2 col-form-label">Project name *</label>
-            <div class="col-2">
+            <div class="col-4">
               <input id="projectName" class="form-control" formControlName="projectName" type="text" value="Enter Project name" >
             </div>
         </div>
 
         <div class="form-group row">
           <label for="startDate" class="col-2 col-form-label">startdate and time *</label>
-          <div class="col-2">
+          <div class="col-4">
             <input id="startDate" class="form-control" formControlName="startDate" type="datetime-local" value="" >
           </div>
         </div>
 
         <div class="form-group row">
           <label for="endDate" class="col-2 col-form-label">Enddate and time *</label>
-          <div class="col-2">
+          <div class="col-4">
             <input id="endDate" class="form-control" formControlName="endDate" type="datetime-local" value="" >
           </div>
         </div>
 
+
+        <!--
+        <div class="form-group row">
+          <label for="lat" class="col-2 col-form-label">Lat</label>
+          <div class="col-2">
+            <input id="lat" class="form-control" formControlName="lat" type="" value="${lat}" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="lon" class="col-2 col-form-label">Lon</label>
+          <div class="col-2">
+            <input id="lon" class="form-control" formControlName="lon" type="datetime-local" value="${lon}" >
+          </div>
+        </div>
+        -->
+
+
         <div class="form-group row">
             <div class="col offset-2">
-                <button class="btn btn-primary" (click)="add()"  [disabled]="!form.valid">
+                <button class="btn btn-primary" (click)="add()"  [disabled]="!form.valid"> <!-- type="submit"-->
                     <span class="ml-1">Jetzt anlegen</span>
                 </button>
             </div>
@@ -100,16 +185,20 @@
           </div>
       </div>
         
+
       </form>
 
       <small>* sind Pflichtfelder bei Business-Trip</small>
 
-      <div class="input-group col-4">
-        <input type="text" class="form-control" [(ngModel)]="location">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="location">
         <div class="input-group-append">
           <button class="btn  btn-primary" type="button">Button</button>
         </div>
       </div>
     </div>
+
+    
+
 </div>
 
