@@ -1,5 +1,9 @@
-
-<div class="col-12">
+<div class="row">
+    <div class="col-12">
+        <h1>Fahrten</h1>
+      </div>
+</div>
+<div class="row">
     <div class="input-group mb-3">
         <button class="btn btn-primary mr-3"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
         <button class="btn btn-primary mr-3"(click)="showAllTrips()">All Trips</button><!---->
@@ -30,7 +34,12 @@
           
     </div>   
 </div>  
-
+<div class="row">
+    <div class="col-12">
+      <h3>{{tripheading}}</h3>
+    </div>
+  </div>
+<div class="row">
   <div class="col-12">
     <!--Logbook-Trips-->
     <div *ngIf="trips">
