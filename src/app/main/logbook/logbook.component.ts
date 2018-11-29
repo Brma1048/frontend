@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Logbook } from '../entities/logbook';
-import { LogbookService} from "./logbook.service";
+import { LogbookService} from './logbook.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -13,31 +13,30 @@ import { Location } from '@angular/common';
 export class LogbookComponent implements OnInit {
 
   selectedLogbook: Logbook;
-  onSelect(logbook: Logbook): void{
-    this.selectedLogbook = logbook;
-  }
-
-  logbooks : Logbook[];
+  logbooks: Logbook[];
   logbook: Logbook;
   logbookid: number;
   logbookDriverLastName: string;
+
+  onSelect(logbook: Logbook): void {
+    this.selectedLogbook = logbook;
+  }
 
   /*getLogbooks(): void{
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks);
   }*/
-  getLogbooks(): void{
-    //this.logbooks = this.logbookService.getLogbooks();
+  getLogbooks(): void {
+    // this.logbooks = this.logbookService.getLogbooks();
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks);
   }
-  getLogbook(): void{
-    //this.logbook = this.logbookService.getLogbook(this.logbookid);
+  getLogbook(): void {
+    // this.logbook = this.logbookService.getLogbook(this.logbookid);
     this.logbookService.getLogbook(this.logbookid)
         .subscribe(logbook => this.logbook = logbook);
-    
   }
-  getLogbookByDriverLastName(): void{
+  getLogbookByDriverLastName(): void {
     this.logbookService.getLogbookByDriverLastName(this.logbookDriverLastName)
         .subscribe(logbook => this.logbook = logbook);
   }
@@ -46,10 +45,10 @@ export class LogbookComponent implements OnInit {
   showLogbooks(): void {
     this.getLogbooks();
   }
-  showLogbookByID(): void{
+  showLogbookByID(): void {
     this.getLogbook();
   }
-  showLogbookByDriverLastName(): void{
+  showLogbookByDriverLastName(): void {
     this.getLogbookByDriverLastName();
   }
   constructor(
@@ -57,9 +56,8 @@ export class LogbookComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location) { }
 
-  
   ngOnInit() {
-    //this.showLogbooks();
+    // this.showLogbooks();
   }
 
 }
