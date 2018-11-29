@@ -28,27 +28,33 @@ export class CreateTripComponent implements OnInit {
 
     this.form = new FormGroup({
       logbook: new FormGroup({
-        logbookid: new FormControl()
+        id: new FormControl()
       }),
-      art: new FormControl(),
+      isBusiness: new FormControl(),
       //firstname: new FormControl(),
       //lastname: new FormControl(),
-      startOdometer: new FormGroup({
+      /*startOdometer: new FormGroup({
         gpsLat: new FormControl(),
         gpsLon: new FormControl(),
         startDate: new FormControl()
-      }),
+      })*/
+      startOdometer: new FormControl(),
+      endOdometer: new FormControl(),
+      /*
       endOdometer: new FormGroup({
         gpsLat: new FormControl(),
         gpsLon: new FormControl(),
         endDate: new FormControl()
-      }),
+      })*/
+
       //startDate: new FormControl(),
       //endDate: new FormControl(),
-      customername: new FormControl(),
-      projectname: new FormControl()
+      customerName: new FormControl(),
+      projectName: new FormControl(),
       //driverid: new FormControl()
-    })
+      startDate: new FormControl(),
+      endDate: new FormControl()
+    });
   }
 
   add(): void {

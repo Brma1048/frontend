@@ -11,14 +11,14 @@
             <div class="col col-10">
                 <div class="radio">
                     <input type="radio" id="businessInput"
-                        formControlName="art" name="art" value="true">
+                        formControlName="isBusiness" name="isBusiness" value="true">
                     <label class="radio-inline" for="businessInput">
                         Business
                     </label>
                 </div>
                 <div class="radio">
                     <input type="radio" id="privateInput"
-                        formControlName="art" name="art" value="true">
+                        formControlName="isBusiness" name="isBusiness" value="true">
                     <label class="radio-inline" for="privateInput">
                           Private
                     </label>
@@ -30,11 +30,12 @@
           <div class="form-group row">
               <label for="logbookid" class="col-2 col-form-label">Logbook ID</label>
               <div class="col-2">
-                <input id="logbookid" class="form-control" formControlName="logbookid" type="text" value="Enter Logbook ID" >
+                <input id="logbookid" class="form-control" formControlName="id" type="text" value="Enter Logbook ID" >
               </div>
           </div>
         </div>
 
+        <!--
         <div formGroupName="startOdometer">
           <div class="form-group row">
             <label for="gpsLat" class="col-2 col-form-label">Gps Lat *</label>
@@ -76,7 +77,7 @@
             </div>
           </div>
         </div>
-
+        -->
         
         
         <!--
@@ -102,17 +103,45 @@
         -->
 
         <div class="form-group row">
-            <label for="customername" class="col-2 col-form-label">Customer name *</label>
+          <label for="startOdometer" class="col-2 col-form-label">Start Odometer *</label>
+          <div class="col-2">
+            <input id="startOdometer" class="form-control" formControlName="startOdometer" type="number" placeholder="Enter as number" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="endOdometer" class="col-2 col-form-label">End Odometer *</label>
+          <div class="col-2">
+            <input id="endOdometer" class="form-control" formControlName="endOdometer" type="number" placeholder="Enter as number" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="customerName" class="col-2 col-form-label">Customer name *</label>
             <div class="col-2">
-              <input id="customername" class="form-control" formControlName="customername" type="text" value="Enter Customer name" >
+              <input id="customerName" class="form-control" formControlName="customerName" type="text" value="Enter Customer name" >
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="projectname" class="col-2 col-form-label">Project name *</label>
+            <label for="projectName" class="col-2 col-form-label">Project name *</label>
             <div class="col-2">
-              <input id="projectname" class="form-control" formControlName="projectname" type="text" value="Enter Project name" >
+              <input id="projectName" class="form-control" formControlName="projectName" type="text" value="Enter Project name" >
             </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="startDate" class="col-2 col-form-label">startdate and time *</label>
+          <div class="col-2">
+            <input id="startDate" class="form-control" formControlName="startDate" type="datetime-local" value="" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="endDate" class="col-2 col-form-label">Enddate and time *</label>
+          <div class="col-2">
+            <input id="endDate" class="form-control" formControlName="endDate" type="datetime-local" value="" >
+          </div>
         </div>
 
 
