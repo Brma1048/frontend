@@ -3,10 +3,10 @@ import { Driver } from "./driver";
 import { WayPoints } from './waypoints';
 
 export class Trip {
-    id: string;
+    id: number;
     driver: Driver;
     car: Car;
-    logbookid: string;
+    logbookid: number;
     
     
     tripBusiness: boolean;
