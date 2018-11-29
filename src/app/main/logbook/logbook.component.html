@@ -52,28 +52,6 @@
     </table>
   </div>
     </div>
-    <div *ngIf="logbooks">
-      <h3>All Logbook's</h3>
-         <div class="table-responsive">
-            <table class="table table-dark">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Car</th>
-                  <th scope="col">Current Trip</th>
-                  <th scope="col">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let logbook of logbooks" (click)="onSelect(logbook)">
-                    <th scope="row">{{logbook.id}}</th>
-                    <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
-                    <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-                    <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
-                </tr>
-              </tbody>
-            </table>
-         </div>
          <div *ngIf="logbook">
             <h3>Suchergebnisse</h3>
               <div class="table-responsive">
@@ -98,4 +76,4 @@
             </div>
           </div>
     </div>
-  </div>
+</div>
