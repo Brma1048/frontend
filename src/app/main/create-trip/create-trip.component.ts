@@ -27,6 +27,7 @@ export class CreateTripComponent implements OnInit {
   ngOnInit() {
 
     this.form = new FormGroup({
+      id: new FormControl(),
       logbook: new FormGroup({
         id: new FormControl()
       }),

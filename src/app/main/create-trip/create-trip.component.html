@@ -7,6 +7,13 @@
       <form [formGroup]="form"  > <!-- (ngSubmit)="onSubmit()" -->
 
         <div class="form-group row">
+          <label for="id" class="col-2 col-form-label">ID</label>
+          <div class="col-2">
+            <input id="id" class="form-control" formControlName="id" type="number" placeholder="Enter as number" >
+          </div>
+        </div>
+
+        <div class="form-group row">
             <label class="col-2 form-control-label">Art *</label>
             <div class="col col-10">
                 <div class="radio">
@@ -18,7 +25,7 @@
                 </div>
                 <div class="radio">
                     <input type="radio" id="privateInput"
-                        formControlName="isBusiness" name="isBusiness" value="true">
+                        formControlName="isBusiness" name="isBusiness" value="false">
                     <label class="radio-inline" for="privateInput">
                           Private
                     </label>
