@@ -28,7 +28,7 @@ export class CreateService {
       console.log(response);
     }) 
   }
-
+  //https://jsonplaceholder.typicode.com/posts
   addTrip (trip: Trip){
     return this.http.post('http://localhost:8080/createTrip', trip, {
       headers: new HttpHeaders({

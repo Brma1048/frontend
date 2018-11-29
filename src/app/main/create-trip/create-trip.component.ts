@@ -27,21 +27,27 @@ export class CreateTripComponent implements OnInit {
   ngOnInit() {
 
     this.form = new FormGroup({
-      logbookid: new FormControl(),
-      firstname: new FormControl(),
-      lastname: new FormControl(),
-      startOdometer: new FormControl(),
-      endOdometer: new FormControl(),
-      startDate: new FormControl(),
-      endDate: new FormControl(),
-      customername: new FormControl(),
-      projectname: new FormControl(),
+      logbook: new FormGroup({
+        logbookid: new FormControl()
+      }),
       art: new FormControl(),
-      driverid: new FormControl(),
-      lat: new FormControl(),
-      lon: new FormControl()
-      
-
+      //firstname: new FormControl(),
+      //lastname: new FormControl(),
+      startOdometer: new FormGroup({
+        gpsLat: new FormControl(),
+        gpsLon: new FormControl(),
+        startDate: new FormControl()
+      }),
+      endOdometer: new FormGroup({
+        gpsLat: new FormControl(),
+        gpsLon: new FormControl(),
+        endDate: new FormControl()
+      }),
+      //startDate: new FormControl(),
+      //endDate: new FormControl(),
+      customername: new FormControl(),
+      projectname: new FormControl()
+      //driverid: new FormControl()
     })
   }
 
