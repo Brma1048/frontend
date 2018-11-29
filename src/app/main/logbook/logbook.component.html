@@ -21,15 +21,14 @@
 
 
 
-<div class="card text-white bg-secondary" *ngIf="logbooks">
-  <div class="card-header">
+<div class="row">
+  <div class="col-12">
     <div *ngIf="logbooks">
       <h3>Alle Fahrtenbücher</h3>
-    </div>
-  </div>
+    
 
-  <div class="card-body table-responsive" *ngIf="logbooks">
-    <table class="table table-primary table-bordered">
+  <div class="table-responsive">
+    <table class="table table-dark">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -47,11 +46,14 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+    </div>
 
     <div *ngIf="logbook">
       <h3>Suchergebnisse</h3>
        <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-dark">
           <thead>
             <tr>
               <th scope="col">ID</th>
