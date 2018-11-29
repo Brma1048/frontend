@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-12">
+    <h1>Fahrtenbücher</h1>
   </div>
 </div>
-
 <div class="row">
     <div class="input-group mb-3">
-        <button class="btn mybtn mr-3" (click)="showLogbooks()">Show All</button>
-        <div class="col-xs-3">
+        <button class="btn mybtn mr-3" (click)="showLogbooks()">Alle Fahrtenbücher</button>
+        <div class="col-3">
           <input type="number" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
         </div>
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary mybtn" type="button" (click)="showLogbookByID()">Show by ID</button>
+          <button class="btn btn-outline-secondary mybtn" type="button" (click)="showLogbookByID()">Fahrtenbuch ID suchen</button>
         </div>
         <!--<div class="col-xs-3">
           <input type="text" class="form-control" placeholder="ID" [(ngModel)]="logbookDriverLastName">
@@ -19,12 +19,13 @@
           <button class="btn btn-outline-secondary mybtn" type="button" (click)="showLogbookByDriverLastName()">Show by DriverLastName</button>
         </div>
       </div>-->
+    </div>
 </div>
 
 
 
 <div class="row">
-  <div class="col-12">
+  <div class="col-12 ">
     <div *ngIf="logbooks">
       <h3>Alle Fahrtenbücher</h3>
     

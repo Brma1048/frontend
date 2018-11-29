@@ -25,6 +25,8 @@ export class TripComponent implements OnInit {
   driverid: number;
   customername: string;
 
+  tripheading: string;
+
   onSelect(trip: Trip): void{
     this.selectedTrip = trip;
   }
@@ -34,27 +36,33 @@ export class TripComponent implements OnInit {
   getLogbookTrips(): void{
     const id = +this.route.snapshot.paramMap.get('id');
     //this.trips = this.tripService.getLogbookTrips(id);
+    this.tripheading = "Fahrten des Fahrtenbuchs "+id;
     this.tripService.getLogbookTrips(id)
         .subscribe(trips => this.trips = trips);
   }
   getLogbookTripsByID(): void{
     //this.trips = this.tripService.getLogbookTrips(this.logbookid);
+    this.tripheading = "Fahrten des Fahrtenbuchs "+this.logbookid;
     this.tripService.getLogbookTrips(this.logbookid)
         .subscribe(trips => this.trips = trips);
   }
   getTripsByDriverName(): void{
+    this.tripheading = "Fahrten des Fahrers "+this.drivername;
     this.trips = this.tripService.getTripsByDriverName(this.drivername);
   }
   getTrips(): void{
     //this.trips = this.tripService.getTrips();
+    this.tripheading = "Alle Fahrten";
     this.tripService.getTrips()
         .subscribe(trips => this.trips = trips);
   }
   getTripsByDriverID(): void{
+    this.tripheading = "Fahrten des Fahrers mit der ID "+this.driverid;
     this.tripService.getTripsByDriverID(this.driverid)
         .subscribe(trips => this.trips = trips);
   }
   getTripsByCustomerName(): void{
+    this.tripheading = "Fahrten des Kunden "+this.customername;
     this.tripService.getTripsByCustomerName(this.customername)
         .subscribe(trips => this.trips = trips);
   }
