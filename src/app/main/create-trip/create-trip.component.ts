@@ -11,9 +11,8 @@ import { Trip } from '../entities/trip';
 })
 export class CreateTripComponent implements OnInit {
 
-  
   constructor(
-    
+
     private createService: CreateService) { }
 
 
@@ -23,36 +22,28 @@ export class CreateTripComponent implements OnInit {
   showConsole(): void {
     this.createService.geoCode(this.location);
   }
-  
+
   ngOnInit() {
 
     this.form = new FormGroup({
-      id: new FormControl(),
       logbook: new FormGroup({
         id: new FormControl()
       }),
-      isBusiness: new FormControl(),
-      //firstname: new FormControl(),
-      //lastname: new FormControl(),
-      /*startOdometer: new FormGroup({
+      startWaypoint: new FormGroup({
         gpsLat: new FormControl(),
-        gpsLon: new FormControl(),
-        startDate: new FormControl()
-      })*/
-      startOdometer: new FormControl(),
-      endOdometer: new FormControl(),
-      /*
-      endOdometer: new FormGroup({
+        gpsLon: new FormControl()
+      }),
+      endWaypoint: new FormGroup({
         gpsLat: new FormControl(),
         gpsLon: new FormControl(),
         endDate: new FormControl()
-      })*/
-
-      //startDate: new FormControl(),
-      //endDate: new FormControl(),
+      }),
+      isBusiness: new FormControl(),
+      startOdometer: new FormControl(),
+      endOdometer: new FormControl(),
       customerName: new FormControl(),
       projectName: new FormControl(),
-      //driverid: new FormControl()
+      // driverid: new FormControl()
       startDate: new FormControl(),
       endDate: new FormControl()
     });
@@ -60,12 +51,6 @@ export class CreateTripComponent implements OnInit {
 
   add(): void {
     const newTrip = this.form.value;
-  
     this.createService.addTrip(newTrip);
-
-   
   }
-
-
- 
 }
