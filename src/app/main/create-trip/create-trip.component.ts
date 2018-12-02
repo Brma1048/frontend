@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateService } from './create.service';
-import { FormControl, FormGroup, Validator, Validators } from '@angular/forms'
+import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 import { Trip } from '../entities/trip';
 
 
