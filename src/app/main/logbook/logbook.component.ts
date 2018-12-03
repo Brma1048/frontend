@@ -19,7 +19,7 @@ export class LogbookComponent implements OnInit {
 
   logbooks : Logbook[];
   logbook: Logbook;
-  logbookid: number;
+  logbookid: string;
   logbookDriverLastName: string;
   keineergebnisse: boolean = false;
 
@@ -29,10 +29,16 @@ export class LogbookComponent implements OnInit {
         if(this.logbooks == null){
           this.keineergebnisse = true;
         }
+        else{
+          this.keineergebnisse = false;
+        }
         break;
       case 2:
         if(this.logbook == null){
           this.keineergebnisse = true;
+        }
+        else{
+          this.keineergebnisse = false;
         }
         break;
 
@@ -45,6 +51,8 @@ export class LogbookComponent implements OnInit {
   }*/
   getLogbooks(): void{
     //this.logbooks = this.logbookService.getLogbooks();
+    this.logbook = null;
+    this.logbooks = null;
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks,
           () => (this.checkergebnisse(1),alert("DB Fehler")),
@@ -52,6 +60,8 @@ export class LogbookComponent implements OnInit {
         );}
   getLogbook(): void{
     //this.logbook = this.logbookService.getLogbook(this.logbookid);
+    this.logbooks = null;
+    this.logbook = null;
     this.logbookService.getLogbook(this.logbookid)
         .subscribe(logbook => this.logbook = logbook,
         () => (this.checkergebnisse(2),alert("DB Fehler")),
