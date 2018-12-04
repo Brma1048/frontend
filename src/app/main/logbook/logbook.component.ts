@@ -19,24 +19,56 @@ export class LogbookComponent implements OnInit {
 
   logbooks : Logbook[];
   logbook: Logbook;
-  logbookid: number;
+  logbookid: string;
   logbookDriverLastName: string;
+  keineergebnisse: boolean = false;
 
+  checkergebnisse(id: number): void{
+    switch(id){
+      case 1:
+        if(this.logbooks == null){
+          this.keineergebnisse = true;
+        }
+        else{
+          this.keineergebnisse = false;
+        }
+        break;
+      case 2:
+        if(this.logbook == null){
+          this.keineergebnisse = true;
+        }
+        else{
+          this.keineergebnisse = false;
+        }
+        break;
+
+      
+    }
+  }
   /*getLogbooks(): void{
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks);
   }*/
   getLogbooks(): void{
     //this.logbooks = this.logbookService.getLogbooks();
+    this.logbook = null;
+    this.logbooks = null;
     this.logbookService.getLogbooks()
-        .subscribe(logbooks => this.logbooks = logbooks);
-  }
+        .subscribe(logbooks => this.logbooks = logbooks,
+          () => (this.checkergebnisse(1),alert("DB Fehler")),
+          () => this.checkergebnisse(1)
+        );}
   getLogbook(): void{
     //this.logbook = this.logbookService.getLogbook(this.logbookid);
+    this.logbooks = null;
+    this.logbook = null;
     this.logbookService.getLogbook(this.logbookid)
-        .subscribe(logbook => this.logbook = logbook);
-    
+        .subscribe(logbook => this.logbook = logbook,
+        () => (this.checkergebnisse(2),alert("DB Fehler")),
+        () => this.checkergebnisse(2)
+      );
   }
+
   getLogbookByDriverLastName(): void{
     this.logbookService.getLogbookByDriverLastName(this.logbookDriverLastName)
         .subscribe(logbook => this.logbook = logbook);

@@ -29,7 +29,7 @@ export class LogbookService {
     const url = `${this.logbooksURL}/${id}`;
     return this.http.get<Logbook>(url);
   }*/
-  getLogbook(id: number): Observable<Logbook>{
+  getLogbook(id: string): Observable<Logbook>{
     const url = `${this.logbooksURL}/${id}`;
     return this.http.get<Logbook>(url);
   }

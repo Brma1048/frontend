@@ -8,7 +8,7 @@
         <button class="btn btn-primary mr-2"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
         <button class="btn btn-primary mr-2"(click)="showAllTrips()">All Trips</button><!---->
         <div class="input-group col-3 mr-2">
-            <input type="number" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
+            <input type="text" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
             <div class="input-group-append">
               <button class="btn btn-primary" type="button" (click)="showTripByLogbookbyID()">Show by Logbook ID</button>
             </div>
@@ -43,7 +43,7 @@
 <div class="row">
   <div class="col-12">
     <!--Logbook-Trips-->
-    <div *ngIf="trips">
+    <div *ngIf="trips.length > 0">
       <div class="table-responsive">
       <table class="table table-dark">
         <thead>
@@ -71,4 +71,9 @@
       </div>
     </div>
   </div>
-
+</div>
+  <div *ngIf="keineergebnisse">
+      <div class="row">
+        <h4>Keine Ergebnisse auf ihre Suchanfrage!</h4>
+      </div>
+    </div>

@@ -20,12 +20,22 @@ export class TripComponent implements OnInit {
   trips: Trip[]; 
   logbooktrips: Trip[];
   faInfo = faInfo;
-  logbookid: number;
+  logbookid: string;
   drivername: string;
   driverid: number;
   customername: string;
 
   tripheading: string;
+
+  keineergebnisse: boolean = false;
+  checkergebnisse(): void{
+    if(this.trips.length == 0){  
+      this.keineergebnisse = true;
+    }
+    else{
+      this.keineergebnisse = false;
+    }
+  }
 
   onSelect(trip: Trip): void{
     this.selectedTrip = trip;
@@ -34,17 +44,23 @@ export class TripComponent implements OnInit {
   
 
   getLogbookTrips(): void{
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     //this.trips = this.tripService.getLogbookTrips(id);
     this.tripheading = "Fahrten des Fahrtenbuchs "+id;
     this.tripService.getLogbookTrips(id)
-        .subscribe(trips => this.trips = trips);
+        .subscribe(trips => this.trips = trips,
+          () => (this.checkergebnisse(),alert("error")),
+          () => (this.checkergebnisse(),alert("kein error"))
+          );
   }
   getLogbookTripsByID(): void{
     //this.trips = this.tripService.getLogbookTrips(this.logbookid);
     this.tripheading = "Fahrten des Fahrtenbuchs "+this.logbookid;
     this.tripService.getLogbookTrips(this.logbookid)
-        .subscribe(trips => this.trips = trips);
+        .subscribe(trips => this.trips = trips,
+          () => (this.checkergebnisse(),alert("error")),
+          () => (this.checkergebnisse(),alert("kein error"))
+          );
   }
   getTripsByDriverName(): void{
     this.tripheading = "Fahrten des Fahrers "+this.drivername;
@@ -54,17 +70,26 @@ export class TripComponent implements OnInit {
     //this.trips = this.tripService.getTrips();
     this.tripheading = "Alle Fahrten";
     this.tripService.getTrips()
-        .subscribe(trips => this.trips = trips);
+        .subscribe(trips => this.trips = trips,
+          () => (this.checkergebnisse(),alert("error")),
+          () => (this.checkergebnisse(),alert("kein error"))
+          );
   }
   getTripsByDriverID(): void{
     this.tripheading = "Fahrten des Fahrers mit der ID "+this.driverid;
     this.tripService.getTripsByDriverID(this.driverid)
-        .subscribe(trips => this.trips = trips);
+        .subscribe(trips => this.trips = trips,
+          () => (this.checkergebnisse(),alert("error")),
+          () => (this.checkergebnisse(),alert("kein error"))
+          );
   }
   getTripsByCustomerName(): void{
     this.tripheading = "Fahrten des Kunden "+this.customername;
     this.tripService.getTripsByCustomerName(this.customername)
-        .subscribe(trips => this.trips = trips);
+        .subscribe(trips => this.trips = trips,
+          () => (this.checkergebnisse(),alert("error")),
+          () => (this.checkergebnisse(),alert("kein error"))
+          );
   }
 
   

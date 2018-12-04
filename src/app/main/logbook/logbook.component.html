@@ -7,7 +7,7 @@
     <div class="input-group mb-3">
         <button class="btn btn-primary mr-3" (click)="showLogbooks()">Show All</button>
         <div class="col-xs-3">
-          <input type="number" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
+          <input type="string" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
         </div>
         <div class="input-group-append">
           <button class="btn btn-primary" type="button" (click)="showLogbookByID()">Show by ID</button>
@@ -76,4 +76,10 @@
             </div>
           </div>
     </div>
+</div>
+
+<div *ngIf="keineergebnisse">
+  <div class="row">
+    <h4>Keine Ergebnisse auf ihre Suchanfrage!</h4>
+  </div>
 </div>
