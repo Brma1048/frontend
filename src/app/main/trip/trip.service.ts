@@ -44,7 +44,7 @@ export class TripService {
     return data.filter(t => t.driver.name === name);
   }
 
-  getTripsByDriverID(id: number): Observable<Trip[]>{
+  getTripsByDriverID(id: string): Observable<Trip[]>{
     const url = `${this.tripsURL}/driver/${id}`;
     return this.http.get<Trip[]>(url);
   }
