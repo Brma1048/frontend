@@ -5,6 +5,7 @@ import { TripComponent } from './main/trip/trip.component';
 import { TripDetailComponent } from './main/trip-detail/trip-detail.component';
 import { LogbookComponent } from './main/logbook/logbook.component';
 import { CreateTripComponent } from './main/create-trip/create-trip.component';
+import { CreateTripGuard } from './main/create-trip/create-trip.guard';
 
 const routes: Routes = [
   // {path: "",redirectTo: "/trip", pathMatch: "full"},
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'trip/:id', component: TripComponent },
   { path: 'trip-detail/:id', component: TripDetailComponent},
   { path: 'logbook', component: LogbookComponent},
-  { path: 'create', component: CreateTripComponent}
+  { path: 'create', component: CreateTripComponent, canDeactivate: [CreateTripGuard]}
 ];
 
 @NgModule({

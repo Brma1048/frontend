@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CreateService } from './create.service';
-import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validator, Validators, NgForm } from '@angular/forms';
 import { Trip } from '../entities/trip';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
-
+export const HOME_PATH = 'logbook';
 @Component({
   selector: 'app-create-trip',
   templateUrl: './create-trip.component.html',
@@ -13,11 +14,15 @@ import * as $ from 'jquery';
 })
 export class CreateTripComponent implements OnInit {
 
+  @ViewChild('tripForm') public createTripForm: NgForm;
+
   constructor(
+    private router: Router,
     public _location: Location,
     private createService: CreateService) { }
 
-  showWarning: false;
+  showWarning = false;
+  fertig = false;
   form: FormGroup;
   location: string;
 
@@ -48,28 +53,32 @@ export class CreateTripComponent implements OnInit {
       startDate: new FormControl('', Validators.required),
       endDate: new FormControl('', Validators.required)
     });
+
+        /*
+      $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false // Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    }); */
   }
 
   add(): void {
     const newTrip = this.form.value;
     this.createService.addTrip(newTrip);
+    this.router.navigate([HOME_PATH]);
+    this.showWarning = false;
+    this.fertig = true;
   }
 
   goBack() {
     this._location.back();
     this.showWarning = false;
   }
-  /*
-  $(function () {
-    $('#datetimepicker6').datetimepicker();
-    $('#datetimepicker7').datetimepicker({
-        useCurrent: false // Important! See issue #1075
-    });
-    $("#datetimepicker6").on("dp.change", function (e) {
-        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-    });
-    $("#datetimepicker7").on("dp.change", function (e) {
-        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-    });
-}); */
 }

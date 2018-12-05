@@ -4,7 +4,7 @@
     </div>
 
     <div class="card-body">
-      <form [formGroup]="form"  > <!-- (ngSubmit)="onSubmit()" -->
+      <form #tripForm="ngForm" [formGroup]="form"  > <!-- (ngSubmit)="onSubmit()" -->
 
         <div class="form-group row has-warning" *ngIf="showWarning">
           <div class="form-control-feedback">
@@ -115,7 +115,7 @@
         <div class="form-group row">
           <label for="endDate" class="col-2 col-form-label">Enddate and time *</label>
           <div class="col-4">
-            <input id="endDate" class="form-control" formControlName="endDate" type="datetime-local" value="" >
+            <input id="endDate" class="form-control" formControlName="endDate" type="datetime-local" max="31-12-9999" value="" >
           </div>
         </div>
 
@@ -158,7 +158,7 @@
     </div>
     -->
 
-
+  <!-- Kalender
    <div class="form-group">
             <div class='input-group date' id='datetimepicker6'>
                 <input type='text' class="form-control" />
@@ -176,6 +176,14 @@
         </span>
     </div>
 </div>
+
+<div class="form-group row">
+  <label for="endDate" class="col-2 col-form-label">Enddate and time *</label>
+  <div class="col-4">
+    <input id="endDate" class="form-control" formControlName="endDate" type="text" bsDatepicker ngvalue="" >
+  </div>
+</div>
+-->
 
     
 

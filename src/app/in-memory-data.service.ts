@@ -1,3 +1,4 @@
+/*
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Trip } from './main/entities/trip';
 import { Logbook } from './main/entities/logbook';
@@ -137,4 +138,5 @@ export class InMemoryDataService implements InMemoryDbService {
   /*genId(logbooks: Logbook[]): number {
     return logbooks.length > 0 ? Math.max(...logbooks.map(Logbook => Logbook.trips[0].startOdometer)) + 1 : 11;
   }*/
-}
+  
+//}
