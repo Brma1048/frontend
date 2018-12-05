@@ -7,13 +7,13 @@ import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { TripComponent } from './main/trip/trip.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'; 
-import { TripDetailComponent } from './main/trip-detail/trip-detail.component'; //TUT
+import { HttpClientModule } from '@angular/common/http';
+import { TripDetailComponent } from './main/trip-detail/trip-detail.component'; // TUT
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LogbookComponent } from './main/logbook/logbook.component';
 import { FormsModule } from '@angular/forms';
 import { CreateTripComponent } from './main/create-trip/create-trip.component';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
