@@ -7,7 +7,7 @@
       <form [formGroup]="form"  > <!-- (ngSubmit)="onSubmit()" -->
 
         <div class="form-group row">
-            <label class="col-2 form-control-label">Art *</label>
+            <label class="col-2 form-control-label">Typ *</label>
             <div class="col col-10">
                 <div class="radio">
                     <input type="radio" id="businessInput"
@@ -95,7 +95,7 @@
         </div>
 
         <div class="form-group row">
-          <label for="startDate" class="col-2 col-form-label">startdate and time *</label>
+          <label for="startDate" class="col-2 col-form-label">Startdate and time *</label>
           <div class="col-4">
             <input id="startDate" class="form-control" formControlName="startDate" type="datetime-local" value="" >
           </div>
@@ -111,7 +111,7 @@
         <div class="form-group row">
             <div class="col offset-2">
                 <button class="btn btn-primary" (click)="add()"  [disabled]="!form.valid"> <!-- type="submit"-->
-                    <span class="ml-1">Jetzt anlegen</span>
+                    <span class="ml-1">Create now</span>
                 </button>
             </div>
         </div>
@@ -128,7 +128,7 @@
 
       </form>
 
-      <small>* sind Pflichtfelder bei Business-Trip</small>
+      <small>* Required fields for a business trip</small>
       <!--
       <div class="input-group mb-3">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="location">
