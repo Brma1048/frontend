@@ -6,6 +6,17 @@
     <div class="card-body">
       <form [formGroup]="form"  > <!-- (ngSubmit)="onSubmit()" -->
 
+        <div class="form-group row has-warning" *ngIf="showWarning">
+          <div class="form-control-feedback">
+              <span class="alert alert-warning">
+                  <i class="fas fa-2x fa-exclamation-triangle"></i>
+                  <strong class="text-help ml-1">
+                      Wenn Sie die Seite jetzt verlassen, verlieren Sie Ihre eingegebenen Daten.
+                  </strong>
+              </span>
+          </div>
+      </div>
+
         <div class="form-group row">
             <label class="col-2 form-control-label">Typ *</label>
             <div class="col col-10">
@@ -115,6 +126,14 @@
                 </button>
             </div>
         </div>
+
+        <div class="form-group row">
+          <div class="col offset-2">
+              <button type="button" class="btn btn-primary" (click)="goBack()">
+                  <span class="ml-1">Back</span>
+              </button>
+          </div>
+      </div>
         <!--
         <div class="form-group row">
           <div class="col offset-2">
