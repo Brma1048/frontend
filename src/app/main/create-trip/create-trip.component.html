@@ -11,18 +11,18 @@
               <span class="alert alert-warning">
                   <i class="fas fa-2x fa-exclamation-triangle"></i>
                   <strong class="text-help ml-1">
-                      Wenn Sie die Seite jetzt verlassen, verlieren Sie Ihre eingegebenen Daten.
+                      If you leave the page now, you lose your entered data.
                   </strong>
               </span>
           </div>
       </div>
 
         <div class="form-group row">
-            <label class="col-2 form-control-label">Typ *</label>
+            <label class="col-2 form-control-label">Art *</label>
             <div class="col col-10">
                 <div class="radio">
                     <input type="radio" id="businessInput"
-                        formControlName="isBusiness" name="isBusiness" value="true">
+                        formControlName="isBusiness" name="isBusiness" value="true" >
                     <label class="radio-inline" for="businessInput">
                         Business
                     </label>
@@ -41,12 +41,24 @@
           <div class="form-group row">
               <label for="logbookid" class="col-2 col-form-label">Logbook ID</label>
               <div class="col-4">
-                <input id="logbookid" class="form-control" formControlName="id" type="text" value="Enter Logbook ID" >
+                <input id="logbookid" autofocus class="form-control" formControlName="id" type="text" value="Enter Logbook ID">
               </div>
           </div>
         </div>
+        
+        <div class="form-group row">
+          <label for="startAdress" class="col-2 col-form-label">Start Adress</label>
+          <div class="col-4">
+              <input id="startAdress" type="text" class="form-control"  [(ngModel)]="location">
+          </div>
+          <div class="input-group-append">
+              <button class="btn btn-primary" (click)="showConsole()"  >
+                  <span class="ml-1">Get Geocode</span>
+              </button>
+          </div>
+        </div>
 
-        <div formGroupName="startWaypoint">
+        <div id="gpsLat" formGroupName="startWaypoint">
           <div class="form-group row">
             <label for="gpsLat" class="col-2 col-form-label">Gps Latitude Start *</label>
             <div class="col-2">
@@ -60,6 +72,18 @@
             </div>
           </div>
         </div>
+
+        <div class="form-group row">
+            <label for="endAdress" class="col-2 col-form-label">End Adress</label>
+            <div class="col-4">
+                <input id="endAdress" type="text" class="form-control"  [(ngModel)]="location">
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-primary" (click)="showConsole()"  >
+                    <span class="ml-1">Get Geocode</span>
+                </button>
+            </div>
+          </div>
 
         <div formGroupName="endWaypoint">
           <div class="form-group row">
@@ -87,14 +111,14 @@
         <div class="form-group row">
           <label for="endOdometer" class="col-2 col-form-label">End Odometer *</label>
           <div class="col-4">
-            <input id="endOdometer" class="form-control" formControlName="endOdometer" type="number" placeholder="Enter as number" >
+            <input id="endOdometer" class="form-control" required formControlName="endOdometer" type="number" placeholder="Enter as number">
           </div>
         </div>
 
         <div class="form-group row">
             <label for="customerName" class="col-2 col-form-label">Customer name *</label>
             <div class="col-4">
-              <input id="customerName" class="form-control" formControlName="customerName" type="text" value="Enter Customer name" >
+              <input id="customerName" class="form-control" formControlName="customerName" type="text" value="Enter Customer name">
             </div>
         </div>
 
@@ -134,7 +158,7 @@
               </button>
           </div>
       </div>
-        <!--
+        
         <div class="form-group row">
           <div class="col offset-2">
               <button class="btn btn-primary" (click)="showConsole()"  >
@@ -142,21 +166,18 @@
               </button>
           </div>
       </div>
-    -->
+    
         
 
       </form>
 
       <small>* Required fields for a business trip</small>
-      <!--
+      
       <div class="input-group mb-3">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="location">
-        <div class="input-group-append">
-          <button class="btn  btn-primary" type="button">Button</button>
-        </div>
       </div>
     </div>
-    -->
+    
 
   <!-- Kalender
    <div class="form-group">

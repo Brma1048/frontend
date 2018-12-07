@@ -1,6 +1,6 @@
 import { Injectable, ErrorHandler } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse }    from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Trip, TripResponse } from '../entities/trip';
 
 
@@ -14,6 +14,29 @@ export class CreateService {
   private tripsUrl = 'http://localhost:8080/logbook';
 
   geoCode(location: string) {
+    // var location = "Rastatterstraße 77a Karlsruhe"
+    return this.http.get('https://eu1.locationiq.com/v1/search.php?', {
+      params: {
+        format: 'json',
+        q: location,
+        key: 'pk.ffbc75ecb6b5956a8fb542a623e0f957'
+
+      }
+    })
+    .subscribe(function(response) {
+       const lat = response[0].lat;
+       const lon = response[0].lon;
+       const inputValueLat = (<HTMLInputElement>document.getElementById('gpsLat'));
+       inputValueLat.value = lat;
+       const inputValueLot = (<HTMLInputElement>document.getElementById('gpsLon'));
+       inputValueLot.value = lon;
+       console.log(lat);
+      console.log(response);
+    });
+  }
+
+  /*
+  geoCode(location: string) {
     //var location = "Rastatterstraße 77a Karlsruhe"
     return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?', {
       params: {
@@ -26,10 +49,12 @@ export class CreateService {
       //let lat = response.data.results[0].geometry.location.lat;
       //let lon = response.data.results[0].geometry.location.lon;
       console.log(response);
-    }) 
+    })
   }
-  //https://jsonplaceholder.typicode.com/posts
-  addTrip (trip: Trip){
+  */
+
+  // https://jsonplaceholder.typicode.com/posts
+  addTrip (trip: Trip) {
     return this.http.post('http://localhost:8080/createTrip', trip, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -37,16 +62,16 @@ export class CreateService {
     })
     .subscribe(
       res => {
-        console.log(res)
+        console.log(res);
       },
       (err: HttpErrorResponse) => {
-        if(err.error instanceof Error){
-          console.log("Client Side Error: ", err.error.message)
+        if (err.error instanceof Error) {
+          console.log('Client Side Error: ', err.error.message);
         } else {
-          console.log("Server Side Error: ", err.error.message)
+          console.log('Server Side Error: ', err.error.message);
         }
       }
-    )
+    );
   }
 
   constructor(private http: HttpClient) { }
