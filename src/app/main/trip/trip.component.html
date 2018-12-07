@@ -20,9 +20,9 @@
           <button class="btn btn-outline-secondary mybtn" type="button" (click)="showTripsByDriverName()">Show by Driver Name</button>
         </div>-->
         <div class="input-group col-3">
-            <input type="number" class="form-control" placeholder="Driver ID" [(ngModel)]="driverid">
+            <input type="text" class="form-control" placeholder="Driver ID" [(ngModel)]="driverid">
             <div class="input-group-append">
-              <button class="btn btn-primary mr-3" type="button" (click)="showTripsByDriverID()">Show by Driver ID</button>
+              <button class="btn btn-primary mr-3" type="button" (click)="showTripsByDriverID()">Show by Driver Mail</button>
             </div>
         </div>
         <div class="input-group col-3">
@@ -43,7 +43,7 @@
 <div class="row">
   <div class="col-12">
     <!--Logbook-Trips-->
-    <div *ngIf="trips.length > 0">
+    <div *ngIf="trips != null">
       <div class="table-responsive">
       <table class="table table-dark">
         <thead>
