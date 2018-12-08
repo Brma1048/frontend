@@ -13,8 +13,8 @@ export class CreateService {
 
   private tripsUrl = 'http://localhost:8080/logbook';
 
-  geoCode(location: string) {
-    // var location = "Rastatterstraße 77a Karlsruhe"
+  getGeoCodeStart(location: string) {
+
     return this.http.get('https://eu1.locationiq.com/v1/search.php?', {
       params: {
         format: 'json',
@@ -26,11 +26,35 @@ export class CreateService {
     .subscribe(function(response) {
        const lat = response[0].lat;
        const lon = response[0].lon;
-       const inputValueLat = (<HTMLInputElement>document.getElementById('gpsLat'));
-       inputValueLat.value = lat;
-       const inputValueLot = (<HTMLInputElement>document.getElementById('gpsLon'));
-       inputValueLot.value = lon;
-       console.log(lat);
+
+       const inputValueLatStart = (<HTMLInputElement>document.getElementById('gpsLatStart'));
+       inputValueLatStart.value = lat;
+       const inputValueLonStart = (<HTMLInputElement>document.getElementById('gpsLonStart'));
+       inputValueLonStart.value = lon;
+
+      console.log(response);
+    });
+  }
+
+  getGeoCodeEnd(location: string) {
+
+    return this.http.get('https://eu1.locationiq.com/v1/search.php?', {
+      params: {
+        format: 'json',
+        q: location,
+        key: 'pk.ffbc75ecb6b5956a8fb542a623e0f957'
+
+      }
+    })
+    .subscribe(function(response) {
+       const lat = response[0].lat;
+       const lon = response[0].lon;
+
+       const inputValueLatEnd = (<HTMLInputElement>document.getElementById('gpsLatEnd'));
+       inputValueLatEnd.value = lat;
+       const inputValueLonEnd = (<HTMLInputElement>document.getElementById('gpsLonEnd'));
+       inputValueLonEnd.value = lon;
+
       console.log(response);
     });
   }
