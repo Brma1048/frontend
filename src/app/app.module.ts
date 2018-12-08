@@ -14,7 +14,7 @@ import { LogbookComponent } from './main/logbook/logbook.component';
 import { FormsModule } from '@angular/forms';
 import { CreateTripComponent } from './main/create-trip/create-trip.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+// import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CreateTripGuard } from './main/create-trip/create-trip.guard';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { CreateTripGuard } from './main/create-trip/create-trip.guard';
     HttpClientModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
+    // BsDatepickerModule.forRoot()
   ],
   providers: [CreateTripGuard],
   bootstrap: [AppComponent]

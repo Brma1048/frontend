@@ -24,10 +24,15 @@ export class CreateTripComponent implements OnInit {
   showWarning = false;
   fertig = false;
   form: FormGroup;
-  location: string;
+  locationstart: string;
+  locationend: string;
 
-  showConsole(): void {
-    this.createService.geoCode(this.location);
+  addGeoCodeStart(): void {
+    this.createService.getGeoCodeStart(this.locationstart);
+  }
+
+  addGeoCodeEnd(): void {
+    this.createService.getGeoCodeEnd(this.locationend);
   }
 
   ngOnInit() {
