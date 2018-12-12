@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Logbook } from "../entities/logbook";
+import { Logbook } from '../entities/logbook';
 import { Observable, of } from 'rxjs';
-import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-declare var require: any
+declare var require: any;
 
-const data : Logbook[] = require("../mocks/logbook-mock.json");
+const data: Logbook[] = require('../mocks/logbook-mock.json');
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,10 +18,10 @@ const httpOptions = {
 export class LogbookService {
 
   private logbooksURL = 'http://localhost:8080/logbook';
-  //private logbooksURL = 'api/logbooks';
+  // private logbooksURL = 'api/logbooks';
 
 
-  getLogbooks(): Observable<Logbook[]>{
+  getLogbooks(): Observable<Logbook[]> {
     return this.http.get<Logbook[]>(this.logbooksURL);
   }
 
@@ -29,15 +29,15 @@ export class LogbookService {
     const url = `${this.logbooksURL}/${id}`;
     return this.http.get<Logbook>(url);
   }*/
-  getLogbook(id: string): Observable<Logbook>{
+  getLogbook(id: string): Observable<Logbook> {
     const url = `${this.logbooksURL}/${id}`;
     return this.http.get<Logbook>(url);
   }
 
-  getLogbookByDriverLastName(name: string): Observable<Logbook>{
+  getLogbookByDriverLastName(name: string): Observable<Logbook> {
     const url = `${this.logbooksURL}/name/${name}`;
     return this.http.get<Logbook>(url);
-    
+
   }
   constructor(private http: HttpClient) { }
 }
