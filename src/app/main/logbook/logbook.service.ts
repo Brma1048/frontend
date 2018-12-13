@@ -3,6 +3,7 @@ import { Logbook } from '../entities/logbook';
 import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { KeycloakService } from 'src/app/keycloak.service';
 
 declare var require: any;
 
@@ -22,7 +23,14 @@ export class LogbookService {
 
 
   getLogbooks(): Observable<Logbook[]> {
-    return this.http.get<Logbook[]>(this.logbooksURL);
+    const token = this.keycloakService.getToken();
+    alert(token);
+    return this.http.get<Logbook[]>(this.logbooksURL,{
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token 
+      })
+    });
   }
 
   /*getLogbook(id: number): Observable<Logbook> {
@@ -30,8 +38,14 @@ export class LogbookService {
     return this.http.get<Logbook>(url);
   }*/
   getLogbook(id: string): Observable<Logbook> {
+    const token = this.keycloakService.getToken();
     const url = `${this.logbooksURL}/${id}`;
-    return this.http.get<Logbook>(url);
+    return this.http.get<Logbook>(url,{
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token 
+      })
+    });
   }
 
   getLogbookByDriverLastName(name: string): Observable<Logbook> {
@@ -39,5 +53,7 @@ export class LogbookService {
     return this.http.get<Logbook>(url);
 
   }
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private keycloakService: KeycloakService) { }
 }
