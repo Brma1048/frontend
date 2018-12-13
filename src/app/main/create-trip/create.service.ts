@@ -85,7 +85,7 @@ export class CreateService {
     return this.http.post('http://localhost:8080/createTrip', trip, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer' + token 
+        'Authorization': 'Bearer ' + token 
       })
     })
     .subscribe(
