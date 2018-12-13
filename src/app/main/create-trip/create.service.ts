@@ -2,6 +2,7 @@ import { Injectable, ErrorHandler } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Trip, TripResponse } from '../entities/trip';
+import { KeycloakService } from 'src/app/keycloak.service';
 
 
 
@@ -79,9 +80,12 @@ export class CreateService {
 
   // https://jsonplaceholder.typicode.com/posts
   addTrip (trip: Trip) {
+    const token = this.keycloak.getToken();
+    console.log(token);
     return this.http.post('http://localhost:8080/createTrip', trip, {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer' + token  // Test Header für Token
       })
     })
     .subscribe(
@@ -98,6 +102,7 @@ export class CreateService {
     );
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private keycloak: KeycloakService) { } // Test Header für Token
 }
 

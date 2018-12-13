@@ -11,7 +11,7 @@ const routes: Routes = [
   // {path: "",redirectTo: "/trip", pathMatch: "full"},
   { path: 'trip', component: TripComponent },
   { path: 'trip/:id', component: TripComponent },
-  { path: 'trip-detail/:id', component: TripDetailComponent},
+  { path: 'trip-detail/:id', component: TripDetailComponent },
   { path: 'logbook', component: LogbookComponent},
   { path: 'create', component: CreateTripComponent, canDeactivate: [CreateTripGuard]}
 ];

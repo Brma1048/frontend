@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -16,7 +16,12 @@ import { CreateTripComponent } from './main/create-trip/create-trip.component';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CreateTripGuard } from './main/create-trip/create-trip.guard';
+// import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
+import { KeycloakService } from './keycloak.service';
 
+export function kcFactory(keycloakService: KeycloakService) {
+  return () => keycloakService.init();
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +32,7 @@ import { CreateTripGuard } from './main/create-trip/create-trip.guard';
     TripDetailComponent,
     LogbookComponent,
     CreateTripComponent,
+    // KeycloakAngularModule
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,13 @@ import { CreateTripGuard } from './main/create-trip/create-trip.guard';
     ReactiveFormsModule,
     // BsDatepickerModule.forRoot()
   ],
-  providers: [CreateTripGuard],
+  providers: [CreateTripGuard,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: kcFactory,
+      multi: true,
+      deps: [KeycloakService]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
