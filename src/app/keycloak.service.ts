@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 declare var Keycloak: any;
 
@@ -26,9 +28,9 @@ export class KeycloakService {
   }
   getToken(): string {
     return this.keycloakAuth.token;
+    
   }
-  getroles(): string{
-    return this.keycloakAuth.roles;
+  getroles(route: ActivatedRouteSnapshot): void{
   }
   constructor() { }
 }

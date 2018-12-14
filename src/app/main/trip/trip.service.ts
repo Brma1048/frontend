@@ -20,7 +20,7 @@ const httpOptions = {
 export class TripService {
 
 
-  private tripsURL = 'http://localhost:8080/trip/';
+  private tripsURL = 'http://localhost:8080/trip';
   //private tripsURL = 'api/logbooks';
   private secondURL = 'http://ip.jsontest.com/';
 
