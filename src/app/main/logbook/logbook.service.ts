@@ -24,7 +24,7 @@ export class LogbookService {
 
   getLogbooks(): Observable<Logbook[]> {
     const token = this.keycloakService.getToken();
-    alert(token);
+    
     return this.http.get<Logbook[]>(this.logbooksURL,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',

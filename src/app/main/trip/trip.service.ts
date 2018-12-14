@@ -27,7 +27,7 @@ export class TripService {
   getTrips(): Observable<Trip[]>{
     //return data;
     const token = this.keycloakService.getToken();
-    alert(token);
+    
     return this.http.get<Trip[]>(this.tripsURL,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',

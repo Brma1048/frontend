@@ -27,5 +27,8 @@ export class KeycloakService {
   getToken(): string {
     return this.keycloakAuth.token;
   }
+  getroles(): string{
+    return this.keycloakAuth.roles;
+  }
   constructor() { }
 }

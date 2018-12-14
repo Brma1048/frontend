@@ -50,8 +50,8 @@ export class TripComponent implements OnInit {
     this.tripheading = "Fahrten des Fahrtenbuchs "+id;
     this.tripService.getLogbookTrips(id)
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse(),alert("error")),
-          () => (this.checkergebnisse(),alert("kein error"))
+          () => (this.checkergebnisse()),
+          () => (this.checkergebnisse())
           );
   }
   getLogbookTripsByID(): void{
@@ -60,8 +60,8 @@ export class TripComponent implements OnInit {
     this.tripheading = "Fahrten des Fahrtenbuchs "+this.logbookid;
     this.tripService.getLogbookTrips(this.logbookid)
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse(),alert("error")),
-          () => (this.checkergebnisse(),alert("kein error"))
+          () => (this.checkergebnisse()),
+          () => (this.checkergebnisse())
           );
   }
   getTripsByDriverName(): void{
@@ -75,8 +75,8 @@ export class TripComponent implements OnInit {
     this.tripheading = "Alle Fahrten";
     this.tripService.getTrips()
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse(),alert("error")),
-          () => (this.checkergebnisse(),alert("kein error"))
+          () => (this.checkergebnisse()),
+          () => (this.checkergebnisse())
           );
   }
   getTripsByDriverID(): void{
@@ -84,8 +84,8 @@ export class TripComponent implements OnInit {
     this.tripheading = "Fahrten des Fahrers mit der ID "+this.driverid;
     this.tripService.getTripsByDriverID(this.driverid)
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse(),alert("error")),
-          () => (this.checkergebnisse(),alert("kein error"))
+          () => (this.checkergebnisse()),
+          () => (this.checkergebnisse())
           );
   }
   getTripsByCustomerName(): void{
@@ -93,8 +93,8 @@ export class TripComponent implements OnInit {
     this.tripheading = "Fahrten des Kunden "+this.customername;
     this.tripService.getTripsByCustomerName(this.customername)
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse(),alert("error")),
-          () => (this.checkergebnisse(),alert("kein error"))
+          () => (this.checkergebnisse()),
+          () => (this.checkergebnisse())
           );
   }
 

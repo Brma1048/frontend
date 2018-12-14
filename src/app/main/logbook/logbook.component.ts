@@ -55,7 +55,7 @@ export class LogbookComponent implements OnInit {
     this.logbooks = null;
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks,
-          () => (this.checkergebnisse(1),alert("DB Fehler")),
+          () => (this.checkergebnisse(1)),
           () => this.checkergebnisse(1)
         );}
   getLogbook(): void{
@@ -64,7 +64,7 @@ export class LogbookComponent implements OnInit {
     this.logbook = null;
     this.logbookService.getLogbook(this.logbookid)
         .subscribe(logbook => this.logbook = logbook,
-        () => (this.checkergebnisse(2),alert("DB Fehler")),
+        () => (this.checkergebnisse(2)),
         () => this.checkergebnisse(2)
       );
   }
