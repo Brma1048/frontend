@@ -65,7 +65,7 @@ export class TripService {
 
   getTripsByDriverID(id: string): Observable<Trip[]>{
     const token = this.keycloakService.getToken();
-    const url = `${this.tripsURL}/driver/${id}`;
+    const url = `${this.tripsURL}/driver/email/${id}`;
     return this.http.get<Trip[]>(url,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export class TripService {
 
   getTripsByCustomerName(name: string): Observable<Trip[]>{
     const token = this.keycloakService.getToken();
-    const url = `${this.tripsURL}/customer/${name}`;
+    const url = `${this.tripsURL}/customername/${name}`;
     return this.http.get<Trip[]>(url,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',
