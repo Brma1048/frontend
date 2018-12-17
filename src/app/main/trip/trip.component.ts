@@ -47,7 +47,7 @@ export class TripComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     //this.trips = this.tripService.getLogbookTrips(id);
     this.trips = null;
-    this.tripheading = "Fahrten des Fahrtenbuchs "+id;
+    this.tripheading = "Trips by Logobook "+id;
     this.tripService.getLogbookTrips(id)
         .subscribe(trips => this.trips = trips,
           () => (this.checkergebnisse()),
@@ -57,7 +57,7 @@ export class TripComponent implements OnInit {
   getLogbookTripsByID(): void{
     //this.trips = this.tripService.getLogbookTrips(this.logbookid);
     this.trips = null;
-    this.tripheading = "Fahrten des Fahrtenbuchs "+this.logbookid;
+    this.tripheading = "Trips by Logbook "+this.logbookid;
     this.tripService.getLogbookTrips(this.logbookid)
         .subscribe(trips => this.trips = trips,
           () => (this.checkergebnisse()),
@@ -66,13 +66,13 @@ export class TripComponent implements OnInit {
   }
   getTripsByDriverName(): void{
     this.trips = null;
-    this.tripheading = "Fahrten des Fahrers "+this.drivername;
+    this.tripheading = "Trips by Driver "+this.drivername;
     this.trips = this.tripService.getTripsByDriverName(this.drivername);
   }
   getTrips(): void{
     //this.trips = this.tripService.getTrips();
     this.trips = null;
-    this.tripheading = "Alle Fahrten";
+    this.tripheading = "All Trips";
     this.tripService.getTrips()
         .subscribe(trips => this.trips = trips,
           () => (this.checkergebnisse()),
@@ -81,7 +81,7 @@ export class TripComponent implements OnInit {
   }
   getTripsByDriverID(): void{
     this.trips = null;
-    this.tripheading = "Fahrten des Fahrers mit der ID "+this.driverid;
+    this.tripheading = "Trips by Driver ID "+this.driverid;
     this.tripService.getTripsByDriverID(this.driverid)
         .subscribe(trips => this.trips = trips,
           () => (this.checkergebnisse()),
@@ -90,7 +90,7 @@ export class TripComponent implements OnInit {
   }
   getTripsByCustomerName(): void{
     this.trips = null;
-    this.tripheading = "Fahrten des Kunden "+this.customername;
+    this.tripheading = "Trips of Customer "+this.customername;
     this.tripService.getTripsByCustomerName(this.customername)
         .subscribe(trips => this.trips = trips,
           () => (this.checkergebnisse()),
