@@ -8,6 +8,9 @@ declare var Keycloak: any;
   providedIn: 'root'
 })
 export class KeycloakService {
+
+  userrole: string;
+
   private keycloakAuth: any;
   init(): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -19,6 +22,9 @@ export class KeycloakService {
       this.keycloakAuth = new Keycloak(config);
       this.keycloakAuth.init({ onLoad: 'login-required' })
         .success(() => {
+          console.log(this.keycloakAuth);
+          console.log(this.keycloakAuth.idTokenParsed.preferred_username);
+          this.setUserRole(this.keycloakAuth.idTokenParsed.preferred_username);
           resolve();
         })
         .error(() => {
@@ -30,7 +36,10 @@ export class KeycloakService {
     return this.keycloakAuth.token;
     
   }
-  getroles(route: ActivatedRouteSnapshot): void{
+  setUserRole(role: string): void{
+    this.userrole = role;
+    console.log("Rolle: "+this.userrole);
   }
+  
   constructor() { }
 }
