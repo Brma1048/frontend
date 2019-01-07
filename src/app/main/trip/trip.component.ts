@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Logbook } from '../entities/logbook';
 import { LogbookService } from '../logbook/logbook.service';
+import { KeycloakService } from '../../keycloak.service';
 
 
 
@@ -42,6 +43,16 @@ export class TripComponent implements OnInit {
   }
 
   
+
+  getMyTrips(): void{
+    this.trips = null;
+    this.tripheading = "My Trips";
+    this.tripService.getMyTrips(this.keycloakService.getUserMail())
+        .subscribe(trips => this.trips = trips,
+          () => (this.checkergebnisse()),
+          () => (this.checkergebnisse())
+          );
+  }
 
   getLogbookTrips(): void{
     const id = this.route.snapshot.paramMap.get('id');
@@ -119,6 +130,9 @@ export class TripComponent implements OnInit {
   showAllTrips(): void{
     this.getTrips();
   }
+  showMyTrips():void{
+    this.getMyTrips();
+  }
   showTripsByDriverID(): void{
     this.getTripsByDriverID();
   }
@@ -130,7 +144,8 @@ export class TripComponent implements OnInit {
     private tripService: TripService,
     private route: ActivatedRoute,
     private location: Location,
-    private logbookService: LogbookService
+    private logbookService: LogbookService,
+    private keycloakService: KeycloakService
     ) { }
 
 

@@ -24,6 +24,18 @@ export class TripService {
   //private tripsURL = 'api/logbooks';
   private secondURL = 'http://ip.jsontest.com/';
 
+
+  getMyTrips(mail: string): Observable<Trip[]>{
+    const token = this.keycloakService.getToken();
+    const url = `${this.tripsURL}/driver/email/${mail}`;
+    return this.http.get<Trip[]>(url,{
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token 
+      })
+    });
+  }
+
   getTrips(): Observable<Trip[]>{
     //return data;
     const token = this.keycloakService.getToken();

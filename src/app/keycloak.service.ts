@@ -36,6 +36,9 @@ export class KeycloakService {
     return this.keycloakAuth.token;
     
   }
+  getUserMail(){
+    return this.keycloakAuth.idTokenParsed.email;
+  }
   setUserRole(role: string): void{
     this.userrole = role;
     console.log("Rolle: "+this.userrole);
