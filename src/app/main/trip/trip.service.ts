@@ -21,13 +21,14 @@ export class TripService {
 
 
   private tripsURL = 'http://localhost:8080/trip';
+  private personaltripsURL = 'http://localhost:8080/myTrip';
   //private tripsURL = 'api/logbooks';
   private secondURL = 'http://ip.jsontest.com/';
 
 
   getMyTrips(mail: string): Observable<Trip[]>{
     const token = this.keycloakService.getToken();
-    const url = `${this.tripsURL}/driver/email/${mail}`;
+    const url = `${this.personaltripsURL}`;
     return this.http.get<Trip[]>(url,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',
