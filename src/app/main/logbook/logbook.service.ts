@@ -19,8 +19,20 @@ const httpOptions = {
 export class LogbookService {
 
   private logbooksURL = 'http://localhost:8080/logbook';
+  private personallogbooksURL = 'http://localhost:8080/myLogbook';
   // private logbooksURL = 'api/logbooks';
 
+
+  getMyLogbooks(): Observable<Logbook> {
+    const token = this.keycloakService.getToken();
+    
+    return this.http.get<Logbook>(this.personallogbooksURL,{
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token 
+      })
+    });
+  }
 
   getLogbooks(): Observable<Logbook[]> {
     const token = this.keycloakService.getToken();

@@ -49,6 +49,17 @@ export class LogbookComponent implements OnInit {
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks);
   }*/
+  getMyLogbooks(): void{
+    //this.logbook = this.logbookService.getLogbook(this.logbookid);
+    this.logbooks = null;
+    this.logbook = null;
+    this.logbookService.getMyLogbooks()
+        .subscribe(logbook => this.logbook = logbook,
+        () => (this.checkergebnisse(2)),
+        () => this.checkergebnisse(2)
+      );
+  }
+
   getLogbooks(): void{
     //this.logbooks = this.logbookService.getLogbooks();
     this.logbook = null;
@@ -74,6 +85,10 @@ export class LogbookComponent implements OnInit {
         .subscribe(logbook => this.logbook = logbook);
   }
 
+
+  showMyLogbooks(): void{
+    this.getMyLogbooks();
+  }
 
   showLogbooks(): void {
     this.getLogbooks();
