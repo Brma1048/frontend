@@ -17,6 +17,8 @@ import { KeycloakService } from '../../keycloak.service';
 })
 export class TripComponent implements OnInit {
 
+  ismanager: string;
+
   selectedTrip: Trip;
   trips: Trip[]; 
   logbooktrips: Trip[];
@@ -150,7 +152,8 @@ export class TripComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.showTrips();
+    //this.showTrips();
+    this.ismanager = this.keycloakService.getUserRole();
   }
 
 }

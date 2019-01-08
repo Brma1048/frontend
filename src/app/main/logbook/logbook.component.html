@@ -5,13 +5,13 @@
 </div>
 <div class="row col-12">
     <div class="input-group mb-3">
-        <button class="btn btn-primary mr-3" (click)="showLogbooks()">Show All</button>
+        <button  *ngIf="ismanager == 'manager'" class="btn btn-primary mr-3" (click)="showLogbooks()">Show All</button>
         <button class="btn btn-primary mr-3" (click)="showMyLogbooks()">Show Mine</button>
         <div class="col-xs-3">
-          <input type="string" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
+          <input *ngIf="ismanager == 'manager'" type="string" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
         </div>
         <div class="input-group-append">
-          <button class="btn btn-primary" type="button" (click)="showLogbookByID()">Show by ID</button>
+          <button *ngIf="ismanager == 'manager'" class="btn btn-primary" type="button" (click)="showLogbookByID()">Show by ID</button>
 
         </div>
         <!--<div class="col-xs-3">
@@ -28,7 +28,7 @@
 
 <div class="row">
   <div class="col-12 ">
-    <div *ngIf="logbooks">
+    <div *ngIf="logbooks != null">
       <h3>All Logbooks</h3>
     
 

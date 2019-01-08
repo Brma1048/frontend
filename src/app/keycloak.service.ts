@@ -10,6 +10,7 @@ declare var Keycloak: any;
 export class KeycloakService {
 
   userrole: string;
+  ismanager: boolean = false;
 
   private keycloakAuth: any;
   init(): Promise<any> {
@@ -23,7 +24,7 @@ export class KeycloakService {
       this.keycloakAuth.init({ onLoad: 'login-required' })
         .success(() => {
           console.log(this.keycloakAuth);
-          console.log(this.keycloakAuth.idTokenParsed.preferred_username);
+          console.log(this.keycloakAuth.realmAccess.roles[0]);
           this.setUserRole(this.keycloakAuth.idTokenParsed.preferred_username);
           resolve();
         })
@@ -39,9 +40,21 @@ export class KeycloakService {
   getUserMail(){
     return this.keycloakAuth.idTokenParsed.email;
   }
+  checkManager(){
+    if(this.keycloakAuth.realmAccess.roles[0] == "manager"){
+      alert("yes");
+      this.ismanager = true;
+    }
+    else{
+      alert("no");
+    }
+  }
   setUserRole(role: string): void{
     this.userrole = role;
     console.log("Rolle: "+this.userrole);
+  }
+  getUserRole(){
+    return this.userrole;
   }
   
   constructor() { }

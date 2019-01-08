@@ -4,6 +4,7 @@ import { LogbookService} from "./logbook.service";
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { KeycloakService } from '../../keycloak.service';
 
 @Component({
   selector: 'app-logbook',
@@ -16,6 +17,8 @@ export class LogbookComponent implements OnInit {
   onSelect(logbook: Logbook): void{
     this.selectedLogbook = logbook;
   }
+
+  ismanager: string;
 
   logbooks : Logbook[];
   logbook: Logbook;
@@ -102,11 +105,12 @@ export class LogbookComponent implements OnInit {
   constructor(
     private logbookService: LogbookService,
     private route: ActivatedRoute,
-    private location: Location) { }
+    private location: Location,
+    private keycloakService: KeycloakService) { }
 
   
   ngOnInit() {
-    //this.showLogbooks();
+    this.ismanager = this.keycloakService.getUserRole();
   }
 
 }

@@ -5,13 +5,13 @@
 </div>
 <div class="row col-12">
     <div class="input-group mb-3">
-        <button class="btn btn-primary mr-2"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
-        <button class="btn btn-primary mr-2"(click)="showAllTrips()">All Trips</button><!---->
+        <button *ngIf="ismanager == 'manager'" class="btn btn-primary mr-2"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
+        <button *ngIf="ismanager == 'manager'" class="btn btn-primary mr-2"(click)="showAllTrips()">All Trips</button><!---->
         <button class="btn btn-primary mr-2"(click)="showMyTrips()">My Trips</button><!---->
-        <div class="input-group col-3 mr-2">
-            <input type="text" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
+        <div *ngIf="ismanager == 'manager'" class="input-group col-3 mr-2">
+            <input *ngIf="ismanager == 'manager'" type="text" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
             <div class="input-group-append">
-              <button class="btn btn-primary" type="button" (click)="showTripByLogbookbyID()">Show by Logbook ID</button>
+              <button *ngIf="ismanager == 'manager'" class="btn btn-primary" type="button" (click)="showTripByLogbookbyID()">Show by Logbook ID</button>
             </div>
         </div>
         <!--<div class="col-xs-2">
@@ -20,13 +20,13 @@
         <div class="input-group-append">
           <button class="btn btn-outline-secondary mybtn" type="button" (click)="showTripsByDriverName()">Show by Driver Name</button>
         </div>-->
-        <div class="input-group col-3">
+        <div *ngIf="ismanager == 'manager'" class="input-group col-3">
             <input type="text" class="form-control" placeholder="Driver ID" [(ngModel)]="driverid">
             <div class="input-group-append">
               <button class="btn btn-primary mr-3" type="button" (click)="showTripsByDriverID()">Show by Driver Mail</button>
             </div>
         </div>
-        <div class="input-group col-3">
+        <div *ngIf="ismanager == 'manager'" class="input-group col-3">
           <input type="text" class="form-control" placeholder="Customer name" [(ngModel)]="customername">
           <div class="input-group-append">
             <button class="btn btn-primary mr-3" type="button" (click)="showTripsByCustomerName()">Show by Customer Name</button>
