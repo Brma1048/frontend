@@ -20,6 +20,7 @@ import { CreateTripGuard } from './main/create-trip/create-trip.guard';
 import { KeycloakService } from './keycloak.service';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { UctripsComponent } from './main/uctrips/uctrips.component';
+import { UctripsDetailComponent } from './main/uctrips-detail/uctrips-detail.component';
 
 export function kcFactory(keycloakService: KeycloakService) {
   return () => keycloakService.init();
@@ -36,6 +37,7 @@ export function kcFactory(keycloakService: KeycloakService) {
     CreateTripComponent,
     DashboardComponent,
     UctripsComponent,
+    UctripsDetailComponent,
     // KeycloakAngularModule
   ],
   imports: [

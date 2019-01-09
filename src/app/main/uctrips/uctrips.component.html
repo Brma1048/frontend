@@ -12,8 +12,6 @@
               <th scope="col">Logbook</th>
               <th scope="col">ID</th>
               <th scope="col">Driver</th>
-              <th scope="col">Customer</th>
-              <th scope="col">Project</th>
               <th scope="col">Details</th>
               <!--<th scope="col">Details</th>-->
             </tr>
@@ -23,9 +21,7 @@
                 <th scope="row">{{trips.logbook.id}}</th>
                 <td>{{trips.id}}</td>
                 <td>{{trips.logbook.driver.firstName}} {{trips.logbook.driver.lastName}}</td>
-                <td>{{trips.customerName}}</td>
-                <td>{{trips.projectName}}</td>
-                <td><a routerLink="/trip-detail/{{trips.id}}">Details</a></td>
+                <td><a routerLink="/uctrips-detail/{{trips.id}}">Details</a></td>
             </tr>
             </tbody>
         </table>
