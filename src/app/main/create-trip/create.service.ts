@@ -91,6 +91,7 @@ export class CreateService {
     .subscribe(
       res => {
         console.log(res);
+        alert("The trip was saved successfully!");
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
