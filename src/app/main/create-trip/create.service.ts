@@ -27,12 +27,12 @@ export class CreateService {
     .subscribe(function(response) {
        const lat = response[0].lat;
        const lon = response[0].lon;
-
+       
        const inputValueLatStart = (<HTMLInputElement>document.getElementById('gpsLatStart'));
        inputValueLatStart.value = lat;
        const inputValueLonStart = (<HTMLInputElement>document.getElementById('gpsLonStart'));
        inputValueLonStart.value = lon;
-
+      
       console.log(response);
     });
   }
@@ -50,12 +50,12 @@ export class CreateService {
     .subscribe(function(response) {
        const lat = response[0].lat;
        const lon = response[0].lon;
-
+       
        const inputValueLatEnd = (<HTMLInputElement>document.getElementById('gpsLatEnd'));
        inputValueLatEnd.value = lat;
        const inputValueLonEnd = (<HTMLInputElement>document.getElementById('gpsLonEnd'));
        inputValueLonEnd.value = lon;
-
+       
       console.log(response);
     });
   }
@@ -82,6 +82,7 @@ export class CreateService {
   addTrip (trip: Trip) {
     const token = this.keycloak.getToken();
     console.log(token);
+    console.log(trip);
     return this.http.post('http://localhost:8080/createTrip', trip, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

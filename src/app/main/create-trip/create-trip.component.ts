@@ -42,18 +42,18 @@ export class CreateTripComponent implements OnInit {
       //  id: new FormControl('', [Validators.required])
       // }),
       startWaypoint: new FormGroup({
-        gpsLat: new FormControl('', [Validators.required, Validators.min(0)]),
-        gpsLon: new FormControl('', [Validators.required, Validators.min(0)])
+        gpsLat: new FormControl('', [Validators.min(0)]),
+        gpsLon: new FormControl('', [Validators.min(0)])
       }),
       endWaypoint: new FormGroup({
-        gpsLat: new FormControl('', [Validators.required, Validators.min(0)]),
-        gpsLon: new FormControl('', [Validators.required, Validators.min(0)]),
+        gpsLat: new FormControl('', [Validators.min(0)]),
+        gpsLon: new FormControl('', [Validators.min(0)]),
       }),
       isBusiness: new FormControl('', Validators.required),
-      startOdometer: new FormControl('', [Validators.required, Validators.min(0), Validators.max(400000)]),
-      endOdometer: new FormControl('', [Validators.required, Validators.min(1), Validators.max(400000)]),
-      customerName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
-      projectName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
+      startOdometer: new FormControl('', [Validators.required, Validators.min(0), Validators.max(500000)]),
+      endOdometer: new FormControl('', [Validators.required, Validators.min(1), Validators.max(500000)]),
+      customerName: new FormControl('', [ Validators.minLength(2), Validators.maxLength(30)]),
+      projectName: new FormControl('', [ Validators.minLength(2), Validators.maxLength(30)]),
       startDate: new FormControl('', Validators.required),
       endDate: new FormControl('', Validators.required)
     });

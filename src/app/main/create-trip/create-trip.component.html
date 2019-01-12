@@ -21,7 +21,7 @@
             <label class="col-2 form-control-label">Art *</label>
             <div class="col col-10">
                 <div class="radio">
-                    <input type="radio" id="businessInput"
+                    <input onclick="document.getElementById('projectName').disabled = false; document.getElementById('customerName').disabled = false;" type="radio" id="businessInput"
                         formControlName="isBusiness" name="isBusiness" value="true" >
                     <label class="radio-inline" for="businessInput">
                         Business
@@ -58,11 +58,12 @@
           </div>
         </div>
 
+        
         <div formGroupName="startWaypoint">
           <div class="form-group row">
             <label for="gpsLat" class="col-2 col-form-label">Gps Latitude Start *</label>
             <div class="col-2">
-              <input id="gpsLatStart" class="form-control" formControlName="gpsLat" type="number" placeholder="Enter as number" >
+              <input id="gpsLatStart" class="form-control" formControlName="gpsLat" type="number" placeholder="Enter as number">
             </div>
           </div>
           <div class="form-group row">
@@ -72,7 +73,7 @@
             </div>
           </div>
         </div>
-
+        
         <div class="form-group row">
             <label for="endAdress" class="col-2 col-form-label">End Adress</label>
             <div class="col-4">
@@ -84,7 +85,7 @@
                 </button>
             </div>
         </div>
-
+        
         <div formGroupName="endWaypoint">
           <div class="form-group row">
             <label for="gpsLat" class="col-2 col-form-label">Gps Latitude End *</label>
@@ -118,14 +119,14 @@
         <div class="form-group row">
             <label for="customerName" class="col-2 col-form-label">Customer name *</label>
             <div class="col-4">
-              <input id="customerName" class="form-control" formControlName="customerName" type="text" value="Enter Customer name">
+              <input id="customerName" class="form-control" formControlName="customerName" type="text" value="Enter Customer name" disabled="disabled">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="projectName" class="col-2 col-form-label">Project name *</label>
             <div class="col-4">
-              <input id="projectName" class="form-control" formControlName="projectName" type="text" value="Enter Project name" >
+              <input id="projectName" class="form-control" formControlName="projectName" type="text" value="Enter Project name" disabled="disabled" >
             </div>
         </div>
 
