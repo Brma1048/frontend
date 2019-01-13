@@ -38,9 +38,6 @@ export class CreateTripComponent implements OnInit {
   ngOnInit() {
 
     this.form = new FormGroup({
-      logbook: new FormGroup({
-        id: new FormControl('', [Validators.required])
-      }),
       startWaypoint: new FormGroup({
         gpsLat: new FormControl('', [Validators.required, Validators.min(0)]),
         gpsLon: new FormControl('', [Validators.required, Validators.min(0)])
