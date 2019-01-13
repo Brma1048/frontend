@@ -44,7 +44,8 @@ export class UctripsDetailComponent implements OnInit {
 
   getMyUnconfirmedTrip(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    this.tripService.getTrip(id)
+    //this.tripService.getTrip(id)
+    this.tripService.getMyTripById(id)
     .subscribe(myunconfirmedTrip => this.myunconfirmedTrip = myunconfirmedTrip,
     () => alert("error"),
     () => this.changeFormInputs());
