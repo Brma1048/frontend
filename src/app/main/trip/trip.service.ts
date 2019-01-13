@@ -22,9 +22,21 @@ export class TripService {
 
   private tripsURL = 'http://localhost:8080/trip';
   private personaltripsURL = 'http://localhost:8080/myTrip';
+  private unconfirmedtripsURL = 'http://localhost:8080/mytrips/unconfirmed';
   //private tripsURL = 'api/logbooks';
   private secondURL = 'http://ip.jsontest.com/';
 
+
+  getMyUnconfirmedTrips(mail: string): Observable<Trip[]>{
+    const token = this.keycloakService.getToken();
+    const url = `${this.unconfirmedtripsURL}`;
+    return this.http.get<Trip[]>(url,{
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token 
+      })
+    });
+  }
 
   getMyTrips(mail: string): Observable<Trip[]>{
     const token = this.keycloakService.getToken();

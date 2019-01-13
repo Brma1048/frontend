@@ -9,7 +9,7 @@ export class Trip {
     logbookid: number;
     
     
-    tripBusiness: boolean;
+    isBusiness: boolean;
     startOdometer: number;
     endOdometer: number;
     wayPoints: Array<WayPoints>; //TODO

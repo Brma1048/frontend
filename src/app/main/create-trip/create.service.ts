@@ -79,10 +79,27 @@ export class CreateService {
   */
 
   // https://jsonplaceholder.typicode.com/posts
+  private uctripsURL = 'http://localhost:8080/trip';
+  updateTrip(trip: Trip,id: string){
+    const token = this.keycloak.getToken();
+    //const url = `${this.uctripsURL}/${id}`;
+    const url = 'http://localhost:8080/mytrips/confirm';
+    return this.http.put(url, trip, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token 
+      })
+    })
+    .subscribe(
+      res => {
+        alert("Erfolgreich!");
+      }
+    )
+  }
   addTrip (trip: Trip) {
     const token = this.keycloak.getToken();
     console.log(token);
-    return this.http.post('http://localhost:8080/createTrip', trip, {
+    return this.http.post('http://localhost:8080/Trip', trip, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token 

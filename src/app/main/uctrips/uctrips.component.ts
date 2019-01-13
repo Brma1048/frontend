@@ -19,7 +19,7 @@ export class UctripsComponent implements OnInit {
 
   getMyUnconfirmedTrips(): void{
     this.uctrips = null;
-    this.tripService.getMyTrips(this.keycloakService.getUserMail())
+    this.tripService.getMyUnconfirmedTrips(this.keycloakService.getUserMail())
         .subscribe(trips => this.uctrips = trips
           //() => (this.checkergebnisse()),
           //() => (this.checkergebnisse())
