@@ -3,9 +3,11 @@ import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Trip, TripResponse } from '../entities/trip';
 import { KeycloakService } from 'src/app/keycloak.service';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 
-
+export const HOME_PATH = 'dashboard';
 
 @Injectable({
   providedIn: 'root'
@@ -92,7 +94,8 @@ export class CreateService {
     })
     .subscribe(
       res => {
-        alert("Erfolgreich!");
+        alert("Done!");
+        this.router.navigate([HOME_PATH]);
       }
     )
   }
@@ -121,6 +124,8 @@ export class CreateService {
   }
 
   constructor(private http: HttpClient,
-              private keycloak: KeycloakService) { } // Test Header für Token
+              private keycloak: KeycloakService,
+              private router: Router,
+              public _location: Location) { } // Test Header für Token
 }
 

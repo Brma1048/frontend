@@ -10,11 +10,21 @@ import { KeycloakService } from '../../keycloak.service';
 })
 export class DashboardComponent implements OnInit {
 
-  unconfirmedTrips: Trip[];
+  uctrips: Trip[];
+
   informUser(): void{
-    if(this.unconfirmedTrips != null){
+    if(this.uctrips != null){
       alert("You have unconfirmed trips!");
     }
+  }
+
+  getMyUnconfirmedTrips(): void{
+    this.uctrips = null;
+    this.tripService.getMyUnconfirmedTrips(this.keycloakService.getUserMail())
+        .subscribe(trips => this.uctrips = trips,
+          () => (console.log("no unconfirmed trips")),
+          () => (this.informUser())
+          );
   }
 
   constructor(
@@ -23,7 +33,8 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.getMyUnconfirmedTrips();
+    
   }
 
 }
