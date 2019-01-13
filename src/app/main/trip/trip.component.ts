@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { Logbook } from '../entities/logbook';
 import { LogbookService } from '../logbook/logbook.service';
 import { KeycloakService } from '../../keycloak.service';
+import { isMaster } from 'cluster';
 
 
 
@@ -133,6 +134,7 @@ export class TripComponent implements OnInit {
     this.getTrips();
   }
   showMyTrips():void{
+    if(this.ismanager == "manager"){return;}
     this.getMyTrips();
   }
   showTripsByDriverID(): void{
@@ -152,8 +154,9 @@ export class TripComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.showMyTrips();
+    
     this.ismanager = this.keycloakService.getUserRole();
+    this.showMyTrips();
   }
 
 }
