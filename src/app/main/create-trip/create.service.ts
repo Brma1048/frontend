@@ -102,7 +102,7 @@ export class CreateService {
   addTrip (trip: Trip) {
     const token = this.keycloak.getToken();
     console.log(token);
-    return this.http.post('http://localhost:8080/Trip', trip, {
+    return this.http.post('http://localhost:8080/createTrip', trip, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token 

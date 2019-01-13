@@ -152,7 +152,7 @@ export class TripComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.showTrips();
+    this.showMyTrips();
     this.ismanager = this.keycloakService.getUserRole();
   }
 
