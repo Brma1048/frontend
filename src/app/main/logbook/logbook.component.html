@@ -47,7 +47,7 @@
             <th scope="row">{{logbook.id}}</th>
             <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
             <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-            <td><a routerLink="/trip/{{logbook.driver.email}}">Details</a></td>
+            <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
         </tr>
       </tbody>
     </table>
@@ -70,7 +70,7 @@
                           <th scope="row">{{logbook.id}}</th>
                           <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
                           <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-                          <td><a routerLink="/trip/{{logbook.driver.email}}">Details</a></td>
+                          <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
                       </tr>
                     </tbody>
               </table>

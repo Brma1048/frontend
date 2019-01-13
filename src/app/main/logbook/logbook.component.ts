@@ -26,6 +26,8 @@ export class LogbookComponent implements OnInit {
   logbookDriverLastName: string;
   keineergebnisse: boolean = false;
 
+
+
   checkergebnisse(id: number): void{
     switch(id){
       case 1:
@@ -111,6 +113,7 @@ export class LogbookComponent implements OnInit {
   
   ngOnInit() {
     this.ismanager = this.keycloakService.getUserRole();
+    
   }
 
 }
