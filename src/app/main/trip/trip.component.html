@@ -5,9 +5,9 @@
 </div>
 <div class="row col-12">
     <div class="input-group mb-3">
-        <button *ngIf="ismanager == 'manager'" class="btn btn-primary mr-2"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
+        <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-2"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
         <button *ngIf="ismanager == 'manager'" class="btn btn-primary mr-2"(click)="showAllTrips()">All Trips</button><!---->
-        <button class="btn btn-primary mr-2"(click)="showMyTrips()">My Trips</button><!---->
+        <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-2"(click)="showMyTrips()">My Trips</button><!---->
         <div *ngIf="ismanager == 'manager'" class="input-group col-3 mr-2">
             <input *ngIf="ismanager == 'manager'" type="text" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
             <div class="input-group-append">

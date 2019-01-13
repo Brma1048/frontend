@@ -6,7 +6,7 @@
 <div class="row col-12">
     <div class="input-group mb-3">
         <button  *ngIf="ismanager == 'manager'" class="btn btn-primary mr-3" (click)="showLogbooks()">Show All</button>
-        <button class="btn btn-primary mr-3" (click)="showMyLogbooks()">Show Mine</button>
+        <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-3" (click)="showMyLogbooks()">Show Mine</button>
         <div class="col-xs-3">
           <input *ngIf="ismanager == 'manager'" type="string" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
         </div>
@@ -47,7 +47,7 @@
             <th scope="row">{{logbook.id}}</th>
             <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
             <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-            <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
+            <td><a routerLink="/trip/{{logbook.driver.email}}">Details</a></td>
         </tr>
       </tbody>
     </table>
@@ -70,7 +70,7 @@
                           <th scope="row">{{logbook.id}}</th>
                           <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
                           <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-                          <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
+                          <td><a routerLink="/trip/{{logbook.driver.email}}">Details</a></td>
                       </tr>
                     </tbody>
               </table>
