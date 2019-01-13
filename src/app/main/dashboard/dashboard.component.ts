@@ -12,6 +12,8 @@ export class DashboardComponent implements OnInit {
 
   uctrips: Trip[];
 
+  ismanager: string;
+
   informUser(): void{
     if(this.uctrips != null){
       alert("You have unconfirmed trips!");
@@ -19,6 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getMyUnconfirmedTrips(): void{
+    if(this.ismanager == "manager") {return;}
     this.uctrips = null;
     this.tripService.getMyUnconfirmedTrips(this.keycloakService.getUserMail())
         .subscribe(trips => this.uctrips = trips,
@@ -33,8 +36,8 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getMyUnconfirmedTrips();
-    
+    this.ismanager = this.keycloakService.getUserRole();
+    this.getMyUnconfirmedTrips(); 
   }
 
-}
+}//
