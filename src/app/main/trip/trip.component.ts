@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
 import { Logbook } from '../entities/logbook';
 import { LogbookService } from '../logbook/logbook.service';
 import { KeycloakService } from '../../keycloak.service';
-import { isMaster } from 'cluster';
+//import { isMaster } from 'cluster';
 
 
 
