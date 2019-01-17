@@ -10,16 +10,13 @@
           <thead>
             <tr>
               <th scope="col">Logbook</th>
-              <th scope="col">ID</th>
               <th scope="col">Driver</th>
               <th scope="col">Details</th>
-              <!--<th scope="col">Details</th>-->
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let trips of uctrips">
                 <th scope="row">{{trips.logbook.id}}</th>
-                <td>{{trips.id}}</td>
                 <td>{{trips.logbook.driver.firstName}} {{trips.logbook.driver.lastName}}</td>
                 <td><a routerLink="/uctrips-detail/{{trips.id}}">Details</a></td>
             </tr>
