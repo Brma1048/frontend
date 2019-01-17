@@ -4,4 +4,7 @@
 <div class="row">
   <a routerLink="/uctrips" *ngIf="ismanager != 'manager'" ><button type="button" class="btn btn-primary">My unconfirmed Trips</button></a>
 </div>
+<div class="row">
+  <a routerLink="/create-logbook" *ngIf="ismanager == 'manager'" ><button type="button" class="btn btn-primary">Create Logbook</button></a>
+</div>
 

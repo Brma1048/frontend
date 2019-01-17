@@ -1,0 +1,56 @@
+<div class="row">
+  <h1>Create Logbook</h1>
+  </div>
+
+  <form #tripForm="ngForm">
+      <div class="row">
+        <h2>Car</h2>
+      </div>
+        <div class="row">
+          <label for="staticEmail1" class="col-sm-2 col-form-label">Manufacturer</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="manufacturer" value="">
+          </div>
+        </div>
+        <div class="row">
+            <label for="staticEmail1" class="col-sm-2 col-form-label">Model</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="model" value="">
+            </div>
+          </div>
+          <div class="row">
+              <label for="staticEmail1" class="col-sm-2 col-form-label">Licence Plate</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="licenceplate" value="">
+              </div>
+            </div>
+          <div class="row">
+              <label for="staticEmail1" class="col-sm-2 col-form-label">Odometer</label>
+              <div class="col-sm-4">
+                <input type="number" class="form-control" id="odometer" value="">
+              </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 co-form-label" id="testbutton" >Pick Driver</label>
+                <div class="col-sm-4">
+                  <input type="checkbox" class="form-control-checkbox" value="" (click)="setPickDriver()" id="pickdriver">
+                </div>
+              </div>
+              <div class="row" *ngIf="isPickDriver == true">
+                  <label for="staticEmail2" class="col-sm-2 col-form-label">E-Mail</label>
+                  <div class="col-sm-3">
+                      <input type="text" class="form-control form-fix" id="driveremail" placeholder="Customer Name">
+                  </div>
+              </div>
+              <div class="row" *ngIf="isPickDriver == true">
+                  <label for="staticEmail1" class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-4">
+                    <input type="text" readonly class="form-control-plaintext" id="drivername" value="">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <button tyoe="button" (click)="createLogbook()">Create</button>
+                </div>
+  </form>

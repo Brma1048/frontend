@@ -9,10 +9,12 @@ import { CreateTripGuard } from './main/create-trip/create-trip.guard';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { UctripsComponent } from './main/uctrips/uctrips.component';
 import {UctripsDetailComponent} from './main/uctrips-detail/uctrips-detail.component';
+import { CreateLogbookComponent } from './main/create-logbook/create-logbook.component';
 
 const routes: Routes = [
   {path: "",redirectTo: "/dashboard", pathMatch: "full"},
   { path: 'dashboard', component: DashboardComponent},
+  { path: 'create-logbook', component: CreateLogbookComponent},
   { path: 'uctrips', component: UctripsComponent},
   { path: 'uctrips-detail/:id', component: UctripsDetailComponent},
   { path: 'trip', component: TripComponent },

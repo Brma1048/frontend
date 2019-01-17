@@ -1,5 +1,7 @@
 export class Car {
     id: number;
-    carModel: string;
-    carBrand: string;
+    model: string;
+    manufacturer: string;
+    odometer: string;
+    licenceplate:string;
 }
