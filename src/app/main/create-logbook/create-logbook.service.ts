@@ -30,6 +30,7 @@ export class CreateLogbookService {
           console.log('Client Side Error: ', err.error.message);
         } else {
           console.log('Server Side Error: ', err.error.message);
+          alert("The Server is not avaible!");
         }
       }
     );

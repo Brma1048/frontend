@@ -3,5 +3,5 @@ export class Car {
     model: string;
     manufacturer: string;
     odometer: string;
-    licenceplate:string;
+    lincensPlate:string;
 }

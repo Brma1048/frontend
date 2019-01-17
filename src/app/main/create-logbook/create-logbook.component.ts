@@ -26,21 +26,30 @@ export class CreateLogbookComponent implements OnInit {
   createLogbook():void{
 
     // Input-Felder
+    const InputBlackBoxID = (<HTMLInputElement>document.getElementById("blackboxid"));
     const InputManufacturer = (<HTMLInputElement>document.getElementById("manufacturer"));
     const InputModel = (<HTMLInputElement>document.getElementById("model"));
     const InputLicenceplate= (<HTMLInputElement>document.getElementById("licenceplate"));
     const InputOdometer= (<HTMLInputElement>document.getElementById("odometer"));
 
-    
-
     // Car
     this.newCar.manufacturer = InputManufacturer.value;
     this.newCar.model = InputModel.value;
-    this.newCar.licenceplate = InputLicenceplate.value;
+    this.newCar.lincensPlate = InputLicenceplate.value;
     this.newCar.odometer = InputOdometer.value;
 
     // Logbook
+    this.newLogbook.id = InputBlackBoxID.value;
     this.newLogbook.car = this.newCar;
+
+    //Validation
+    if(InputBlackBoxID.value == ""||InputLicenceplate.value ==""||InputManufacturer.value ==""||InputModel.value ==""||InputOdometer.value ==""){
+      return alert("There are fields with no data!");
+    }
+    if(parseInt(InputOdometer.value) < 0){
+      return alert ("The value of Odometer is not correct!");
+    }
+
 
 
     console.log(this.newLogbook);
