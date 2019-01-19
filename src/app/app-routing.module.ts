@@ -10,11 +10,13 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { UctripsComponent } from './main/uctrips/uctrips.component';
 import {UctripsDetailComponent} from './main/uctrips-detail/uctrips-detail.component';
 import { CreateLogbookComponent } from './main/create-logbook/create-logbook.component';
+import { CreateUserComponent } from './main/create-user/create-user.component';
 
 const routes: Routes = [
   {path: "",redirectTo: "/dashboard", pathMatch: "full"},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'create-logbook', component: CreateLogbookComponent},
+  { path: 'create-user', component: CreateUserComponent},
   { path: 'uctrips', component: UctripsComponent},
   { path: 'uctrips-detail/:id', component: UctripsDetailComponent},
   { path: 'trip', component: TripComponent },

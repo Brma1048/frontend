@@ -12,6 +12,7 @@ export class KeycloakService {
   userrole: string;
   ismanager: boolean = false;
 
+
   private keycloakAuth: any;
   init(): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -56,6 +57,7 @@ export class KeycloakService {
   getUserRole(){
     return this.userrole;
   }
+  
   
   constructor() { }
 }

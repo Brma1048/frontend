@@ -1,5 +1,5 @@
 <div class="row">
-  <h1>Welcome</h1>J
+  <h1>Welcome</h1>
 </div>
 <div class="row">
   <a routerLink="/uctrips" *ngIf="ismanager != 'manager'" ><button type="button" class="btn btn-primary">My unconfirmed Trips</button></a>
@@ -7,4 +7,7 @@
 <div class="row">
   <a routerLink="/create-logbook" *ngIf="ismanager == 'manager'" ><button type="button" class="btn btn-primary">Create Logbook</button></a>
 </div>
+<div class="row">
+    <a routerLink="/create-user" *ngIf="ismanager == 'manager'" ><button type="button" class="btn btn-primary">Create User</button></a>
+  </div>
 

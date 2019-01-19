@@ -1,0 +1,40 @@
+<div class="row">
+    <h1>Create User</h1>
+    </div>
+  
+    <form #tripForm="ngForm">
+        <div class="row">
+            <h2>User-Data</h2>
+          </div>
+          <div class="row">
+              <label for="staticEmail1" class="col-sm-2 col-form-label">Username</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="username" value="" maxlength="50">
+              </div>
+            </div>
+            <div class="row">
+                <label for="staticEmail1" class="col-sm-2 col-form-label">E-Mail</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="email" value="" maxlength="50">
+                </div>
+              </div>
+              <div class="row">
+                  <label for="staticEmail1" class="col-sm-2 col-form-label">Prename</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="prename" value="" maxlength="50">
+                  </div>
+                </div>
+                <div class="row">
+                    <label for="staticEmail1" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="name" value="" maxlength="50">
+                    </div>
+                  </div>
+  
+  
+  
+                  <div class="row">
+                    <button tyoe="button" (click)="createUser()">Create</button>
+                  </div>
+    </form>
+  
