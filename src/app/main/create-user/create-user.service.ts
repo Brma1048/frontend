@@ -11,7 +11,7 @@ export class CreateUserService {
 
   createUser(user: User){
     const token = this.keycloakService.getToken();
-    return this.http.post('http://localhost:8080/admin/realms/demo/users', user, {
+    return this.http.post('http://localhost:8081/auth/admin/realms/demo/users', user, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token 

@@ -23,6 +23,7 @@ import { UctripsComponent } from './main/uctrips/uctrips.component';
 import { UctripsDetailComponent } from './main/uctrips-detail/uctrips-detail.component';
 import { CreateLogbookComponent } from './main/create-logbook/create-logbook.component';
 import { CreateUserComponent } from './main/create-user/create-user.component';
+import { UpdateLogbookComponent } from './main/update-logbook/update-logbook.component';
 
 export function kcFactory(keycloakService: KeycloakService) {
   return () => keycloakService.init();
@@ -42,6 +43,7 @@ export function kcFactory(keycloakService: KeycloakService) {
     UctripsDetailComponent,
     CreateLogbookComponent,
     CreateUserComponent,
+    UpdateLogbookComponent,
     // KeycloakAngularModule
   ],
   imports: [

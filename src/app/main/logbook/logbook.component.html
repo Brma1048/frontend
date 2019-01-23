@@ -39,15 +39,16 @@
           <th scope="col">ID</th>
           <th scope="col">Car</th>
           <th scope="col">Current Driver</th>
-          <th scope="col">Details</th>
+          <th *ngIf="ismanager == 'manager'" scope="col">Links</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let logbook of logbooks" (click)="onSelect(logbook)">
             <th scope="row">{{logbook.id}}</th>
             <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
-            <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-            <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
+            <td *ngIf="logbook.driver != null">{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
+            <td *ngIf="logbook.driver == null"></td>
+            <td *ngIf="ismanager == 'manager'" ><a *ngIf="logbook.driver == null" routerLink="/update-logbook/{{logbook.id}}">Edit</a></td>
         </tr>
       </tbody>
     </table>
@@ -62,7 +63,7 @@
                           <th scope="col">ID</th>
                           <th scope="col">Car</th>
                           <th scope="col">Current Driver</th>
-                          <th scope="col">Details</th>
+                          <th *ngIf="ismanager == 'manager'" scope="col">Links</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,7 +71,7 @@
                           <th scope="row">{{logbook.id}}</th>
                           <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
                           <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-                          <td><a routerLink="/trip/{{logbook.id}}">Details</a></td>
+                          <td *ngIf="ismanager == 'manager'" ><a *ngIf="logbook.driver == null" routerLink="/update-logbook/{{logbook.id}}">Edit</a></td>
                       </tr>
                     </tbody>
               </table>

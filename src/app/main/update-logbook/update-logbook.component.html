@@ -1,0 +1,27 @@
+<div class="row">
+  <h1>Update Logbook</h1>
+  </div>
+
+  <form #tripForm="ngForm">
+    
+        <div class="row" *ngIf="logbookgiven != null">
+          <h3>Logbook {{logbookgiven}}</h3>
+        </div>
+        <div class="row" *ngIf="logbookgiven == null">
+            <label for="staticEmail1" class="col-sm-2 col-form-label">Logbook ID</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="logbookid" value="" maxlength="50">
+            </div>
+          </div>
+
+          <div class="row">
+            <label for="staticEmail1" class="col-sm-2 col-form-label">Driver E-Mail</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="driveremail" value="" maxlength="50">
+            </div>
+          </div>
+
+                <div class="row">
+                  <button tyoe="button" (click)="updateLogbook()">Create</button>
+                </div>
+  </form>

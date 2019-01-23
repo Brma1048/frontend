@@ -42,12 +42,10 @@ export class KeycloakService {
     return this.keycloakAuth.idTokenParsed.email;
   }
   checkManager(){
-    if(this.keycloakAuth.realmAccess.roles[0] == "manager"){
-      alert("yes");
+    if((this.keycloakAuth.realmAccess.roles[0] == "manager")||(this.keycloakAuth.realmAccess.roles[1] == "manager")||(this.keycloakAuth.realmAccess.roles[2] == "manager")){
       this.ismanager = true;
     }
     else{
-      alert("no");
     }
   }
   setUserRole(role: string): void{
@@ -59,5 +57,6 @@ export class KeycloakService {
   }
   
   
-  constructor() { }
+  constructor(
+  ) { }
 }

@@ -11,12 +11,15 @@ import { UctripsComponent } from './main/uctrips/uctrips.component';
 import {UctripsDetailComponent} from './main/uctrips-detail/uctrips-detail.component';
 import { CreateLogbookComponent } from './main/create-logbook/create-logbook.component';
 import { CreateUserComponent } from './main/create-user/create-user.component';
+import { UpdateLogbookComponent } from './main/update-logbook/update-logbook.component';
 
 const routes: Routes = [
   {path: "",redirectTo: "/dashboard", pathMatch: "full"},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'create-logbook', component: CreateLogbookComponent},
   { path: 'create-user', component: CreateUserComponent},
+  { path: 'update-logbook', component: UpdateLogbookComponent},
+  { path: 'update-logbook/:id', component: UpdateLogbookComponent},
   { path: 'uctrips', component: UctripsComponent},
   { path: 'uctrips-detail/:id', component: UctripsDetailComponent},
   { path: 'trip', component: TripComponent },
