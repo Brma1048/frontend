@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Logbook } from '../entities/logbook';
+import { Driver } from '../entities/driver';
 import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -21,6 +22,7 @@ const httpOptions = {
 export class LogbookService {
 
   private logbooksURL = 'http://localhost:8080/logbook';
+  private driverURL = 'http://localhost:8080/driver';
   private personallogbooksURL = 'http://localhost:8080/myLogbook';
   // private logbooksURL = 'api/logbooks';
 
@@ -35,6 +37,17 @@ export class LogbookService {
       })
     });
   }*/
+
+  getDriver(email: string){
+    const token = this.keycloakService.getToken();
+    const url = `${this.driverURL}/${email}`;
+    return this.http.get<Driver>(url, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token 
+      })
+    });
+  }
 
   updateLogbook(logbook: Logbook){
     const token = this.keycloakService.getToken();

@@ -43,7 +43,7 @@ export class UpdateLogbookComponent implements OnInit {
 
     this.updatetlogbook.driver = this.driver;
 
-    /*if(InputLogbookId.value != null){
+
       this.logbookService.getDriver(this.driver.email)
       .subscribe(drivercheck => this.drivercheck = drivercheck,
         ()=>(alert("Found no Driver!")),
@@ -51,9 +51,11 @@ export class UpdateLogbookComponent implements OnInit {
           this.logbookService.updateLogbook(this.updatetlogbook)
         )
       )
-    }*/
 
-    this.logbookService.updateLogbook(this.updatetlogbook);
+
+    
+    //this.logbookService.updateLogbook(this.updatetlogbook);
+    //this.logbookService
   }
 
   getrouteparam():void{

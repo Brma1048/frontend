@@ -1,13 +1,52 @@
 <div class="row">
   <h1>Welcome</h1>
 </div>
-<div class="row">
-  <a routerLink="/uctrips" *ngIf="ismanager != 'manager'" ><button type="button" class="btn btn-primary">My unconfirmed Trips</button></a>
-</div>
-<div class="row">
-  <a routerLink="/create-logbook" *ngIf="ismanager == 'manager'" ><button type="button" class="btn btn-primary">Create Logbook</button></a>
-</div>
-<div class="row">
-    <a routerLink="/create-user" *ngIf="ismanager == 'manager'" ><button type="button" class="btn btn-primary">Create User</button></a>
-  </div>
 
+<!--<div clas="row" *ngIf="userindata == false">
+    <div class="col-12">
+      <p>Please wait.</p>
+    </div>
+  </div>-->
+
+
+<div class="row" >
+  <div class="col-lg-2 col-sm-4 col-12" *ngIf="ismanager != 'manager' text-center">
+      <a routerLink="/uctrips"  ><button type="button" class="btn btn-primary">My unconfirmed Trips</button></a>
+  </div>
+<div class="col-lg-2 col-sm-4 col-12" *ngIf="ismanager == 'manager' text-center">
+    <a routerLink="/create-logbook"  ><button type="button" class="btn btn-primary">Create Logbook</button></a>
+</div>
+
+<div class="col-lg-2 col-sm-4 col-12" *ngIf="ismanager == 'manager'">
+    <a routerLink="/create-user"  ><button type="button" class="btn btn-primary">Create User</button></a>
+</div>
+
+</div>
+
+
+<div class="row" >
+  <div class="col-12">
+      <div class="card-deck">
+          <div class="card bg-primary">
+            <div class="card-body text-center">
+              <p class="card-text"><b>Latest Trip by: </b>Fabio Vetter</p>
+            </div>
+          </div>
+          <div class="card bg-primary mycard">
+            <div class="card-body text-center">
+                <p class="card-text"><b>Most Trips by: </b>Fabio Vetter</p>
+            </div>
+          </div>
+          <div class="card bg-primary mycard">
+            <div class="card-body text-center">
+                <p class="card-text"><b>Unconfirmed Trips in System: </b>5</p>
+            </div>
+          </div>
+          <div class="card bg-primary">
+            <div class="card-body text-center mycard">
+                <p class="card-text"><b>Trips in System: </b>200</p>
+            </div>
+          </div> 
+        </div>>
+  </div>
+</div>

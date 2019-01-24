@@ -98,7 +98,7 @@ export class TripService {
   }
   
   getTripsByDriverName(name: string): Trip[]{
-    return data.filter(t => t.driver.name === name);
+    return data.filter(t => t.driver.lastName === name);
   }
 
   getTripsByDriverID(id: string): Observable<Trip[]>{

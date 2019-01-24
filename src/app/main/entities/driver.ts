@@ -1,6 +1,6 @@
 export class Driver {
     id: string;
-    name: string;
-    surname: string;
+    lastName: string;
+    firstName: string;
     email: string;
 }

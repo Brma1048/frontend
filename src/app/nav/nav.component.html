@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-design">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Fleetmanagement - MHP</a>
+  <a class="navbar-brand" routerLink="/dashboard">Fleetmanagement - MHP</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
@@ -9,6 +9,9 @@
     </li>
     <li>
       <a class="nav-link" routerLink="/trip">Trips <fa-icon [icon]="faMapMarkerAlt"></fa-icon></a>
+    </li>
+    <li>
+      <a class="nav-link" href="http://localhost:8081/auth/realms/demo/protocol/openid-connect/logout?redirect_uri=http://localhost:4200">Logout <fa-icon [icon]="faMapMarkerAlt"></fa-icon></a>
     </li>
   </ul>
 </nav>

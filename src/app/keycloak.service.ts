@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { HttpClientModule, HttpClient, HttpHeaders }    from '@angular/common/http';
+import { Driver } from './main/entities/driver';
+
 
 declare var Keycloak: any;
 
@@ -11,6 +14,8 @@ export class KeycloakService {
 
   userrole: string;
   ismanager: boolean = false;
+  userindata: boolean = false;
+  driver: Driver;
 
 
   private keycloakAuth: any;
@@ -24,8 +29,6 @@ export class KeycloakService {
       this.keycloakAuth = new Keycloak(config);
       this.keycloakAuth.init({ onLoad: 'login-required' })
         .success(() => {
-          console.log(this.keycloakAuth);
-          console.log(this.keycloakAuth.realmAccess.roles[0]);
           this.setUserRole(this.keycloakAuth.idTokenParsed.preferred_username);
           resolve();
         })
@@ -55,8 +58,10 @@ export class KeycloakService {
   getUserRole(){
     return this.userrole;
   }
-  
-  
+
+
+
   constructor(
+    private http: HttpClient,
   ) { }
 }

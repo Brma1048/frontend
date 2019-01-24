@@ -1,3 +1,16 @@
 h1{
     color: white;
 }
+
+button{
+    width: 180px;
+    background-color: transparent;
+}
+p{
+    color:white !important;
+    font-size: 15px;
+}
+
+.row{
+    padding-top: 10px !important;
+}
