@@ -3,6 +3,9 @@ import { User } from '../entities/user';
 import { KeycloakService } from '../../keycloak.service';
 import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Driver } from '../entities/driver';
+import { Router } from '@angular/router';
+
+export const HOME_PATH = 'dashboard';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +23,7 @@ export class CreateUserService {
       res => {
         console.log()
         alert("The driver was saved successfully!");
+        this.router.navigate([HOME_PATH]);
       },
       (err: HttpErrorResponse) => {
         alert("There was an error!");
@@ -62,6 +66,7 @@ export class CreateUserService {
 
   constructor(
     private keycloakService: KeycloakService,
+    private router: Router,
     private http: HttpClient
   ) { }
 }
