@@ -18,7 +18,7 @@ export class CreateUserComponent implements OnInit {
     const InputEmail = (<HTMLInputElement>document.getElementById("email"));
     const InputPrename = (<HTMLInputElement>document.getElementById("prename"));
     const InputName = (<HTMLInputElement>document.getElementById("name"));
-    const InputPasswort = (<HTMLInputElement>document.getElementById("password"));
+    const InputPassword = (<HTMLInputElement>document.getElementById("password"));
 
     this.newUser.email = InputEmail.value;
     this.newUser.username = InputUsername.value,
@@ -29,6 +29,11 @@ export class CreateUserComponent implements OnInit {
     this.newDriver.lastName = InputName.value;
     this.newDriver.firstName = InputPrename.value;
 
+
+    // Validation
+    if(InputUsername.value ==""||InputEmail.value ==""||InputPrename.value ==""||InputName.value ==""||InputPassword.value ==""){
+      return alert("There are empty fields!");
+    }
     const obj: any =
     {
        
@@ -40,7 +45,7 @@ export class CreateUserComponent implements OnInit {
       "enabled": true,
       "credentials" : [{
         "type" : "password",
-        "value" : InputPasswort.value}
+        "value" : InputPassword.value}
         ],
   "realmRoles": [
     "user", "offline_access" 
