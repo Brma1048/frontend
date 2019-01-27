@@ -9,9 +9,11 @@
     <table class="table table-dark">
         <thead>
             <tr>
-                <th scope="col">Logbook</th>
                 <th scope="col">ID</th>
+                <th scope="col">Logbook</th>
                 <th scope="col">Driver</th>
+                <th scope="col">Car</th>
+                <th scrope="col">Typ</th>
                 <th scope="col">Customer</th>
                 <th scope="col">Project</th>
                 <th scope="col">Distance</th>
@@ -19,11 +21,14 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row">{{trip.logbook.id}}</th>
-                <td>{{trip.id}}</td>
+                
+                <th scope="row">{{trip.id}}</th>
+                <td>{{trip.logbook.id}}</td>
                 <td>{{trip.logbook.driver.firstName}} {{trip.logbook.driver.lastName}}</td>
-                <td>{{trip.customerName}}</td>
-                <td>{{trip.projectName}}</td>
+                <td>{{trip.logbook.car.manufacturer}} {{trip.logbook.car.model}} {{trip.logbook.car.lincensPlate}}</td>
+                <td><span *ngIf="trip.customerName != null">Business</span><span *ngIf="trip.customerName == null">Privat</span></td>
+                <td>{{trip.customerName}}<span *ngIf="trip.customerName == null">-</span></td>
+                <td>{{trip.projectName}}<span *ngIf="trip.customerName == null">-</span></td>
                 <td>{{trip.endOdometer - trip.startOdometer}}</td>
             </tr>
         </tbody>
@@ -31,12 +36,12 @@
 </div>
 
 <div>
-    <button type="button" class="btn btn-primary" (click)="setMapSrc()">Show Map</button>
-    <small class="form-text text-white">     Red = Start & Blue = End</small>
+    
 </div>
 
 
 <img id="mapsrc">
+<small class="form-text text-white">     Red = Start & Blue = End</small>
 
 
 

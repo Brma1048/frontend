@@ -46,6 +46,7 @@ export class TripDetailComponent implements OnInit {
                                this.lonm1 = res.startWaypoint.gpsLon,
                                this.latm2 = res.endWaypoint.gpsLat,
                                this.lonm2 = res.endWaypoint.gpsLon,
+                               this.setMapSrc(),
                               console.log(this.latm1);});
   }
 
@@ -67,6 +68,7 @@ export class TripDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getTrip();
     this.getTripForMap();
+    this.setMapSrc();
   }
 
 
