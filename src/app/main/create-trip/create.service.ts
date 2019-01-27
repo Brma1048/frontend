@@ -1,7 +1,8 @@
 import { Injectable, ErrorHandler } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Trip, TripResponse } from '../entities/trip';
+import { NewTrip} from '../entities/newtrip';
+import { Trip} from '../entities/trip';
 import { KeycloakService } from 'src/app/keycloak.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
@@ -25,11 +26,12 @@ export class CreateService {
         key: 'pk.ffbc75ecb6b5956a8fb542a623e0f957'
 
       }
-    })
+    });
+    /*
     .subscribe(function(response) {
        const lat = response[0].lat;
        const lon = response[0].lon;
-       
+      
        const inputValueLatStart = (<HTMLInputElement>document.getElementById('gpsLatStart'));
        inputValueLatStart.value = lat;
        const inputValueLonStart = (<HTMLInputElement>document.getElementById('gpsLonStart'));
@@ -37,6 +39,8 @@ export class CreateService {
       
       console.log(response);
     });
+    */
+    
   }
 
   getGeoCodeEnd(location: string) {
@@ -48,7 +52,8 @@ export class CreateService {
         key: 'pk.ffbc75ecb6b5956a8fb542a623e0f957'
 
       }
-    })
+    });
+    /*
     .subscribe(function(response) {
        const lat = response[0].lat;
        const lon = response[0].lon;
@@ -60,6 +65,7 @@ export class CreateService {
        
       console.log(response);
     });
+    */
   }
 
   /*
@@ -99,7 +105,7 @@ export class CreateService {
       }
     )
   }
-  addTrip (trip: Trip) {
+  addTrip (trip: NewTrip) {
     const token = this.keycloak.getToken();
     console.log(token);
     return this.http.post('http://localhost:8080/createTrip', trip, {

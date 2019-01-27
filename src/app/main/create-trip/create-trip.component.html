@@ -4,66 +4,50 @@
     </div>
 
     <div class="card-body">
-      <form #tripForm="ngForm" [formGroup]="form"  > <!-- (ngSubmit)="onSubmit()" -->
+      <form #createForm="ngForm" > <!-- (ngSubmit)="onSubmit()" -->
 
-        <div class="form-group row has-warning" *ngIf="showWarning">
-          <div class="form-control-feedback">
-              <span class="alert alert-warning">
-                  <i class="fas fa-2x fa-exclamation-triangle"></i>
-                  <strong class="text-help ml-1">
-                      If you leave the page now, you lose your entered data.
-                  </strong>
-              </span>
-          </div>
-      </div>
-
+        <!--
         <div class="form-group row">
             <label class="col-2 form-control-label">Art *</label>
             <div class="col col-10">
                 <div class="radio">
-                    <input type="radio" id="businessInput"
-                        formControlName="isBusiness" name="isBusiness" value="true" >
-                    <label class="radio-inline" for="businessInput">
+                    <input type="radio" id="businessInput"  name="business" onclick="document.getElementById('projectName').disabled = false; document.getElementById('customerName').disabled = false;"
+                         value="true" >
+                    <label class="radio-inline" for="businessInput" >
                         Business
                     </label>
                 </div>
                 <div class="radio">
-                    <input type="radio" id="privateInput"
-                        formControlName="isBusiness" name="isBusiness" value="false">
+                    <input type="radio" id="privateInput" name="business"
+                         value="false">
                     <label class="radio-inline" for="privateInput">
                           Private
                     </label>
                 </div>
             </div>
         </div>
+        -->
 
-        
+        <div class="row">
+            <label class="col-sm-2 co-form-label" id="testbutton" >Business-Trip</label>
+            <div class="col-sm-4">
+              <input type="checkbox" class="form-control-checkbox" value="" (click)="setBusinessTrip()" id="isBusinessCheckbox">
+            </div>
+        </div>
+
+
         <div class="form-group row">
           <label for="startAdress" class="col-2 col-form-label">Start Adress</label>
           <div class="col-4">
               <input id="startAdress" type="text" class="form-control"  [(ngModel)]="locationstart" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="input-group-append">
-              <button class="btn btn-primary" (click)="addGeoCodeStart()"  >
+              <button class="btn btn-primary" (click)="addGeoCodeStart()"  type="button">
                   <span class="ml-1">Get Geocode</span>
               </button>
           </div>
         </div>
 
-        <div formGroupName="startWaypoint">
-          <div class="form-group row">
-            <label for="gpsLat" class="col-2 col-form-label">Gps Latitude Start *</label>
-            <div class="col-2">
-              <input id="gpsLatStart" class="form-control" formControlName="gpsLat" type="number" placeholder="Enter as number" >
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="gpsLon" class="col-2 col-form-label">Gps Longitude Start *</label>
-            <div class="col-2">
-              <input id="gpsLonStart" class="form-control" formControlName="gpsLon" type="number" placeholder="Enter as number" >
-            </div>
-          </div>
-        </div>
 
         <div class="form-group row">
             <label for="endAdress" class="col-2 col-form-label">End Adress</label>
@@ -71,73 +55,59 @@
                 <input id="endAdress" type="text" class="form-control"  [(ngModel)]="locationend" [ngModelOptions]="{standalone: true}">
             </div>
             <div class="input-group-append">
-                <button class="btn btn-primary" (click)="addGeoCodeEnd()"  >
+                <button class="btn btn-primary" (click)="addGeoCodeEnd()"  type="button">
                     <span class="ml-1">Get Geocode</span>
                 </button>
             </div>
         </div>
 
-        <div formGroupName="endWaypoint">
-          <div class="form-group row">
-            <label for="gpsLat" class="col-2 col-form-label">Gps Latitude End *</label>
-            <div class="col-2">
-              <input id="gpsLatEnd" class="form-control" formControlName="gpsLat" type="number" placeholder="Enter as number" >
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="gpsLon" class="col-2 col-form-label">Gps Longitude End *</label>
-            <div class="col-2">
-              <input id="gpsLonEnd" class="form-control" formControlName="gpsLon" type="number" placeholder="Enter as number" >
-            </div>
-          </div>
-        </div>
-        
 
         <div class="form-group row">
           <label for="startOdometer" class="col-2 col-form-label">Start Odometer *</label>
           <div class="col-4">
-            <input id="startOdometer" class="form-control" formControlName="startOdometer" type="number" placeholder="Enter as number" >
+            <input id="startOdometer" class="form-control" type="number" placeholder="Enter as number" min="0" max="600000" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label for="endOdometer" class="col-2 col-form-label">End Odometer *</label>
           <div class="col-4">
-            <input id="endOdometer" class="form-control" required formControlName="endOdometer" type="number" placeholder="Enter as number">
+            <input id="endOdometer" class="form-control" type="number" placeholder="Enter as number" min="1" max="600000" required>
           </div>
         </div>
 
-        <div class="form-group row">
+        <div class="form-group row" *ngIf="isBusinessTrip == true">
             <label for="customerName" class="col-2 col-form-label">Customer name *</label>
             <div class="col-4">
-              <input id="customerName" class="form-control" formControlName="customerName" type="text" value="Enter Customer name">
+              <input id="customerName" class="form-control" type="text" placeholder="Enter Customer name"  minlength="2" maxlength="30" value="">
             </div>
         </div>
 
-        <div class="form-group row">
+        <div class="form-group row" *ngIf="isBusinessTrip == true">
             <label for="projectName" class="col-2 col-form-label">Project name *</label>
             <div class="col-4">
-              <input id="projectName" class="form-control" formControlName="projectName" type="text" value="Enter Project name" >
+              <input id="projectName" class="form-control" type="text" placeholder="Enter Project name" minlength="2" maxlength="30" value="">
             </div>
         </div>
 
         <div class="form-group row">
           <label for="startDate" class="col-2 col-form-label">Startdate and time *</label>
           <div class="col-4">
-            <input id="startDate" class="form-control" formControlName="startDate" type="datetime-local" value="" >
+            <input id="startDate" class="form-control" type="datetime-local" value="" min="31-12-2015" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label for="endDate" class="col-2 col-form-label">Enddate and time *</label>
           <div class="col-4">
-            <input id="endDate" class="form-control" formControlName="endDate" type="datetime-local" max="31-12-9999" value="" >
+            <input id="endDate" class="form-control" type="datetime-local" min="31-12-2015" max="31-12-9999" value="" required >
+            <small id="Help" class="form-text text-white">Must be later than the start date.</small>
           </div>
         </div>
 
         <div class="form-group row">
             <div class="col offset-2">
-                <button class="btn btn-primary" (click)="add()"  [disabled]="!form.valid"> <!-- type="submit"-->
+                <button class="btn btn-primary" (click)="createTrip()" > <!-- type="submit" (click)="createTrip()"-->
                     <span class="ml-1">Create now</span>
                 </button>
             </div>
@@ -150,24 +120,15 @@
               </button>
           </div>
       </div>
-        
-        <div class="form-group row">
-          <div class="col offset-2">
-              <button class="btn btn-primary" (click)="showConsole()"  >
-                  <span class="ml-1">Get Geocode</span>
-              </button>
-          </div>
-      </div>
-    
-        
+
 
       </form>
 
       <small>* Required fields for a business trip</small>
-      
-     
+
+
     </div>
-    
+
 
   <!-- Kalender
    <div class="form-group">
@@ -196,7 +157,7 @@
 </div>
 -->
 
-    
+
 
 </div>
 

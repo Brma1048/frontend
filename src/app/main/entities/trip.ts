@@ -18,6 +18,9 @@ export class Trip {
     startDate: Date;
     endDate: Date;
 
+    startWaypoint: WayPoints;
+    endWaypoint: WayPoints;
+
 }
 
 export interface TripResponse {

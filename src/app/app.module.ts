@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { CreateTripComponent } from './main/create-trip/create-trip.component';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { CreateTripGuard } from './main/create-trip/create-trip.guard';
+//import { CreateTripGuard } from './main/create-trip/create-trip.guard';
 // import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
 import { KeycloakService } from './keycloak.service';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
@@ -55,7 +55,7 @@ export function kcFactory(keycloakService: KeycloakService) {
     ReactiveFormsModule,
     // BsDatepickerModule.forRoot()
   ],
-  providers: [CreateTripGuard,
+  providers: [//CreateTripGuard,
     {
       provide: APP_INITIALIZER,
       useFactory: kcFactory,

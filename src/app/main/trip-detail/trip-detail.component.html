@@ -1,30 +1,43 @@
 <div class="row">
-        <div class="col-12">
-            <h1>Details</h1>
-          </div>
-    </div>
+    <div class="col-12">
+        <h1>Details</h1>
+      </div>
+</div>
 <div *ngIf="trip">
-        
-    <div class="table-responsive">
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">Logbook</th>
-                    <th scope="col">Driver</th>
-                    <th scope="col">Customer</th>
-                    <th scope="col">Project</th>
-                    <th scope="col">Distance</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">{{trip.logbook.id}}</th>
-                    <td>{{trip.logbook.driver.firstName}} {{trip.logbook.driver.lastName}}</td>
-                    <td>{{trip.customerName}}</td>
-                    <td>{{trip.projectName}}</td>
-                    <td>{{trip.endOdometer - trip.startOdometer}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
+<div class="table-responsive">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Logbook</th>
+                <th scope="col">ID</th>
+                <th scope="col">Driver</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Project</th>
+                <th scope="col">Distance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{trip.logbook.id}}</th>
+                <td>{{trip.id}}</td>
+                <td>{{trip.logbook.driver.firstName}} {{trip.logbook.driver.lastName}}</td>
+                <td>{{trip.customerName}}</td>
+                <td>{{trip.projectName}}</td>
+                <td>{{trip.endOdometer - trip.startOdometer}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <button type="button" class="btn btn-primary" (click)="setMapSrc()">Show Map</button>
+    <small class="form-text text-white">     Red = Start & Blue = End</small>
+</div>
+
+
+<img id="mapsrc">
+
+
+
 </div>

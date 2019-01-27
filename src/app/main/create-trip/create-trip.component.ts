@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CreateService } from './create.service';
-import { FormControl, FormGroup, Validator, Validators, NgForm } from '@angular/forms';
-import { Trip } from '../entities/trip';
+import { NewTrip } from '../entities/newTrip';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
+import { WayPoints } from '../entities/waypoints';
+
 
 export const HOME_PATH = 'logbook';
 @Component({
@@ -14,73 +14,117 @@ export const HOME_PATH = 'logbook';
 })
 export class CreateTripComponent implements OnInit {
 
-  @ViewChild('tripForm') public createTripForm: NgForm;
-
-  constructor(
+  constructor(private createTripService: CreateService,
     private router: Router,
-    public _location: Location,
-    private createService: CreateService) { }
+    public _location: Location, ){}
 
-  showWarning = false;
-  fertig = false;
-  form: FormGroup;
+  startlat: number;
+  startlon: number;
+  endlat: number;
+  endlon: number;
+  newTrip: NewTrip = new NewTrip;
+  newWaypointStart: WayPoints = new WayPoints;
+  newWaypointEnd: WayPoints = new WayPoints;
+  isBusinessTrip: boolean = false;
+
   locationstart: string;
   locationend: string;
 
-  addGeoCodeStart(): void {
-    this.createService.getGeoCodeStart(this.locationstart);
+
+  addGeoCodeStart(){
+    this.createTripService.getGeoCodeStart(this.locationstart).subscribe((response) => { this.startlat = response[0].lat; this.startlon = response[0].lon; }
+    );
   }
 
-  addGeoCodeEnd(): void {
-    this.createService.getGeoCodeEnd(this.locationend);
+  addGeoCodeEnd(){
+    this.createTripService.getGeoCodeEnd(this.locationend).subscribe((response) => { this.endlat = response[0].lat; this.endlon = response[0].lon }
+    );
   }
 
-  ngOnInit() {
+  setBusinessTrip():void{
+    switch(this.isBusinessTrip){
+      case true:
+        this.isBusinessTrip = false;
+        break;
+      case false:
+        this.isBusinessTrip = true;
 
-    this.form = new FormGroup({
-      startWaypoint: new FormGroup({
-        gpsLat: new FormControl('', [Validators.required, Validators.min(0)]),
-        gpsLon: new FormControl('', [Validators.required, Validators.min(0)])
-      }),
-      endWaypoint: new FormGroup({
-        gpsLat: new FormControl('', [Validators.required, Validators.min(0)]),
-        gpsLon: new FormControl('', [Validators.required, Validators.min(0)]),
-      }),
-      isBusiness: new FormControl('', Validators.required),
-      startOdometer: new FormControl('', [Validators.required, Validators.min(0), Validators.max(400000)]),
-      endOdometer: new FormControl('', [Validators.required, Validators.min(1), Validators.max(400000)]),
-      customerName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
-      projectName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
-      // driverid: new FormControl()
-      startDate: new FormControl('', Validators.required),
-      endDate: new FormControl('', Validators.required)
-    });
-
-        /*
-      $(function () {
-        $('#datetimepicker6').datetimepicker();
-        $('#datetimepicker7').datetimepicker({
-            useCurrent: false // Important! See issue #1075
-        });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-        });
-    }); */
+    }
   }
 
-  add(): void {
-    const newTrip = this.form.value;
-    this.createService.addTrip(newTrip);
-    this.router.navigate([HOME_PATH]);
-    this.showWarning = false;
-    this.fertig = true;
+  createTrip():void {
+
+  //Input
+  // const businessInput =  (<HTMLInputElement>document.getElementById("businessInput"));
+  // const startAdressInput =  (<HTMLInputElement>document.getElementById("startAdress"));
+  // const endAdressInput =  (<HTMLInputElement>document.getElementById("endAdress"));
+  const startOdometerInput =  (<HTMLInputElement>document.getElementById("startOdometer"));
+  const endOdometerInput =  (<HTMLInputElement>document.getElementById("endOdometer"));
+  const customerNameInput =  (<HTMLInputElement>document.getElementById("customerName") as HTMLInputElement);
+  const projectNameInput =  (<HTMLInputElement>document.getElementById("projectName") as HTMLInputElement);
+  const startDateInput =  (<HTMLInputElement>document.getElementById("startDate"));
+  const endDateInput =  (<HTMLInputElement>document.getElementById("endDate"));
+
+
+  // Validation
+  if(startOdometerInput.value == "" || parseInt(startOdometerInput.value) < 0 ){
+    return alert("Startodometer is empty or smaller than 0!");
+  }
+  if(endOdometerInput.value == "" || parseInt(endOdometerInput.value) <  parseInt(startOdometerInput.value) ){
+    return alert("Endodometer is empty or smaller than startodometer!");
+  }
+  if(this.isBusinessTrip == true){
+    if(projectNameInput.value == ""){
+      return alert("Projectname is empty!");
+    }
+    if(customerNameInput.value == ""){
+       return alert("Customername is empty!");
+    }
+  }
+  if(startDateInput.value == ""){
+    return alert("Startdate is empty!");
+  }
+  if(endDateInput.value == "" || new Date(startDateInput.value) > new Date(endDateInput.value)){
+    return alert("Enddate is empty or bigger than startdate!");
+  }
+
+  //Convert
+  const startDateConvert = new Date(startDateInput.value);
+  const endDateConvert = new Date(endDateInput.value);
+
+
+  this.newWaypointStart.gpsLat = this.startlat;
+  this.newWaypointStart.gpsLon = this.startlon;
+  this.newWaypointEnd.gpsLat = this.endlat;
+  this.newWaypointEnd.gpsLon = this.endlon;
+  console.log(this.newWaypointStart, this.newWaypointEnd);
+
+
+  // this.newTrip.isBusiness = business;
+  this.newTrip.startOdometer = parseInt(startOdometerInput.value);
+  this.newTrip.endOdometer = parseInt(endOdometerInput.value);
+  if(this.isBusinessTrip){
+    this.newTrip.projectName = projectNameInput.value;
+    this.newTrip.customerName = customerNameInput.value;
+  }
+
+  this.newTrip.startDate = startDateConvert;
+  this.newTrip.endDate = endDateConvert;
+  this.newTrip.startWaypoint = this.newWaypointStart;
+  this.newTrip.endWaypoint = this.newWaypointEnd;
+  this.newTrip.isBusiness = this.isBusinessTrip;
+
+
+
+  console.log(this.newTrip);
+  this.createTripService.addTrip(this.newTrip);
+  this.router.navigate([HOME_PATH]);
   }
 
   goBack() {
     this._location.back();
-    this.showWarning = false;
+  }
+
+  ngOnInit() {
   }
 }
