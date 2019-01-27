@@ -5,7 +5,7 @@ import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@a
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
-
+export const HOME_PATH = 'dashboard';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +24,14 @@ export class CreateLogbookService {
       res => {
         console.log(res);
         alert("The Logbook was saved successfully!");
+        this.router.navigate([HOME_PATH]);
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
           console.log('Client Side Error: ', err.error.message);
         } else {
           console.log('Server Side Error: ', err.error.message);
-          alert("The Server is not avaible!");
+          alert("The Server is not avaible!");//
         }
       }
     );
