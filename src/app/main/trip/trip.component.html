@@ -52,6 +52,7 @@
           <tr>
             <th scope="col">Logbook</th>
             <th scope="col">Driver</th>
+            <th scope="col">Typ</th>
             <th scope="col">Customer</th>
             <th scope="col">Project</th>
             <th scope="col">Details</th>
@@ -61,8 +62,9 @@
           <tr *ngFor="let trips of trips">
               <th scope="row">{{trips.logbook.id}}</th>
               <td>{{trips.driver.firstName}} {{trips.driver.lastName}}</td>
-              <td>{{trips.customerName}}</td>
-              <td>{{trips.projectName}}</td>
+              <td><span *ngIf="trips.customerName != null">Business</span><span *ngIf="trips.customerName == null">Privat</span></td>
+              <td>{{trips.customerName}}<span *ngIf="trips.customerName == null">-</span></td>
+              <td>{{trips.projectName}}<span *ngIf="trips.customerName == null">-</span></td>
               <td><a routerLink="/trip-detail/{{trips.id}}">Details</a></td>
           </tr>
           </tbody>

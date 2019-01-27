@@ -64,7 +64,7 @@
                           <th scope="row">{{logbook.id}}</th>
                           <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
                           <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-                          <td *ngIf="ismanager == 'manager'" ><a *ngIf="logbook.driver == null" routerLink="/update-logbook/{{logbook.id}}">Edit</a></td>
+                          <td *ngIf="ismanager == 'manager'" ><a  routerLink="/update-logbook/{{logbook.id}}">Edit</a></td>
                       </tr>
                     </tbody>
               </table>

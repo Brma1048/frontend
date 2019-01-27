@@ -14,3 +14,8 @@ p{
 .row{
     padding-top: 10px !important;
 }
+
+.bg-primary{
+    background: rgb(48, 66, 104) !important;
+    border-top: solid rgb(44, 124, 199) 10px !important;
+}

@@ -7,5 +7,6 @@
     line-height: 40px; /* Vertically center the text there */
     /*background-color: dimgrey;*/
     color: white;
+    background-color: transparent !important;
   }
   

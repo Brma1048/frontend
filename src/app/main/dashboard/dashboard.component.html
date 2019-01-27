@@ -2,11 +2,13 @@
   <h1>Welcome</h1>
 </div>
 
-<!--<div clas="row" *ngIf="userindata == false">
-    <div class="col-12">
-      <p>Please wait.</p>
-    </div>
-  </div>-->
+
+
+
+
+
+
+
 
 
 <div class="row" >
@@ -23,28 +25,54 @@
 
 </div>
 
-
-<div class="row" >
+<div class="row" *ngIf="ismanager == 'manager'">
   <div class="col-12">
       <div class="card-deck">
           <div class="card bg-primary">
             <div class="card-body text-center">
-              <p class="card-text"><b>Latest Trip by: </b>Fabio Vetter</p>
+              <p class="card-text"><b>Logbooks: <br></b><span style="font-size: 200%">{{alllogbooks}}</span></p>
             </div>
           </div>
           <div class="card bg-primary mycard">
             <div class="card-body text-center">
-                <p class="card-text"><b>Most Trips by: </b>Fabio Vetter</p>
+              <p class="card-text"><b>Trips: <br></b><span style="font-size: 200%">{{alltrips}}</span></p>
             </div>
           </div>
           <div class="card bg-primary mycard">
             <div class="card-body text-center">
-                <p class="card-text"><b>Unconfirmed Trips in System: </b>5</p>
+              <p class="card-text"><b>Business Trips: <br></b><span style="font-size: 200%">{{allbusinesstrips}}</span></p>
             </div>
           </div>
           <div class="card bg-primary">
             <div class="card-body text-center mycard">
-                <p class="card-text"><b>Trips in System: </b>200</p>
+              <p class="card-text"><b>Privat Trips: <br></b><span style="font-size: 200%">{{allprivattrips}}</span></p>
+            </div>
+          </div> 
+        </div>>
+  </div>
+</div>
+
+<div class="row" *ngIf="ismanager != 'manager'">
+  <div class="col-12">
+      <div class="card-deck">
+          <div class="card bg-primary">
+            <div class="card-body text-center">
+              <p class="card-text"><b>My Trips: <br></b><span style="font-size: 200%">{{mytrips}}</span></p>
+            </div>
+          </div>
+          <div class="card bg-primary mycard">
+            <div class="card-body text-center">
+              <p class="card-text"><b>My Odometer: <br></b><span style="font-size: 200%">{{myodometer}}</span></p>
+            </div>
+          </div>
+          <div class="card bg-primary mycard">
+            <div class="card-body text-center">
+              <p class="card-text"><b>My Business Trips: <br></b><span style="font-size: 200%">{{mybusinesstrips}}</span></p>
+            </div>
+          </div>
+          <div class="card bg-primary">
+            <div class="card-body text-center mycard">
+              <p class="card-text"><b>My Privat Trips: <br></b><span style="font-size: 200%">{{myprivatetrips}}</span></p>
             </div>
           </div> 
         </div>>
