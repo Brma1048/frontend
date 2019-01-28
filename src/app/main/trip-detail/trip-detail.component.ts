@@ -6,7 +6,7 @@ import { Trip } from "../entities/trip";
 import { TripService } from '../trip/trip.service';
 import { LogbookService } from "../logbook/logbook.service";
 import { Logbook } from '../entities/logbook';
-import { NewTrip } from '../entities/newtrip';
+import { NewTrip } from '../entities/newTrip';
 import { CreateService} from '../create-trip/create.service';
 
 

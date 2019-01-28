@@ -1,7 +1,7 @@
 import { Injectable, ErrorHandler } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { NewTrip} from '../entities/newtrip';
+import { NewTrip} from '../entities/newTrip';
 import { Trip} from '../entities/trip';
 import { KeycloakService } from 'src/app/keycloak.service';
 import { Location } from '@angular/common';
