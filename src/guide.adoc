@@ -10,7 +10,7 @@ bei "Asciidoctor.js Live Preview" den Haken bei "Zugriff auf Datei-URLs zulassen
 
 == Aufbau: 
 
-Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabei haben wir unsere Seite in die 3 Hauptkomponenten Header, Main & Footer aufgeteilt. Im Header befindet sich die Navbar und im Footer ist die Fußleiste drin. In der Main-Komponente befinden sich die einzelnen Komponenten für den Body, die über das App-Routing-Module aufgerufen werden. 
+Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabei haben wir unsere Seite in die 3 Hauptkomponenten Header, Main & Footer aufgeteilt. Im Header befindet sich die Navbar und im Footer ist die Fußleiste drin. In der Main-Komponente befinden sich die einzelnen Komponenten für den Body, die über das App-Routing-Module aufgerufen werden. Das Frontend greift auf das Backend und den Keycloak-Server zu. 
 
 == Component
 
@@ -18,7 +18,7 @@ Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabe
 *	Hier wird ein Logbook erstellt
 *	Create-logbook Component
 |===
-| Methoden | Beschreiben
+| Methoden | Beschreibung
 |	createLogbook() | Ein Loogbook wird zu einem Objekt zusammengebaut
 |===
 * Create-Logbook Service 
@@ -32,10 +32,10 @@ Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabe
 *	Create-trip Component
 |===
 | Methoden | Beschreibung
-|	addGeoCodeStart() | Fügt die Gps Koordinaten den passenden Variablen zu
-|	addGeoCodeEnd() | Fügt die Gps Koordinaten den passenden Variablen zu 
+|	addGeoCodeStart() | Fügt die Gps Koordinaten eines Trips den passenden Variablen zu
+|	addGeoCodeEnd() | Fügt die Gps Koordinaten eines Trips den passenden Variablen zu 
 |	setBusinessTrip()| Setzt den Wert für das Attribut isBusiness auf true oder false 
-|	createTrip() | Erstellt einen Tri
+|	createTrip() | Erstellt einen Trip
 |	goBack() |Leitet einen zu seiner letzten Seite zurück
 |===
 *	Create Service
@@ -43,7 +43,7 @@ Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabe
 | Methoden | Beschreibung
 |	getGeoCodeStart() | Ruft LocationIQ auf um die Startgeodaten zubekommen
 |	getGeoCodeEnd() |  Ruft LocationIQ auf um die Endgeodaten zubekommen
-|	updateTrip() | Ein Trip wird geupdatet 
+|	updateTrip() | Ein Trip wird geupdatet und bekommt einen Header mit einem Token 
 |	addTrip() | Sendet einen Trip an das Backend
 |===
 
