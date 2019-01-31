@@ -14,6 +14,8 @@ export class CreateUserComponent implements OnInit {
   newDriver: Driver = new Driver;
 
   createUser():void{
+
+    // Input-Fields
     const InputUsername = (<HTMLInputElement>document.getElementById("username"));
     const InputEmail = (<HTMLInputElement>document.getElementById("email"));
     const InputPrename = (<HTMLInputElement>document.getElementById("prename"));
@@ -34,6 +36,8 @@ export class CreateUserComponent implements OnInit {
     if(InputUsername.value ==""||InputEmail.value ==""||InputPrename.value ==""||InputName.value ==""||InputPassword.value ==""){
       return alert("There are empty fields!");
     }
+
+    // JSON-Object for User
     const obj: any =
     {
        
@@ -55,7 +59,6 @@ export class CreateUserComponent implements OnInit {
       "manage-account" ] }
 }
 
-    //this.createuserService.createUser(this.newUser);
     this.createuserService.createUser(obj,this.newDriver);
   }
   

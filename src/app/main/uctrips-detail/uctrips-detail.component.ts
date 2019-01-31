@@ -16,15 +16,14 @@ import { CreateService } from '../create-trip/create.service';
 })
 export class UctripsDetailComponent implements OnInit {
 
-
+  //Meta
   myunconfirmedTrip: Trip;
-
   isBusinessTrip: boolean = false;
-
   changeFormInputs(): void{
 
   }
 
+  // update a trip [Employee]
   putTrip(): void{
     const id = +this.route.snapshot.paramMap.get('id');
     if(this.isBusinessTrip == true){
@@ -42,6 +41,7 @@ export class UctripsDetailComponent implements OnInit {
 
   }
 
+  // get my unconfirmed trip [Emloyee]
   getMyUnconfirmedTrip(): void{
     const id = +this.route.snapshot.paramMap.get('id');
     //this.tripService.getTrip(id)
@@ -52,6 +52,7 @@ export class UctripsDetailComponent implements OnInit {
 
   }
 
+  // set trip to business trip
   setBusinessTrip():void{
     switch(this.isBusinessTrip){
       case true:

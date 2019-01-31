@@ -1,45 +1,55 @@
 <div class="container-fluid col-lg-12">
 
-    <form #tripForm="ngForm">
-      <div class="row">
-        <h2>Confirm Trip</h2>>
-      </div>    
-        <div class="row">
-            <label for="staticEmail3" class="col-sm-2 col-form-label">Start Date</label>
-            <div class="col-sm-4">
-              <input type="text" readonly class="form-control-plaintext" id="staticEmail3" value="{{myunconfirmedTrip.startDate}}">
-            </div>
-          </div>
-          <div class="row">
-              <label for="staticEmail4" class="col-sm-2 col-form-label">End Date</label>
-              <div class="col-sm-4">
-                <input type="text" readonly class="form-control-plaintext" id="staticEmail4" value="{{myunconfirmedTrip.endDate}}">
-              </div>
-            </div>
+  <!--Formular-->
+  <form #tripForm="ngForm">
+    <div class="row">
+      <h2>Confirm Trip</h2>>
+    </div>   
+    
+    <!--Start Date-->
+    <div class="row">
+      <label for="staticEmail3" class="col-sm-2 col-form-label">Start Date</label>
+      <div class="col-sm-4">
+        <input type="text" readonly class="form-control-plaintext" id="staticEmail3" value="{{myunconfirmedTrip.startDate}}">
+      </div>
+    </div>
 
-            <div class="row">
-              <label class="col-sm-2 co-form-label" id="testbutton" >Business-Trip</label>
-              <div class="col-sm-4">
-                <input type="checkbox" class="form-control-checkbox" value="" (click)="setBusinessTrip()" id="isBusinessCheckbox">
-              </div>
-            </div>
-            <div class="row" *ngIf="isBusinessTrip == true">
-                <label for="staticEmail2" class="col-sm-2 col-form-label">Customer Name</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control form-fix" id="inputCustomerName" placeholder="Customer Name">
-                </div>
-            </div>
-            <div class="row" *ngIf="isBusinessTrip == true">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Project Name</label>
-                  <div class="col-sm-3">
-                      <input type="text" class="form-control form-fix" id="inputProjectName" placeholder="Project Name">
-                  </div>
-              </div>
-              
-          <div class="row">
-            <button type="button" class="btn btn-primary" (click)="putTrip()">Confirm</button>
-          </div>
+    <!--End Date-->
+    <div class="row">
+      <label for="staticEmail4" class="col-sm-2 col-form-label">End Date</label>
+      <div class="col-sm-4">
+        <input type="text" readonly class="form-control-plaintext" id="staticEmail4" value="{{myunconfirmedTrip.endDate}}">
+      </div>
+    </div>
 
-          
-    </form>
+
+    <!--Business Trip-->
+    <div class="row">
+      <label class="col-sm-2 co-form-label" id="testbutton" >Business-Trip</label>
+      <div class="col-sm-4">
+        <input type="checkbox" class="form-control-checkbox" value="" (click)="setBusinessTrip()" id="isBusinessCheckbox">
+      </div>
+    </div>
+
+    <!--Customer Name-->
+    <div class="row" *ngIf="isBusinessTrip == true">
+      <label for="staticEmail2" class="col-sm-2 col-form-label">Customer Name</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control form-fix" id="inputCustomerName" placeholder="Customer Name">
+      </div>
+    </div>
+
+    <!--Project Name-->
+    <div class="row" *ngIf="isBusinessTrip == true">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Project Name</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control form-fix" id="inputProjectName" placeholder="Project Name">
+      </div>
+    </div>
+
+    <!--Confirm-Button-->
+    <div class="row">
+      <button type="button" class="btn btn-primary" (click)="putTrip()">Confirm</button>
+    </div>
+  </form>
 </div>

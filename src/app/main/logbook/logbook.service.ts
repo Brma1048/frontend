@@ -8,8 +8,11 @@ import { KeycloakService } from 'src/app/keycloak.service';
 import { Router } from '@angular/router';
 
 declare var require: any;
+
+// Redirect-Path
 export const HOME_PATH = 'dashboard';
 
+// Meta
 const data: Logbook[] = require('../mocks/logbook-mock.json');
 
 const httpOptions = {
@@ -21,23 +24,12 @@ const httpOptions = {
 })
 export class LogbookService {
 
+  // URI-Links
   private logbooksURL = 'http://localhost:8080/logbook';
   private driverURL = 'http://localhost:8080/driver';
   private personallogbooksURL = 'http://localhost:8080/myLogbook';
-  // private logbooksURL = 'api/logbooks';
-
-
-  /*getLogbookUpdate(id: string): Observable<Logbook> {
-    const token = this.keycloakService.getToken();
-    const url = `${this.logbooksURL}/${id}`;
-    return this.http.get<Logbook>(url,{
-      headers : new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token 
-      })
-    });
-  }*/
-
+  
+  // get driver by e-mail [Manager]
   getDriver(email: string){
     const token = this.keycloakService.getToken();
     const url = `${this.driverURL}/${email}`;
@@ -49,6 +41,7 @@ export class LogbookService {
     });
   }
 
+  // update a logbook [Manager]
   updateLogbook(logbook: Logbook){
     const token = this.keycloakService.getToken();
     //const url = `${this.uctripsURL}/${id}`;
@@ -67,9 +60,9 @@ export class LogbookService {
     )
   }
 
+  // get my logbooks [Employee]
   getMyLogbooks(): Observable<Logbook> {
     const token = this.keycloakService.getToken();
-    
     return this.http.get<Logbook>(this.personallogbooksURL,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',
@@ -78,9 +71,9 @@ export class LogbookService {
     });
   }
 
+  // get all logbooks [Manager]
   getLogbooks(): Observable<Logbook[]> {
-    const token = this.keycloakService.getToken();
-    
+    const token = this.keycloakService.getToken(); 
     return this.http.get<Logbook[]>(this.logbooksURL,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',
@@ -89,10 +82,7 @@ export class LogbookService {
     });
   }
 
-  /*getLogbook(id: number): Observable<Logbook> {
-    const url = `${this.logbooksURL}/${id}`;
-    return this.http.get<Logbook>(url);
-  }*/
+  // get logbook by id [Manager]
   getLogbook(id: string): Observable<Logbook> {
     const token = this.keycloakService.getToken();
     const url = `${this.logbooksURL}/${id}`;
@@ -104,6 +94,7 @@ export class LogbookService {
     });
   }
 
+  // get logbook by driver last name [Manager]
   getLogbookByDriverLastName(name: string): Observable<Logbook> {
     const url = `${this.logbooksURL}/name/${name}`;
     return this.http.get<Logbook>(url);

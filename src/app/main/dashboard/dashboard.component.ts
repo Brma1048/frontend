@@ -12,12 +12,14 @@ import { isString } from 'util';
 })
 export class DashboardComponent implements OnInit {
 
+  // Meta
   uctrips: Trip[];
 
   ismanager: string;
 
   userindata: boolean;
 
+  // Strings for Dashboard
   alllogbooks: string;
   alltrips: string;
   allprivattrips: string;
@@ -27,47 +29,47 @@ export class DashboardComponent implements OnInit {
   mybusinesstrips: string;
   myodometer: string;
 
-//Dashboard FUnktionen
+  // Count all logbooks [Manager]
   countAllLogbooks(): void{
     if(this.ismanager != "manager"){return}
     this.dashboardService.countAllLogbooks().subscribe(
       res => {
         this.alllogbooks = res.toString();
-        //alert(this.alllogbooks);
       }
     );
   }
 
+  // Count all trips [Manager]
   countAllTrips(): void{
     if(this.ismanager != "manager"){return}
     this.dashboardService.countAllTrips().subscribe(
       res => {
         this.alltrips = res.toString();
-        //alert(this.alltrips);
       }
     );
   }
+
+  // Count all privat trips [Manager]
   countAllPrivatTrips():void{
     if(this.ismanager != "manager"){return}
     this.dashboardService.countAllPrivatTrips().subscribe(
       res =>{
         this.allprivattrips = res.toString();
-        //alert(this.allprivattrips);
       }
     )
   }
+
+  // Count all business trips [Manager]
   countAllBusinessTrips():void{
     if(this.ismanager != "manager"){return}
     this.dashboardService.countAllBusinessTrips().subscribe(
       res =>{
         this.allbusinesstrips = res.toString();
-        //alert(this.allbusinesstrips);
       }
     )
   }
 
-
-
+  // Count my trips [Employee]
   countMyTrips():void{
     if(this.ismanager == "manager"){return}
     this.dashboardService.countMyTrips().subscribe(
@@ -80,12 +82,13 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
+
+  // Count my private trips [Employee]
   countMyPrivateTrips():void{
     if(this.ismanager == "manager"){return}
     this.dashboardService.countMyPrivateTrips().subscribe(
       res => {
         this.myprivatetrips = res.toString();
-        //alert(this.myprivatetrips);
       }
       ,
       error =>{
@@ -93,24 +96,26 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
+
+  // Count my business trips [Employee]
   countMyBusinessTrips():void{
     if(this.ismanager == "manager"){return}
     this.dashboardService.countMyBusinessTrips().subscribe(
       res => {
         this.mybusinesstrips = res.toString();
-        //alert(this.mybusinesstrips);
       },
       error =>{
         this.mybusinesstrips = "0";
       }
     )
   }
+
+  // Count my total distance [Employee]
   countMyOdometer():void{
     if(this.ismanager == "manager"){return}
     this.dashboardService.countMyOdometer().subscribe(
       res => {
         this.myodometer = res.toString();
-        //alert(this.myodometer);
       },
       error =>{
         this.myodometer = "0";
@@ -119,12 +124,14 @@ export class DashboardComponent implements OnInit {
   }
 
 
+  // Inform user about unconfirmed trip
   informUser(): void{
     if(this.uctrips != null){
       alert("You have unconfirmed trips!");
     }
   }
 
+  // Check unconfirmed trips
   getMyUnconfirmedTrips(): void{
     if(this.ismanager == "manager") {return;}
     this.uctrips = null;
@@ -159,4 +166,4 @@ export class DashboardComponent implements OnInit {
     this.getMyUnconfirmedTrips();
   }
 
-}//
+}

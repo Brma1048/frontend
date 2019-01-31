@@ -5,6 +5,7 @@ import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@a
 import { Driver } from '../entities/driver';
 import { Router } from '@angular/router';
 
+// Redirect-Path
 export const HOME_PATH = 'dashboard';
 
 @Injectable({
@@ -12,6 +13,7 @@ export const HOME_PATH = 'dashboard';
 })
 export class CreateUserService {
 
+  // Create a Driver
   createDriver(driver: Driver){
     const token = this.keycloakService.getToken();
     return this.http.post('http://localhost:8080/createDriver',driver, {
@@ -36,32 +38,29 @@ export class CreateUserService {
     );
   }
 
-  //createUser(user: User){
-    createUser(test,driver: Driver){
-      console.log(test);
-    const token = this.keycloakService.getToken();
-    //return this.http.post('http://localhost:8081/auth/admin/realms/demo/users', user, {
-      return this.http.post('http://localhost:8081/auth/admin/realms/demo/users', test, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token 
-      })
+// Create a User in KeyCloak
+createUser(test,driver: Driver){
+  console.log(test);
+  const token = this.keycloakService.getToken();
+  return this.http.post('http://localhost:8081/auth/admin/realms/demo/users', test, {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token 
     })
-    .subscribe(
-      res => {
-        console.log(res);
-        this.createDriver(driver);
-        //alert("The user was saved successfully!");
-      },
-      (err: HttpErrorResponse) => {
-        alert("There was an error!");
-        if (err.error instanceof Error) {
-          console.log('Client Side Error: ', err.error.message);
-        } else {
-          console.log('Server Side Error: ', err.error.message);
-        }
+  })
+  .subscribe(
+    res => {
+      console.log(res);
+      this.createDriver(driver);
+    },  
+    (err: HttpErrorResponse) => {
+      alert("There was an error!");
+      if (err.error instanceof Error) {
+        console.log('Client Side Error: ', err.error.message);
+      } else {
+        console.log('Server Side Error: ', err.error.message);
       }
-    );
+    });
   }
 
   constructor(

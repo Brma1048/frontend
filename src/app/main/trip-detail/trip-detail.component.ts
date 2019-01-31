@@ -5,9 +5,6 @@ import { TripService } from '../trip/trip.service';
 import { NewTrip } from '../entities/newTrip';
 
 
-
-
-
 @Component({
   selector: 'app-trip-detail',
   templateUrl: './trip-detail.component.html',
@@ -27,7 +24,6 @@ export class TripDetailComponent implements OnInit {
 
   getTrip(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    //this.trip = this.tripService.getTrip(id.toString());
     this.tripService.getMyTripById(id)
         .subscribe(trip => this.trip = trip);
   }

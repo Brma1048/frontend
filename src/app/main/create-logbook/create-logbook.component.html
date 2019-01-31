@@ -1,50 +1,61 @@
+<!--Component-Heading-->
 <div class="row">
   <h1>Create Logbook</h1>
-  </div>
+</div>
 
+  <!--Formular-->
   <form #tripForm="ngForm">
-      <div class="row">
-          <h2>Black-Box</h2>
+    <div class="row">
+      <h2>Black-Box</h2>
+    </div>
+
+    <!--Black-Box-ID-->
+    <div class="row">
+      <label for="staticEmail1" class="col-sm-2 col-form-label">Black-Box ID</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="blackboxid" value="" maxlength="50">
         </div>
-        <div class="row">
-            <label for="staticEmail1" class="col-sm-2 col-form-label">Black-Box ID</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" id="blackboxid" value="" maxlength="50">
-            </div>
-          </div>
+    </div>
 
+    
+    <div class="row">
+      <h2>Car</h2>
+    </div>
 
-      <div class="row">
-        <h2>Car</h2>
+    <!--Manufacture-->
+    <div class="row">
+      <label for="staticEmail1" class="col-sm-2 col-form-label">Manufacturer</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="manufacturer" value="" maxlength="30">
       </div>
-        <div class="row">
-          <label for="staticEmail1" class="col-sm-2 col-form-label">Manufacturer</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="manufacturer" value="" maxlength="30">
-          </div>
-        </div>
-        <div class="row">
-            <label for="staticEmail1" class="col-sm-2 col-form-label">Model</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" id="model" value="" maxlength="30">
-            </div>
-          </div>
-          <div class="row">
-              <label for="staticEmail1" class="col-sm-2 col-form-label">Licence Plate</label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" id="licenceplate" value="" maxlength="10">
-              </div>
-            </div>
-          <div class="row">
-              <label for="staticEmail1" class="col-sm-2 col-form-label">Odometer</label>
-              <div class="col-sm-4">
-                <input type="number" class="form-control" id="odometer" value="">
-              </div>
-            </div>
+    </div>
 
+    <!--Model-->
+    <div class="row">
+      <label for="staticEmail1" class="col-sm-2 col-form-label">Model</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="model" value="" maxlength="30">
+      </div>
+    </div>
 
+    <!--Licence Plate-->
+    <div class="row">
+      <label for="staticEmail1" class="col-sm-2 col-form-label">Licence Plate</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="licenceplate" value="" maxlength="10">
+      </div>
+    </div>
 
-                <div class="row">
-                  <button type="button" class="btn btn-primary" (click)="createLogbook()">Create</button>
-                </div>
+    <!--Odometer-->
+    <div class="row">
+      <label for="staticEmail1" class="col-sm-2 col-form-label">Odometer</label>
+      <div class="col-sm-4">
+        <input type="number" class="form-control" id="odometer" value="">
+      </div>
+    </div>
+
+    <!--Create-Button-->
+    <div class="row">
+      <button type="button" class="btn btn-primary" (click)="createLogbook()">Create</button>
+    </div>
   </form>

@@ -1,30 +1,29 @@
+<!--Component-Heading-->
 <div class="row">
   <h1>Welcome</h1>
 </div>
 
-
-
-
-
-
-
-
-
-
+<!--List with Functions-->
 <div class="row" >
+
+  <!--Unconfirmed Trips-->
   <div class="col-lg-2 col-sm-4 col-12" *ngIf="ismanager != 'manager' text-center">
-      <a routerLink="/uctrips"  ><button type="button" class="btn btn-primary">My unconfirmed Trips</button></a>
+    <a routerLink="/uctrips"  ><button type="button" class="btn btn-primary">My unconfirmed Trips</button></a>
   </div>
-<div class="col-lg-2 col-sm-4 col-12" *ngIf="ismanager == 'manager' text-center">
-    <a routerLink="/create-logbook"  ><button type="button" class="btn btn-primary">Create Logbook</button></a>
+
+  <!--Create Logbook-->
+  <div class="col-lg-2 col-sm-4 col-12" *ngIf="ismanager == 'manager' text-center">
+      <a routerLink="/create-logbook"  ><button type="button" class="btn btn-primary">Create Logbook</button></a>
+  </div>
+
+  <!--Create User-->
+  <div class="col-lg-2 col-sm-4 col-12" *ngIf="ismanager == 'manager'">
+      <a routerLink="/create-user"  ><button type="button" class="btn btn-primary">Create User</button></a>
+  </div>
+
 </div>
 
-<div class="col-lg-2 col-sm-4 col-12" *ngIf="ismanager == 'manager'">
-    <a routerLink="/create-user"  ><button type="button" class="btn btn-primary">Create User</button></a>
-</div>
-
-</div>
-
+<!--Dashboard for a Manager-->
 <div class="row" *ngIf="ismanager == 'manager'">
   <div class="col-12">
       <div class="card-deck">
@@ -52,6 +51,7 @@
   </div>
 </div>
 
+<!--Dashboard for a employee-->
 <div class="row" *ngIf="ismanager != 'manager'">
   <div class="col-12">
       <div class="card-deck">
@@ -75,6 +75,6 @@
               <p class="card-text"><b>My Privat Trips: <br></b><span style="font-size: 200%">{{myprivatetrips}}</span></p>
             </div>
           </div> 
-        </div>>
+        </div>
   </div>
 </div>
