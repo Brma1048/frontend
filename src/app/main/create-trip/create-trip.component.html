@@ -4,29 +4,7 @@
     </div>
 
     <div class="card-body">
-      <form #createForm="ngForm" > <!-- (ngSubmit)="onSubmit()" -->
-
-        <!--
-        <div class="form-group row">
-            <label class="col-2 form-control-label">Art *</label>
-            <div class="col col-10">
-                <div class="radio">
-                    <input type="radio" id="businessInput"  name="business" onclick="document.getElementById('projectName').disabled = false; document.getElementById('customerName').disabled = false;"
-                         value="true" >
-                    <label class="radio-inline" for="businessInput" >
-                        Business
-                    </label>
-                </div>
-                <div class="radio">
-                    <input type="radio" id="privateInput" name="business"
-                         value="false">
-                    <label class="radio-inline" for="privateInput">
-                          Private
-                    </label>
-                </div>
-            </div>
-        </div>
-        -->
+      <form #createForm="ngForm" > 
 
         <div class="row">
             <label class="col-sm-2 co-form-label" id="testbutton" >Business-Trip</label>
@@ -107,7 +85,7 @@
 
         <div class="form-group row">
             <div class="col offset-2">
-                <button class="btn btn-primary" (click)="createTrip()" > <!-- type="submit" (click)="createTrip()"-->
+                <button class="btn btn-primary" (click)="createTrip()" > 
                     <span class="ml-1">Create now</span>
                 </button>
             </div>
@@ -128,36 +106,5 @@
 
 
     </div>
-
-
-  <!-- Kalender
-   <div class="form-group">
-            <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-   </div>
-
-   <div class="form-group">
-    <div class='input-group date' id='datetimepicker7'>
-        <input type='text' class="form-control" />
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-        </span>
-    </div>
-</div>
-
-<div class="form-group row">
-  <label for="endDate" class="col-2 col-form-label">Enddate and time *</label>
-  <div class="col-4">
-    <input id="endDate" class="form-control" formControlName="endDate" type="text" bsDatepicker ngvalue="" >
-  </div>
-</div>
--->
-
-
-
 </div>
 

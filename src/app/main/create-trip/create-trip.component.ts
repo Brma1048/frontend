@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CreateService } from './create.service';
 import { NewTrip } from '../entities/newTrip';
 import { Location } from '@angular/common';
@@ -18,6 +18,7 @@ export class CreateTripComponent implements OnInit {
     private router: Router,
     public _location: Location, ){}
 
+  // Var declaration 
   startlat: number;
   startlon: number;
   endlat: number;
@@ -26,21 +27,23 @@ export class CreateTripComponent implements OnInit {
   newWaypointStart: WayPoints = new WayPoints;
   newWaypointEnd: WayPoints = new WayPoints;
   isBusinessTrip: boolean = false;
-
   locationstart: string;
   locationend: string;
 
 
+  // Get start Geodates
   addGeoCodeStart(){
     this.createTripService.getGeoCodeStart(this.locationstart).subscribe((response) => { this.startlat = response[0].lat; this.startlon = response[0].lon; }
     );
   }
 
+  // Get end Geodates
   addGeoCodeEnd(){
     this.createTripService.getGeoCodeEnd(this.locationend).subscribe((response) => { this.endlat = response[0].lat; this.endlon = response[0].lon }
     );
   }
 
+  // Set Business trip to true or false
   setBusinessTrip():void{
     switch(this.isBusinessTrip){
       case true:
@@ -52,12 +55,11 @@ export class CreateTripComponent implements OnInit {
     }
   }
 
+
+
   createTrip():void {
 
   //Input
-  // const businessInput =  (<HTMLInputElement>document.getElementById("businessInput"));
-  // const startAdressInput =  (<HTMLInputElement>document.getElementById("startAdress"));
-  // const endAdressInput =  (<HTMLInputElement>document.getElementById("endAdress"));
   const startOdometerInput =  (<HTMLInputElement>document.getElementById("startOdometer"));
   const endOdometerInput =  (<HTMLInputElement>document.getElementById("endOdometer"));
   const customerNameInput =  (<HTMLInputElement>document.getElementById("customerName") as HTMLInputElement);
@@ -88,26 +90,22 @@ export class CreateTripComponent implements OnInit {
     return alert("Enddate is empty or bigger than startdate!");
   }
 
-  //Convert
+  //Convert var
   const startDateConvert = new Date(startDateInput.value);
   const endDateConvert = new Date(endDateInput.value);
 
 
+  // Build Trip Object
   this.newWaypointStart.gpsLat = this.startlat;
   this.newWaypointStart.gpsLon = this.startlon;
   this.newWaypointEnd.gpsLat = this.endlat;
   this.newWaypointEnd.gpsLon = this.endlon;
-  console.log(this.newWaypointStart, this.newWaypointEnd);
-
-
-  // this.newTrip.isBusiness = business;
   this.newTrip.startOdometer = parseInt(startOdometerInput.value);
   this.newTrip.endOdometer = parseInt(endOdometerInput.value);
   if(this.isBusinessTrip){
     this.newTrip.projectName = projectNameInput.value;
     this.newTrip.customerName = customerNameInput.value;
   }
-
   this.newTrip.startDate = startDateConvert;
   this.newTrip.endDate = endDateConvert;
   this.newTrip.startWaypoint = this.newWaypointStart;
@@ -121,6 +119,7 @@ export class CreateTripComponent implements OnInit {
   this.router.navigate([HOME_PATH]);
   }
 
+  // Back to the site
   goBack() {
     this._location.back();
   }
