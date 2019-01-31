@@ -11,6 +11,7 @@ import { Driver } from '../entities/driver';
 })
 export class UpdateLogbookComponent implements OnInit {
 
+  // Meta
   logbookgiven: string;
   updatetlogbook: Logbook = new Logbook;
   driver: Driver = new Driver;
@@ -18,6 +19,7 @@ export class UpdateLogbookComponent implements OnInit {
   drivercheck: Driver;
 
 
+  // update a Logbook [Manager]
   updateLogbook(): void{
     const InputLogbookId = (<HTMLInputElement>document.getElementById("logbookid"));
     const InputDriverEmail = (<HTMLInputElement>document.getElementById("driveremail"));
@@ -31,7 +33,6 @@ export class UpdateLogbookComponent implements OnInit {
     }
 
 
-    // Weiter
 
     if(this.logbookgiven != null){
       this.updatetlogbook.id = this.logbookgiven;
@@ -51,13 +52,9 @@ export class UpdateLogbookComponent implements OnInit {
           this.logbookService.updateLogbook(this.updatetlogbook)
         )
       )
-
-
-    
-    //this.logbookService.updateLogbook(this.updatetlogbook);
-    //this.logbookService
   }
 
+  // get param out of route
   getrouteparam():void{
     const id = this.route.snapshot.paramMap.get('id');
     if(id != null){

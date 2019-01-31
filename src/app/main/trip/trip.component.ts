@@ -7,9 +7,6 @@ import { Location } from '@angular/common';
 import { Logbook } from '../entities/logbook';
 import { LogbookService } from '../logbook/logbook.service';
 import { KeycloakService } from '../../keycloak.service';
-//import { isMaster } from 'cluster';
-
-
 
 @Component({
   selector: 'app-trip',
@@ -18,6 +15,7 @@ import { KeycloakService } from '../../keycloak.service';
 })
 export class TripComponent implements OnInit {
 
+  // Meta
   ismanager: string;
 
   selectedTrip: Trip;
@@ -31,13 +29,13 @@ export class TripComponent implements OnInit {
 
   tripheading: string;
 
-  keineergebnisse: boolean = false;
-  checkergebnisse(): void{
+  noresults: boolean = false;
+  checkResults(): void{
     if(this.trips == null){  
-      this.keineergebnisse = true;
+      this.noresults = true;
     }
     else{
-      this.keineergebnisse = false;
+      this.noresults = false;
     }
   }
 
@@ -45,83 +43,87 @@ export class TripComponent implements OnInit {
     this.selectedTrip = trip;
   }
 
-  
-
+  // get my trips [Employee]
   getMyTrips(): void{
     this.trips = null;
     this.tripheading = "My Trips";
     this.tripService.getMyTrips(this.keycloakService.getUserMail())
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse()),
-          () => (this.checkergebnisse())
+          () => (this.checkResults()),
+          () => (this.checkResults())
           );
   }
 
+  // get all trips of a logbook [Manager/Empoyee]
   getLogbookTrips(): void{
     const id = this.route.snapshot.paramMap.get('id');
-    //this.trips = this.tripService.getLogbookTrips(id);
     this.trips = null;
     this.tripheading = "Trips by Logobook "+id;
     this.tripService.getLogbookTrips(id)
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse()),
-          () => (this.checkergebnisse())
+          () => (this.checkResults()),
+          () => (this.checkResults())
           );
   }
+
+  // get all trips by a logbook id [Manager]
   getLogbookTripsByID(): void{
-    //this.trips = this.tripService.getLogbookTrips(this.logbookid);
     this.trips = null;
     this.tripheading = "Trips by Logbook "+this.logbookid;
     this.tripService.getLogbookTrips(this.logbookid)
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse()),
-          () => (this.checkergebnisse())
+          () => (this.checkResults()),
+          () => (this.checkResults())
           );
   }
+
+  // get trips by driver name [Manager]
   getTripsByDriverName(): void{
     this.trips = null;
     this.tripheading = "Trips by Driver "+this.drivername;
     this.trips = this.tripService.getTripsByDriverName(this.drivername);
   }
+
+  // get all trips [Manager]
   getTrips(): void{
-    //this.trips = this.tripService.getTrips();
     this.trips = null;
     this.tripheading = "All Trips";
     this.tripService.getTrips()
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse()),
-          () => (this.checkergebnisse())
+          () => (this.checkResults()),
+          () => (this.checkResults())
           );
   }
+
+  // get trips by driver id [Manager]
   getTripsByDriverID(): void{
     this.trips = null;
     this.tripheading = "Trips by Driver ID "+this.driverid;
     this.tripService.getTripsByDriverID(this.driverid)
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse()),
-          () => (this.checkergebnisse())
+          () => (this.checkResults()),
+          () => (this.checkResults())
           );
   }
+
+  // get trips by customer name [Manager]
   getTripsByCustomerName(): void{
     this.trips = null;
     this.tripheading = "Trips of Customer "+this.customername;
     this.tripService.getTripsByCustomerName(this.customername)
         .subscribe(trips => this.trips = trips,
-          () => (this.checkergebnisse()),
-          () => (this.checkergebnisse())
+          () => (this.checkResults()),
+          () => (this.checkResults())
           );
   }
 
-  
-
+  // Show-Functions
   showTrips(): void {
-    // Prüfen ob über Logbook-Componente gekommen oder über Register "Fahrten"
     const id = +this.route.snapshot.paramMap.get('id');
-    if( id != 0){ //ist über Logbook-Component hier
+    if( id != 0){
       this.getLogbookTrips();
     }
-    else { //ist über Register "Fahrten" hier
-      //this.getTrips();
+    else {
     }
   }
   showTripByLogbookbyID(): void{

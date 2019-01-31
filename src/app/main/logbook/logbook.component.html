@@ -1,79 +1,84 @@
+<!--Component Heading-->
 <div class="row">
-    <div class="col-12">
-      <h1>Logbooks</h1>
-    </div>
+  <div class="col-12">
+    <h1>Logbooks</h1>
+  </div>
 </div>
-<div class="row col-12">
-    <div class="input-group mb-3">
-        <button  *ngIf="ismanager == 'manager'" class="btn btn-primary mr-3" (click)="showLogbooks()">Show All</button>
-        <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-3" (click)="showMyLogbooks()">Show Mine</button>
-        <div class="col-xs-3">
-          <input *ngIf="ismanager == 'manager'" type="string" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
-        </div>
-        <div class="input-group-append">
-          <button *ngIf="ismanager == 'manager'" class="btn btn-primary" type="button" (click)="showLogbookByID()">Show by ID</button>
 
-        </div>
+<!--Functions to show and filter-->
+<div class="row col-12">
+  <div class="input-group mb-3">
+    <button  *ngIf="ismanager == 'manager'" class="btn btn-primary mr-3" (click)="showLogbooks()">Show All</button>
+    <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-3" (click)="showMyLogbooks()">Show Mine</button>       
+    <div class="col-xs-3">
+      <input *ngIf="ismanager == 'manager'" type="string" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
     </div>
+    <div class="input-group-append">
+      <button *ngIf="ismanager == 'manager'" class="btn btn-primary" type="button" (click)="showLogbookByID()">Show by ID</button>
+    </div>
+  </div>
 </div>
 
 
 
 <div class="row">
   <div class="col-12 ">
+
+    <!--Table for all logbooks-->
     <div *ngIf="logbooks != null">
       <h3>All Logbooks</h3>
-    
+      <div class="table-responsive">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Car</th>
+              <th scope="col">Current Driver</th>
+              <th *ngIf="ismanager == 'manager'" scope="col">Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let logbook of logbooks" (click)="onSelect(logbook)">
+              <th scope="row">{{logbook.id}}</th>
+              <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
+              <td *ngIf="logbook.driver != null">{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
+              <td *ngIf="logbook.driver == null"></td>
+              <td *ngIf="ismanager == 'manager'" ><a  routerLink="/update-logbook/{{logbook.id}}">Edit</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-  <div class="table-responsive">
-    <table class="table table-dark">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Car</th>
-          <th scope="col">Current Driver</th>
-          <th *ngIf="ismanager == 'manager'" scope="col">Links</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let logbook of logbooks" (click)="onSelect(logbook)">
-            <th scope="row">{{logbook.id}}</th>
-            <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
-            <td *ngIf="logbook.driver != null">{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-            <td *ngIf="logbook.driver == null"></td>
-            <td *ngIf="ismanager == 'manager'" ><a  routerLink="/update-logbook/{{logbook.id}}">Edit</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <!--Table for search results-->
+    <div *ngIf="logbook">
+      <h3>Search results</h3>
+        <div class="table-responsive">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Car</th>
+                <th scope="col">Current Driver</th>
+                <th *ngIf="ismanager == 'manager'" scope="col">Links</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr (click)="onSelect(logbook)">
+                <th scope="row">{{logbook.id}}</th>
+                <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
+                <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
+                <td *ngIf="ismanager == 'manager'" ><a  routerLink="/update-logbook/{{logbook.id}}">Edit</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-    </div>
-         <div *ngIf="logbook">
-            <h3>Search results</h3>
-              <div class="table-responsive">
-                 <table class="table table-dark">
-                    <thead>
-                      <tr>
-                          <th scope="col">ID</th>
-                          <th scope="col">Car</th>
-                          <th scope="col">Current Driver</th>
-                          <th *ngIf="ismanager == 'manager'" scope="col">Links</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <tr (click)="onSelect(logbook)">
-                          <th scope="row">{{logbook.id}}</th>
-                          <td>{{logbook.car.manufacturer}} {{logbook.car.model}}</td>
-                          <td>{{logbook.driver.firstName}} {{logbook.driver.lastName}}</td>
-                          <td *ngIf="ismanager == 'manager'" ><a  routerLink="/update-logbook/{{logbook.id}}">Edit</a></td>
-                      </tr>
-                    </tbody>
-              </table>
-            </div>
-          </div>
-    </div>
-</div>
 
-<div *ngIf="keineergebnisse">
+<!--Show user hint-->
+<div *ngIf="noresults">
   <div class="row">
     <h4>No results on your request!</h4>
   </div>

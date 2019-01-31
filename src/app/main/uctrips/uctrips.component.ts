@@ -15,16 +15,18 @@ import { KeycloakService } from '../../keycloak.service';
 })
 export class UctripsComponent implements OnInit {
 
+  // Meta
   uctrips : Trip[];
 
+  // get my unconfirmed trips [Employee]
   getMyUnconfirmedTrips(): void{
     this.uctrips = null;
     this.tripService.getMyUnconfirmedTrips(this.keycloakService.getUserMail())
         .subscribe(trips => this.uctrips = trips
-          //() => (this.checkergebnisse()),
-          //() => (this.checkergebnisse())
           );
   }
+
+  //Show-Function
   showMyUnconfirmedTrips():void{
     this.getMyUnconfirmedTrips();
   }

@@ -1,9 +1,11 @@
+<!--Component Heading-->
 <div class="row">
   <h1>My unconfirmed Trips</h1>
 </div>
+
+<!--Table-->
 <div class="row">
     <div class="col-12">
-      <!--Logbook-Trips-->
       <div *ngIf="uctrips != null">
         <div class="table-responsive">
         <table class="table table-dark">
@@ -26,6 +28,8 @@
       </div>
     </div>
   </div>
+
+  <!--Hint for User-->
   <div class="row" *ngIf="uctrips == null">
     <p>You have none unconfirmed trips!</p>
   </div>

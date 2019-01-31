@@ -13,6 +13,7 @@ import { KeycloakService } from '../../keycloak.service';
 })
 export class LogbookComponent implements OnInit {
 
+   // Meta
   selectedLogbook: Logbook;
   onSelect(logbook: Logbook): void{
     this.selectedLogbook = logbook;
@@ -24,73 +25,73 @@ export class LogbookComponent implements OnInit {
   logbook: Logbook;
   logbookid: string;
   logbookDriverLastName: string;
-  keineergebnisse: boolean = false;
+  noresults: boolean = false;
 
 
-
-  checkergebnisse(id: number): void{
+ // Check the results
+  checkResults(id: number): void{
     switch(id){
       case 1:
         if(this.logbooks == null){
-          this.keineergebnisse = true;
+          this.noresults = true;
         }
         else{
-          this.keineergebnisse = false;
+          this.noresults = false;
         }
         break;
       case 2:
         if(this.logbook == null){
-          this.keineergebnisse = true;
+          this.noresults = true;
         }
         else{
-          this.keineergebnisse = false;
+          this.noresults = false;
         }
         break;
 
       
     }
   }
-  /*getLogbooks(): void{
-    this.logbookService.getLogbooks()
-        .subscribe(logbooks => this.logbooks = logbooks);
-  }*/
+  
+  // Get my Logbooks [Employee]
   getMyLogbooks(): void{
-    //this.logbook = this.logbookService.getLogbook(this.logbookid);
     this.logbooks = null;
     this.logbook = null;
     this.logbookService.getMyLogbooks()
         .subscribe(logbook => this.logbook = logbook,
-        () => (this.checkergebnisse(2)),
-        () => this.checkergebnisse(2)
+        () => (this.checkResults(2)),
+        () => this.checkResults(2)
       );
   }
 
+  // Get all Logbooks [Manager]
   getLogbooks(): void{
-    //this.logbooks = this.logbookService.getLogbooks();
     this.logbook = null;
     this.logbooks = null;
     this.logbookService.getLogbooks()
         .subscribe(logbooks => this.logbooks = logbooks,
-          () => (this.checkergebnisse(1)),
-          () => this.checkergebnisse(1)
-        );}
+          () => (this.checkResults(1)),
+          () => this.checkResults(1)
+        );
+  }
+
+  // Get logbook by id [Manager]
   getLogbook(): void{
-    //this.logbook = this.logbookService.getLogbook(this.logbookid);
     this.logbooks = null;
     this.logbook = null;
     this.logbookService.getLogbook(this.logbookid)
         .subscribe(logbook => this.logbook = logbook,
-        () => (this.checkergebnisse(2)),
-        () => this.checkergebnisse(2)
+        () => (this.checkResults(2)),
+        () => this.checkResults(2)
       );
   }
 
+  // Get Logbook by driver last name [Manager]
   getLogbookByDriverLastName(): void{
     this.logbookService.getLogbookByDriverLastName(this.logbookDriverLastName)
         .subscribe(logbook => this.logbook = logbook);
   }
 
-
+  // Show-Methods
   showMyLogbooks(): void{
     this.getMyLogbooks();
   }
@@ -104,6 +105,7 @@ export class LogbookComponent implements OnInit {
   showLogbookByDriverLastName(): void{
     this.getLogbookByDriverLastName();
   }
+  
   constructor(
     private logbookService: LogbookService,
     private route: ActivatedRoute,

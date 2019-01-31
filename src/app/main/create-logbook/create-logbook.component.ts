@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { CreateLogbookService } from './create-logbook.service';
 
+// Redirect-Path
 export const HOME_PATH = 'logbook';
 
 @Component({
@@ -14,14 +15,9 @@ export const HOME_PATH = 'logbook';
 })
 export class CreateLogbookComponent implements OnInit {
 
-  isPickDriver: boolean = false;
   newLogbook: Logbook = new Logbook;
   newCar: Car = new Car;
 
-  setPickDriver():void{
-    if(this.isPickDriver == false) {this.isPickDriver = true}
-    else{ this.isPickDriver = false};
-  }
 
   createLogbook():void{
 
@@ -49,8 +45,6 @@ export class CreateLogbookComponent implements OnInit {
     if(parseInt(InputOdometer.value) < 0){
       return alert ("The value of Odometer is not correct!");
     }
-
-
 
     console.log(this.newLogbook);
     this.createLobookService.createLogbook(this.newLogbook);
