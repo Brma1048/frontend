@@ -1,4 +1,4 @@
-= Frontend Guide 
+= Developer Guide 
 
 ////
 Diese Anleitung ist in AsciiDoctor geschrieben. Um die Datei einfach mit Chrome zu lesen,
@@ -204,7 +204,7 @@ Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabe
 == Keycloak Service
 |===
 | Methoden | Beschreibung
-|	getToken() | Liest den Token as
+|	getToken() | Liest den Token aus
 |	Init() | Initalisiert Keycloak
 |	getUserMail() | Liest aus dem Tokoen die User Mail
 |	checkManager() | Checkt ob es die Rolle Manager ist
