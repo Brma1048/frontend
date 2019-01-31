@@ -13,3 +13,19 @@ h3{
 h4{
     color: white;
 }
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    padding: 2px;
+    float: left;
+}
+input{
+    width: 150px !important;
+    border-radius: 2px;
+    border: 1px solid transparent;
+}

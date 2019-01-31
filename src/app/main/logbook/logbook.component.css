@@ -19,4 +19,5 @@ ul{
 }
 li{
     padding: 2px;
+    float: left;
 }

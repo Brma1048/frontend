@@ -5,33 +5,55 @@
   </div>
 </div>
 
-<!--Functions-->
-<div class="row col-12">
-  <div class="input-group mb-3">
-    <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-2"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
-    <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-2"><a routerLink="/uctrips" class="btn-primary">Unconfirmed Trips</a></button>
-    <button *ngIf="ismanager == 'manager'" class="btn btn-primary mr-2"(click)="showAllTrips()">All Trips</button><!---->
-    <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-2"(click)="showMyTrips()">My Trips</button><!---->
-    <div *ngIf="ismanager == 'manager'" class="input-group col-3 mr-2">
-      <input *ngIf="ismanager == 'manager'" type="text" class="form-control" placeholder="Logbook ID" [(ngModel)]="logbookid">
-      <div class="input-group-append">
-        <button *ngIf="ismanager == 'manager'" class="btn btn-primary" type="button" (click)="showTripByLogbookbyID()">Show by Logbook ID</button>
-      </div>
-    </div>
-    <div *ngIf="ismanager == 'manager'" class="input-group col-3">
-      <input type="text" class="form-control" placeholder="Driver ID" [(ngModel)]="driverid">
-      <div class="input-group-append">
-        <button class="btn btn-primary mr-3" type="button" (click)="showTripsByDriverID()">Show by Driver Mail</button>
-      </div>
-    </div>
-    <div *ngIf="ismanager == 'manager'" class="input-group col-3">
-      <input type="text" class="form-control" placeholder="Customer name" [(ngModel)]="customername">
-      <div class="input-group-append">
-        <button class="btn btn-primary mr-3" type="button" (click)="showTripsByCustomerName()">Show by Customer Name</button>
-      </div>
-    </div>    
-  </div>   
-</div>   
+
+<div class="row">
+
+  <ul>
+
+    
+    <li *ngIf="ismanager != 'manager'">
+        <button  class="btn btn-primary mr-2"><a routerLink="/create" class="btn-primary">Create Trip</a></button>
+    </li>
+
+    <li *ngIf="ismanager != 'manager'">
+        <button  class="btn btn-primary mr-2"><a routerLink="/uctrips" class="btn-primary">Unconfirmed Trips</a></button>
+    </li>
+
+    <li *ngIf="ismanager == 'manager'">
+        <button  class="btn btn-primary mr-2"(click)="showAllTrips()">All Trips</button><!---->
+    </li>
+
+    <li *ngIf="ismanager != 'manager'">
+        <button  class="btn btn-primary mr-2"(click)="showMyTrips()">My Trips</button><!---->
+    </li>
+
+    <li *ngIf="ismanager == 'manager'">
+        <div class="input-group mb-3">
+            <input  type="text" class="" placeholder="Logbook ID" [(ngModel)]="logbookid">
+            <div class="input-group-append">
+                <button *ngIf="ismanager == 'manager'" class="btn btn-primary" type="button" (click)="showTripByLogbookbyID()">Show by Logbook ID</button>
+            </div>
+          </div>
+
+    </li>
+    <li>
+        <div class="input-group mb-3">
+            <input type="text" class="" placeholder="Driver ID" [(ngModel)]="driverid">
+            <div class="input-group-append">
+                <button class="btn btn-primary mr-3" type="button" (click)="showTripsByDriverID()">Show by Driver Mail</button>
+            </div>
+          </div>
+      </li>
+      <li>
+          <div class="input-group mb-3">
+              <input type="text" class="" placeholder="Customer name" [(ngModel)]="customername">
+              <div class="input-group-append">
+                  <button class="btn btn-primary mr-3" type="button" (click)="showTripsByCustomerName()">Show by Customer Name</button>
+              </div>
+            </div>
+        </li>
+      </ul>
+</div>
   
 <div class="row">
   <div class="col-12">
