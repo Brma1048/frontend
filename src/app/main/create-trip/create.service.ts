@@ -62,6 +62,8 @@ export class CreateService {
       }
     )
   }
+
+  // Send Trip to Backend
   addTrip (trip: NewTrip) {
     const token = this.keycloak.getToken();
     console.log(token);
