@@ -6,21 +6,28 @@
 </div>
 
 <!--Functions to show and filter-->
-<div class="row col-12">
-  <div class="input-group mb-3">
-    <button  *ngIf="ismanager == 'manager'" class="btn btn-primary mr-3" (click)="showLogbooks()">Show All</button>
-    <button *ngIf="ismanager != 'manager'" class="btn btn-primary mr-3" (click)="showMyLogbooks()">Show Mine</button>       
-    <div class="col-xs-3">
-      <input *ngIf="ismanager == 'manager'" type="string" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
-    </div>
-    <div class="input-group-append">
-      <button *ngIf="ismanager == 'manager'" class="btn btn-primary" type="button" (click)="showLogbookByID()">Show by ID</button>
-    </div>
-  </div>
+<div class="row">
+  <ul>
+    <li *ngIf="ismanager == 'manager'">
+      <button   class="btn btn-primary mr-3" (click)="showLogbooks()">Show All</button>
+    </li>
+
+    <li *ngIf="ismanager != 'manager'">
+      <button  class="btn btn-primary mr-3" (click)="showMyLogbooks()">Show Mine</button>
+    </li>
+
+    <li *ngIf="ismanager == 'manager'">
+        <div class="input-group mb-3">
+          <input  type="string" class="form-control" placeholder="ID" [(ngModel)]="logbookid">
+          <div class="input-group-append">
+            <button *ngIf="ismanager == 'manager'" class="btn btn-primary" type="button" (click)="showLogbookByID()">Show by ID</button>
+            </div>
+        </div>
+    </li>
+  </ul>
 </div>
 
-
-
+<!--Tables-->
 <div class="row">
   <div class="col-12 ">
 

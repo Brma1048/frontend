@@ -13,3 +13,10 @@ h3{
 h4{
     color: white;
 }
+
+ul{
+    list-style-type: none;
+}
+li{
+    padding: 2px;
+}
