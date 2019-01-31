@@ -1,0 +1,214 @@
+= Frontend Guide 
+
+////
+Diese Anleitung ist in AsciiDoctor geschrieben. Um die Datei einfach mit Chrome zu lesen,
+gibt es für Chrome die Erweiterung "Asciidoctor.js Live Preview":
+https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia?hl=de
+Nach der Installation muss man in Chrome die URL chrome://extensions/ eingeben und dann
+bei "Asciidoctor.js Live Preview" den Haken bei "Zugriff auf Datei-URLs zulassen" setzen.
+////
+
+== Aufbau: 
+
+Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabei haben wir unsere Seite in die 3 Hauptkomponenten Header, Main & Footer aufgeteilt. Im Header befindet sich die Navbar und im Footer ist die Fußleiste drin. In der Main-Komponente befinden sich die einzelnen Komponenten für den Body, die über das App-Routing-Module aufgerufen werden. 
+
+== Component
+
+=== Create-Logbook
+*	Hier wird ein Logbook erstellt
+*	Create-logbook Component
+|===
+| Methoden | Beschreiben
+|	createLogbook() | Ein Loogbook wird zu einem Objekt zusammengebaut
+|===
+* Create-Logbook Service 
+|===
+| Methoden
+| createLogbook() | Ein Logbook wird an das Backend geschickt
+|===
+
+=== Create-Trip
+*	Hier befindet sich das Formular und die Funktionalität zum Erstellen eines Trips
+*	Create-trip Component
+|===
+| Methoden | Beschreibung
+|	addGeoCodeStart() | Fügt die Gps Koordinaten den passenden Variablen zu
+|	addGeoCodeEnd() | Fügt die Gps Koordinaten den passenden Variablen zu 
+|	setBusinessTrip()| Setzt den Wert für das Attribut isBusiness auf true oder false 
+|	createTrip() | Erstellt einen Tri
+|	goBack() |Leitet einen zu seiner letzten Seite zurück
+|===
+*	Create Service
+|===
+| Methoden | Beschreibung
+|	getGeoCodeStart() | Ruft LocationIQ auf um die Startgeodaten zubekommen
+|	getGeoCodeEnd() |  Ruft LocationIQ auf um die Endgeodaten zubekommen
+|	updateTrip() | Ein Trip wird geupdatet 
+|	addTrip() | Sendet einen Trip an das Backend
+|===
+
+=== Create-User
+*	Hier befindet sich das Formular zum Erstellen eines Users
+*	Create-user Component
+|===
+| Methoden | Beschreibung
+|	createUser() | Ein User Objekt wird erstellt
+|===
+*	Create-user Service 
+|===
+| Methoden | Beschreibung
+|	CreateDriver() | Ein Driver wird an das Backend geschickt
+|	CreateUser() | Ein User wird an das Backend geschickt
+|===
+=== Dashboard
+*	Hier werden bestimmte Kennzahlen für eine Übersicht angezeigt
+*	Dashboard Component
+|===
+| Methoden | Beschreibung
+|	countAllLogbooks() | Alle Logbook's werden gezählt
+|	countAllTrips() | Alle Trip's werden gezählt 
+|	countAllPrivatetrips() | Alle privaten Trip's werden gezählt
+|	countAllBusinessTrips() | Alle Business Trip's werden gezählt
+|	countMyTrips() | Meine ganzen Trips werden gezählt
+|	countMyPrivateTrips() | Meine privaten Trips werden gezählt
+|	countMyBusinessTrips() | Meine Business Trips werden gezählt
+|	countMyOdometer() | Mein Kilometer werden gezählt
+|	informUser() | User bekommt eine Meldung das es er unbestätigte Trips hat
+|	getMyUnconfirmedTrips() | Meine unbestätigten Trips werden gezählt
+|===
+
+=== Logbook
+*	Hier wird das aktuelle Logbook von dem Driver angezeigt 
+*	Logbook Component
+|===
+| Methoden | Beschreibung
+
+|	checkeResult() | Prüft ob ein Ergebnis zurück gekommen ist
+|	getMyLogbooks() | Mein Logbook wird aufgerufen
+|	getLogbooks() | Hole mir alle Logbooks
+|	getLogbook() | Hole mir ein Logbook 
+|	getLogbookByDriverLastName() | Hole mir das Logbook eines bestimmten Fahrers anhand seinem Namen 
+|	showMyLogbooks() | Zeige mir meine Logbooks
+|	showLogbooks() | Zeige mir alle Logbooks
+|	showLogbookByID() | Zeige mir ein Logbook mit einer bestimmten ID
+|	showLogbookByDriverLastName() | Zeige mir ein Logbook anhand des Fahrernamens
+
+|===
+*	Logbook Service
+|===
+| Methoden | Beschreibung
+
+|	updateLogbook() | Update ein Logbook
+|	getDriver() | Hole mir einen Driver
+|	getMyLogbooks() | Hole mir meine Logbooks
+|	getLogbooks() | Hole mir alle Logbooks
+|	getLogbook() | Hole mir ein Logbook
+|	getLogbookByDriverLastName() | Hole mir das Logbook anhand des Fahrernamens
+
+|===
+
+
+=== Trip
+*	Hier befinden sich die Funktionalität für die Trips
+*	Trip Component
+|===
+| Methoden | Beschreibung
+
+|	CheckResult() | Prüft ob ein Ergebnis zurück gekommen ist
+|	onSelect() |
+|	getMyTrips() | Hole mir meine Trips
+|	getLogbookTrips() | Hole mir die Trips eine Logbooks
+|	getLogbookTripsByID() | Hole mir die Trips eines Logbooks mit einer bestimmten ID
+|	getTripsByDriverName() | Hole mir die Trips eines Fahres mit einem bestimmten Namen
+|	getTrips() | Hole mir alle Trips
+|	getTripsByDriverID() | Hole mir die Trips eines Fahrers mit einer bestimmten ID
+|	getTripsByCustomerName() | Hole mir die Trips eines Fahrers anhand seines Namens
+|	showTrips() | Zeige mir die Trips
+|	showTripByLogbookID() | Zeige mir die Trips eines Logbooks mit einer bestimmten ID
+|	showTripsbyDriverName() | Zeige mir die Trips eines Fahrers anhand seines Namens
+|	showAllTrips() | Zeige mir alle Trips 
+|	showTripsByDriverID() | Zeige mir die Trips eines Fahrers anhand seiner ID
+|	showTripsByCustomerName() | Zeige mir die Trips von einem bestimmten Kunden
+
+|===
+
+*	Trip Service
+|===
+| Methoden | Beschreibung
+
+|	getMyUnconfirmedTrips() | Zeige mir meine unbestätigten Trips 
+|	getMyTripById() | Zeige mir meine Trips anhand einer bestimmten ID
+|	getMyTrips() | Zeige mir meine Trips
+|	getTrips() | Zeige mir Trips
+|	getLogbookTrips() | Zeige mir die Trips eines Logbooks
+|	getTrip() | Zeige mir einen Trip
+|	getTripsByDriverName() | Zeige mir einen Trip eines Fahrers anhand seines Namens
+|	getTripsByDriverID() | Zeige mir die Trips eines Drivers anhand seiner ID
+|	getTripsCustomerName() | Zeige mir die Trips eines bestimmten Kundens
+
+|===
+
+=== Trip-Detail 
+*	Hier werden weitere Informationen eines Trips angezeigt 
+*	Trip-Detail Component
+|===
+| Methoden | Beschreibung
+
+|	getTripForMap() | Zeige mir einen Trip für die Map 
+|	getTrip() | Zeige mir einen Trip
+|	setMapSrc() | Setze die Url für das Src Tag eines Images
+
+|===
+
+=== Uctrips
+*	Hier befinden sich die unbestätigten Trips
+*	Uctrips Component
+|===
+| Methoden | Beschreibung
+|	getMyUnconfirmedTrips() | Zeige mir meine unbestätigten Trips
+|===
+=== Uctrips-Detail
+*	Hier kann man seinen unbestätigten Trip ändern und abspeichern 
+*	Uctrips-Detail Component
+|===
+| Methoden | Beschreibung
+|	putTrips() | 
+|	getMyUnconfirmedTrip() | Zeige mir meinen unbestätigten Trip
+|	setBusinessTrip() | Setze den Wert von der Variable isBusiness auf true oder false
+|===
+
+=== Update-Logbook
+*	Hier wird das Logbook geupdatet
+*	Update-Logbook Component
+|===
+| Methoden | Beschreibung
+|	updateLogbook() | Update ein Logbook
+|	getrouteparam()| Liest die Variablen aus dem URL-Pfad
+|===
+
+== Entitys
+|===
+|Entities
+
+|Car
+|Driver
+
+|Logbook
+
+|Trip
+
+|Waypoint
+
+|===
+
+== Keycloak Service
+|===
+| Methoden | Beschreibung
+|	getToken() | Liest den Token as
+|	Init() | Initalisiert Keycloak
+|	getUserMail() | Liest aus dem Tokoen die User Mail
+|	checkManager() | Checkt ob es die Rolle Manager ist
+|	setUserRole() | Gibt die Rolle eines Users aus
+|	getUserRole() | Liest die User Rolle aus dem Token
+|===
+
