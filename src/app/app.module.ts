@@ -14,9 +14,6 @@ import { LogbookComponent } from './main/logbook/logbook.component';
 import { FormsModule } from '@angular/forms';
 import { CreateTripComponent } from './main/create-trip/create-trip.component';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-//import { CreateTripGuard } from './main/create-trip/create-trip.guard';
-// import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
 import { KeycloakService } from './keycloak.service';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { UctripsComponent } from './main/uctrips/uctrips.component';
@@ -44,7 +41,6 @@ export function kcFactory(keycloakService: KeycloakService) {
     CreateLogbookComponent,
     CreateUserComponent,
     UpdateLogbookComponent,
-    // KeycloakAngularModule
   ],
   imports: [
     BrowserModule,
@@ -53,9 +49,8 @@ export function kcFactory(keycloakService: KeycloakService) {
     HttpClientModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    // BsDatepickerModule.forRoot()
   ],
-  providers: [//CreateTripGuard,
+  providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: kcFactory,

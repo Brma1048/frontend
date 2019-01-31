@@ -1,6 +1,5 @@
 import { Injectable, ErrorHandler } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { NewTrip} from '../entities/newTrip';
 import { Trip} from '../entities/trip';
 import { KeycloakService } from 'src/app/keycloak.service';
@@ -15,7 +14,7 @@ export const HOME_PATH = 'dashboard';
 })
 export class CreateService {
 
-  private tripsUrl = 'http://localhost:8080/logbook';
+  // private tripsUrl = 'http://localhost:8080/logbook';
 
   // Get Start Geodates from LocationIQ
   getGeoCodeStart(location: string) {
@@ -44,7 +43,7 @@ export class CreateService {
 
 
   //  Test API https://jsonplaceholder.typicode.com/posts
-  private uctripsURL = 'http://localhost:8080/trip';
+  // private uctripsURL = 'http://localhost:8080/trip';
   updateTrip(trip: Trip,id: string){
     const token = this.keycloak.getToken();
     const url = 'http://localhost:8080/mytrips/confirm';
