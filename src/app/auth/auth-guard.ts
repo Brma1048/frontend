@@ -8,6 +8,7 @@ export class AppAuthGuard extends KeycloakAuthGuard {
     super(router, keycloakAngular);
   }
 
+  
   isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (!this.authenticated) {

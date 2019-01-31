@@ -47,7 +47,6 @@ export class CreateService {
   private uctripsURL = 'http://localhost:8080/trip';
   updateTrip(trip: Trip,id: string){
     const token = this.keycloak.getToken();
-    //const url = `${this.uctripsURL}/${id}`;
     const url = 'http://localhost:8080/mytrips/confirm';
     return this.http.put(url, trip, {
       headers: new HttpHeaders({
@@ -91,6 +90,6 @@ export class CreateService {
   constructor(private http: HttpClient,
               private keycloak: KeycloakService,
               private router: Router,
-              public _location: Location) { } // Test Header für Token
+              public _location: Location) { } 
 }
 

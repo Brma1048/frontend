@@ -62,7 +62,4 @@ export class TripDetailComponent implements OnInit {
     this.getTripForMap();
     this.setMapSrc();
   }
-
-
-
 }
