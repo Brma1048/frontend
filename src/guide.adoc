@@ -1,192 +1,29 @@
-= Developer Guide 
-
-////
-Diese Anleitung ist in AsciiDoctor geschrieben. Um die Datei einfach mit Chrome zu lesen,
-gibt es für Chrome die Erweiterung "Asciidoctor.js Live Preview":
-https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia?hl=de
-Nach der Installation muss man in Chrome die URL chrome://extensions/ eingeben und dann
-bei "Asciidoctor.js Live Preview" den Haken bei "Zugriff auf Datei-URLs zulassen" setzen.
-////
-
-== Aufbau: 
-
-Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabei haben wir unsere Seite in die 3 Hauptkomponenten Header, Main & Footer aufgeteilt. Im Header befindet sich die Navbar und im Footer ist die Fußleiste drin. In der Main-Komponente befinden sich die einzelnen Komponenten für den Body, die über das App-Routing-Module aufgerufen werden. Das Frontend greift auf das Backend und den Keycloak-Server zu. 
-
-== Component
-
-=== Create-Logbook
-*	Hier wird ein Logbook erstellt
-*	Create-logbook Component
-|===
-| Methoden | Beschreibung
-|	createLogbook() | Ein Loogbook wird zu einem Objekt zusammengebaut
-|===
-* Create-Logbook Service 
-|===
-| Methoden
-| createLogbook() | Ein Logbook wird an das Backend geschickt
-|===
-
-=== Create-Trip
-*	Hier befindet sich das Formular und die Funktionalität zum Erstellen eines Trips
-*	Create-trip Component
-|===
-| Methoden | Beschreibung
-|	addGeoCodeStart() | Fügt die Gps Koordinaten eines Trips den passenden Variablen zu
-|	addGeoCodeEnd() | Fügt die Gps Koordinaten eines Trips den passenden Variablen zu 
-|	setBusinessTrip()| Setzt den Wert für das Attribut isBusiness auf true oder false 
-|	createTrip() | Erstellt einen Trip
-|	goBack() |Leitet einen zu seiner letzten Seite zurück
-|===
-*	Create Service
-|===
-| Methoden | Beschreibung
-|	getGeoCodeStart() | Ruft LocationIQ auf um die Startgeodaten zubekommen
-|	getGeoCodeEnd() |  Ruft LocationIQ auf um die Endgeodaten zubekommen
-|	updateTrip() | Ein Trip wird geupdatet und bekommt einen Header mit einem Token 
-|	addTrip() | Sendet einen Trip an das Backend
-|===
-
-=== Create-User
-*	Hier befindet sich das Formular zum Erstellen eines Users
-*	Create-user Component
-|===
-| Methoden | Beschreibung
-|	createUser() | Ein User Objekt wird erstellt
-|===
-*	Create-user Service 
-|===
-| Methoden | Beschreibung
-|	CreateDriver() | Ein Driver wird an das Backend geschickt
-|	CreateUser() | Ein User wird an das Backend geschickt
-|===
-=== Dashboard
-*	Hier werden bestimmte Kennzahlen für eine Übersicht angezeigt
-*	Dashboard Component
-|===
-| Methoden | Beschreibung
-|	countAllLogbooks() | Alle Logbook's werden gezählt
-|	countAllTrips() | Alle Trip's werden gezählt 
-|	countAllPrivatetrips() | Alle privaten Trip's werden gezählt
-|	countAllBusinessTrips() | Alle Business Trip's werden gezählt
-|	countMyTrips() | Meine ganzen Trips werden gezählt
-|	countMyPrivateTrips() | Meine privaten Trips werden gezählt
-|	countMyBusinessTrips() | Meine Business Trips werden gezählt
-|	countMyOdometer() | Mein Kilometer werden gezählt
-|	informUser() | User bekommt eine Meldung das es er unbestätigte Trips hat
-|	getMyUnconfirmedTrips() | Meine unbestätigten Trips werden gezählt
-|===
-
-=== Logbook
-*	Hier wird das aktuelle Logbook von dem Driver angezeigt 
-*	Logbook Component
-|===
-| Methoden | Beschreibung
-
-|	checkeResult() | Prüft ob ein Ergebnis zurück gekommen ist
-|	getMyLogbooks() | Mein Logbook wird aufgerufen
-|	getLogbooks() | Hole mir alle Logbooks
-|	getLogbook() | Hole mir ein Logbook 
-|	getLogbookByDriverLastName() | Hole mir das Logbook eines bestimmten Fahrers anhand seinem Namen 
-|	showMyLogbooks() | Zeige mir meine Logbooks
-|	showLogbooks() | Zeige mir alle Logbooks
-|	showLogbookByID() | Zeige mir ein Logbook mit einer bestimmten ID
-|	showLogbookByDriverLastName() | Zeige mir ein Logbook anhand des Fahrernamens
-
-|===
-*	Logbook Service
-|===
-| Methoden | Beschreibung
-
-|	updateLogbook() | Update ein Logbook
-|	getDriver() | Hole mir einen Driver
-|	getMyLogbooks() | Hole mir meine Logbooks
-|	getLogbooks() | Hole mir alle Logbooks
-|	getLogbook() | Hole mir ein Logbook
-|	getLogbookByDriverLastName() | Hole mir das Logbook anhand des Fahrernamens
-
-|===
+= Developer Guide Frontend
 
 
-=== Trip
-*	Hier befinden sich die Funktionalität für die Trips
-*	Trip Component
-|===
-| Methoden | Beschreibung
 
-|	CheckResult() | Prüft ob ein Ergebnis zurück gekommen ist
-|	onSelect() |
-|	getMyTrips() | Hole mir meine Trips
-|	getLogbookTrips() | Hole mir die Trips eine Logbooks
-|	getLogbookTripsByID() | Hole mir die Trips eines Logbooks mit einer bestimmten ID
-|	getTripsByDriverName() | Hole mir die Trips eines Fahres mit einem bestimmten Namen
-|	getTrips() | Hole mir alle Trips
-|	getTripsByDriverID() | Hole mir die Trips eines Fahrers mit einer bestimmten ID
-|	getTripsByCustomerName() | Hole mir die Trips eines Fahrers anhand seines Namens
-|	showTrips() | Zeige mir die Trips
-|	showTripByLogbookID() | Zeige mir die Trips eines Logbooks mit einer bestimmten ID
-|	showTripsbyDriverName() | Zeige mir die Trips eines Fahrers anhand seines Namens
-|	showAllTrips() | Zeige mir alle Trips 
-|	showTripsByDriverID() | Zeige mir die Trips eines Fahrers anhand seiner ID
-|	showTripsByCustomerName() | Zeige mir die Trips von einem bestimmten Kunden
+== Aufbau
 
-|===
+=== Allgemein
+Die Angular-Anwendung wurde durch verschiedene Komponenten realisiert, in welchen die zugehörige Logik und das Design implementiert ist.
+Um die Komponenten möglichst unanfällig gegenüber Änderungen der Datenquellen zu machen, wurden Services für die einzelnen Komponenten implementiert.
 
-*	Trip Service
-|===
-| Methoden | Beschreibung
+=== Autorisierung und Rollenkonzept
+Der Zugriff auf die Anwendung und das Verwenden der einzelnen Methoden wurde mit KeyCloak abgesichert. Meldet sich ein User erfolgreich via KeyCloak an der Anwendung an,
+wird ein Token von KeyCloak an die Anwendung übergeben. Dieser Token, mit welchem die Identität und die Rolle des einzelnen Users identifiziert werden kann, wird bei jeder HTTP-Methode
+mitgeschickt um die Absicherung der Funktionalität zu garantieren.
+Die Anwendung wurde so umgesetzt, dass bedingt der Rolle eines Users unterschiedliche Elemente innerhalb einer Komponente ein- und ausgeblendet werden.
+Um die Autorisierungsmöglichkeiten in allen Komponenten zu verwenden, wurde ein KeyCloak-Service implementiert der in jede Komponente integriert werden kann, falls benötigt.
 
-|	getMyUnconfirmedTrips() | Zeige mir meine unbestätigten Trips 
-|	getMyTripById() | Zeige mir meine Trips anhand einer bestimmten ID
-|	getMyTrips() | Zeige mir meine Trips
-|	getTrips() | Zeige mir Trips
-|	getLogbookTrips() | Zeige mir die Trips eines Logbooks
-|	getTrip() | Zeige mir einen Trip
-|	getTripsByDriverName() | Zeige mir einen Trip eines Fahrers anhand seines Namens
-|	getTripsByDriverID() | Zeige mir die Trips eines Drivers anhand seiner ID
-|	getTripsCustomerName() | Zeige mir die Trips eines bestimmten Kundens
+=== Nutzung der HTTP-Methoden
+Alle HTTP-Methoden werden sind in den Services implementiert um die Komponenten möglichst unempfindlich gegenüber Änderungen der Datenquelle zu gestalten.
+Wie bereits erwähnt wird bei jeder HTTP-Methode per HTTP-Header der Token des Users mitgeschickt. Jede Funktionalität, bei der eine HTTP-Methode aufgerufen wird, wurde per
+".subscribe" abonniert um Fehlern durch Verzögerung der Datenübertragung zu entgehen.
 
-|===
 
-=== Trip-Detail 
-*	Hier werden weitere Informationen eines Trips angezeigt 
-*	Trip-Detail Component
-|===
-| Methoden | Beschreibung
+== Entities
+Das Frontend besteht aus den folgenden Entity Klassen:
 
-|	getTripForMap() | Zeige mir einen Trip für die Map 
-|	getTrip() | Zeige mir einen Trip
-|	setMapSrc() | Setze die Url für das Src Tag eines Images
-
-|===
-
-=== Uctrips
-*	Hier befinden sich die unbestätigten Trips
-*	Uctrips Component
-|===
-| Methoden | Beschreibung
-|	getMyUnconfirmedTrips() | Zeige mir meine unbestätigten Trips
-|===
-=== Uctrips-Detail
-*	Hier kann man seinen unbestätigten Trip ändern und abspeichern 
-*	Uctrips-Detail Component
-|===
-| Methoden | Beschreibung
-|	putTrips() | 
-|	getMyUnconfirmedTrip() | Zeige mir meinen unbestätigten Trip
-|	setBusinessTrip() | Setze den Wert von der Variable isBusiness auf true oder false
-|===
-
-=== Update-Logbook
-*	Hier wird das Logbook geupdatet
-*	Update-Logbook Component
-|===
-| Methoden | Beschreibung
-|	updateLogbook() | Update ein Logbook
-|	getrouteparam()| Liest die Variablen aus dem URL-Pfad
-|===
-
-== Entitys
 |===
 |Entities
 
@@ -196,19 +33,255 @@ Das Frontend ist mit Angular implementiert und somit Komponentenorientiert. Dabe
 |Logbook
 
 |Trip
+|NewTrip
+|User
 
 |Waypoint
 
+
 |===
 
-== Keycloak Service
-|===
-| Methoden | Beschreibung
-|	getToken() | Liest den Token aus
-|	Init() | Initalisiert Keycloak
-|	getUserMail() | Liest aus dem Tokoen die User Mail
-|	checkManager() | Checkt ob es die Rolle Manager ist
-|	setUserRole() | Gibt die Rolle eines Users aus
-|	getUserRole() | Liest die User Rolle aus dem Token
-|===
+== Komponenten
 
+=== Create-Logbook
+Hier wird dem User ermöglicht ein Logbook und das dazugehörige Fahrzeug anzulegen.
+Dafür wird dem User ein Formular angeboten. Die Komponente benutzt den Logbook-Service für HTTP-Methoden.
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Beschreibung
+
+|createLogbook()  | Baut aus den Eingaben des Benutzers, auf Grundlage der Entities ein Logbook- und ein Car-Objekt und ruft die HTTP-Methode der Logbook-Service-Klasse auf.
+
+
+|=========================================================
+
+
+=== Create Trip
+Diese Komponente dient dem Erstellen eines neuen Trips. Sie realisiert ein Formular zum Eintragen der relevanten Eigenschaften und einen eigenen Service zum Aufruf der Post-Methode via HTTP.
+Zusätzlich wird der Service verwendet um aus der eingegeben Adresse des Users die Koordinanten zu identifizieren. Hierzu wird ein Dienst über HTTP einbezogen: https://eu1.locationiq.com/.
+Die Komponente realisiert einen eigenen Service.
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Beschreibung
+
+|setBusinessTrip()  | Setzt der User einen Haken bei Business-Trip wird die Variable isBuesiness auf true gesetzt. Zudem werden dem Nutzer die Felder Customer-Name und Project-Name angezeigt.
+|addGeoCodeStart()  | Indetifiziere die Koordinaten der eingegebenen Adresse für den Startpunkt
+|addGeoCodeEnd()  | Indetifiziere die Koordinaten der eingegebenen Adresse für den Endpunkt
+
+
+|=========================================================
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| HTTP-Methoden |Aufgerufene URL
+
+
+|getGeoCodeStart()  | https://eu1.locationiq.com/v1/search.php?
+|getGeoCodeEnd()  | https://eu1.locationiq.com/v1/search.php?
+|updateTrip()  | http://localhost:8080/mytrips/confirm
+|addTrip()  | http://localhost:8080/createTrip
+
+
+|=========================================================
+
+
+
+=== Create User
+Über die Create-User Komponente kann der User einen neuen Nutzer, gleichbedeutend einem neuen Driver, erstellen. Hier wird wieder ein Formular mit den benötigten Eingabefeldern zur Verfügung gestellt.
+Die Komponente realisiert einen eigenen Service.
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Beschreibung
+
+|createUser()  | Hier werden die Eingaben des Users validiert, falls Nötig eine Fehlermeldung ausgegeben, ansonsten ein User-Objekt (KeyCloak) und ein Driver-Objekt generiert mit anschließendem Aufruf der entsprechenden HTTP-Methoden.
+
+|=========================================================
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| HTTP-Methoden |Aufgerufene URL
+
+
+|createDriver()  | http://localhost:8080/createDriver
+|createUser()  | http://localhost:8081/auth/admin/realms/demo/users
+
+
+
+|=========================================================
+
+=== Dashboard
+Das Dashboard realisiert diverse Kacheln welche dynamisch je nach Rolle des Users ein- und ausgeblendet werden. Zudem kann der User, besitzt der User die Rolle Manager, über diese Komponente auf die Create-Logbook und Create-User Komponente wechseln.
+Die Komponente realisiert einen eigenen Service.
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Beschreibung
+
+|countAllLogbooks()  | Stellt die Anzahl aller Logbooks bereit, sodass diese im HTML-Code verwendet werden kann [Manager]
+|countAllTrips()  |Stellt die Anzahl aller Trips bereit, sodass diese im HTML-Code verwendet werden kann [Manager]
+|countAllPrivatTrips()  |Stellt die Anzahl aller privaten Trips bereit, sodass diese im HTML-Code verwendet werden kann [Manager]
+|countAllBusinessTrips()  |Stellt die Anzahl aller geschäftlichen Trips bereit, sodass diese im HTML-Code verwendet werden kann [Manager]
+|countMyTrips()  |Stellt die Anzahl aller Trips eines Users bereit, sodass diese im HTML-Code verwendet werden kann [Mitarbeiter]
+|countMyPrivateTrips()  |Stellt die Anzahl aller privaten Trips eines Users bereit, sodass diese im HTML-Code verwendet werden kann [Mitarbeiter]
+|countMyBusinessTrips()  |Stellt die Anzahl aller geschäftlichen Trips eines Users bereit, sodass diese im HTML-Code verwendet werden kann [Mitarbeiter]
+|countMyOdometer()  | Stellt die insgesamt gefahrene Distanz eines Users bereit, sodass diese im HTML-Code verwendet werden kann [Mitarbeiter]
+|informUser()  | Die Methode informiert den User via alert-Message über unbestätigte Trips
+|getMyUnconfirmedTrips()  | Falls der User unbestätigte Trips besitzt wird die Methode informUser() aufgerufen.
+
+|=========================================================
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| HTTP-Methode |Aufgerufene URL
+
+
+|countAllLogbooks()  | http://localhost:8080/countAllLogbooks
+|countAllTrips()  | http://localhost:8081/auth/admin/realms/demo/users
+|countAllPrivatTrips()  | http://localhost:8080/countAllPrivatTrips
+|countAllBusinessTrips()  | http://localhost:8080/countAllBusinessTrips
+|countMyTrips()  | http://localhost:8080/countMyTrips
+|countMyPrivateTrips()  | http://localhost:8080/countMyPrivatTrips
+|countMyBusinessTrips()  | http://localhost:8080/countMyBusinessTrips
+|countMyOdometer()  | http://localhost:8080/countMyOdometer
+
+|=========================================================
+=== Logbook
+Die Logbook-Komponente dient der Anzeige von Logbook-Objekten in einer Tabelle. Hier wurde eine Tabelle für alle Logbooks und eine Tabelle für Suchergebnisse angelegt.
+Zudem kann über ein Input-Feld eine ID zum speziellen Suchen eines Logbooks vom User bereitgestellt werden.
+Mit dem Edit-Link in jeder Reihe der Tabelle kann zu der entsprechenden Update-Logbook Komponente navigiert werden.
+Die Komponente realisiert einen eigenen Service.
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Aufgerufene URL
+
+
+|getMyLogbooks()  | Stellt alle Logbooks eines Users bereit
+|getLogbooks()  | Stellt alle verfügbaren Logbooks bereit
+|getLogbook()  | Stellt ein Logbook anhand der eingegeben ID bereit
+|showMyLogbooks()  | Zeigt alle Logbooks eines Users an
+|showLogbooks()  | Zeigt alle Logbooks an
+|showLogbookByID()  | Zeigt das Logbook mit der eingegeben ID an
+
+|=========================================================
+
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| HTTP-Methoden |Aufgerufene URL
+
+
+|getDriver()  | http://localhost:8080/driver{email}
+|updateLogbook()  | http://localhost:8080/assignDriver/logbook
+|getMyLogbooks()  | http://localhost:8080/myLogbook
+|getLogbooks()  | http://localhost:8080/logbook
+|getLogbook()  | http://localhost:8080/logbook{id}
+
+|=========================================================
+
+=== Trip
+In dieser Komponenten wird eine Tabelle zur Anzeige der Trip-Objekte bereitgestellt.
+Der User kann über Input-Felder die Daten filtern.
+Zudem kann der User, besitzt er die Rolle Mitarbeiter, von hier zur Create-Trip und zu der Unconfirmed-Trip Komponente wechseln.
+Die Komponente realisiert einen eigenen Service.
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Aufgerufene URL
+
+
+|checkResults()  | Prüft ob bei der jeweilig aufgerufenen Methode Daten zurückkommen und zeigt dem User eine Nachricht an, falls nicht.
+|getMyTrips()  | Stellt alle Trips des Users bereit
+|getLogbookTrips()  | Stellt alle Trips eines bestimmten Logbooks bereit
+|getLogbookTripsByID()  | Stellt alle Trips mit der eingegeben Logbook-ID bereit
+|getTripsByDriverName()  | Stelt alle Trips mit dem eingegebenen Driver-Email bereit
+|getTrips()  | Stellt alle Trips bereit
+|getTripsByDriverID()  | Stellt alle Trips mit der eingegebenen Driver-Email bereit
+|getTripsByCustomerName()  | Stellt alle Trips mit dem eingegebenen Kunden-Name bereit
+|showTripByLogbookbyID()  | Zeigt alle Trips mit einer bestimmten Logbook-ID
+|showTripsByDriverName()  | Zeigt alle Trips mit einem bestimmten Fahrer-Name
+|showAllTrips()  | Zeigt alle Trips
+|showMyTrips()  | Zeigt alle Trips eines Users
+|showTripsByDriverID()  | Zeigt alle Trips mit einer bestimmten Driver-Email
+|showTripsByCustomerName()  | Zeigt alle Trips mit einem bestimmten Kunden-Name
+
+|=========================================================
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| HTTP-Methoden |Aufgerufene URL
+
+
+|getMyUnconfirmedTrips()  | http://localhost:8080/mytrips/unconfirmed
+|getMyTripById()  | http://localhost:8080/mytrip{id}
+|getMyTrips()  | http://localhost:8080/mytrip
+|getTrips()  | http://localhost:8080/trip
+|getLogbookTrips()  | http://localhost:8080/trip/logbook{id}
+|getTrip()  | http://localhost:8080/trip/{id}
+|getTripsByDriverID()  | http://localhost:8080/trip/driver/email/{email}
+|getTripsByCustomerName()  | http://localhost:8080/customername/{name}
+
+|=========================================================
+
+=== Trip-Detail
+In dieser Komponente werden weiter Details für einen Trip angezeigt. Zudem kann man hier über eine statische Karte seinen
+Start- und Endpunkt sehen. Der Startpunkt ist rot gekennzeichnet und der Endpunkt ist blau.
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode | Beschreibung
+
+|    getTripForMap() | Hier wird der aktuelle Trip geholt und die Gps Werte für die Variablen gesetzt
+|    getTrip() | Hier wird der aktuelle Trip geholt um die verschieden Eigenschaften in der HTML-Seite anzuzeigen
+|    setMapSrc() | Holt sich das IMG Element aus dem HTML Formular und setzt die URL mit den richtigen Werten für die SRC
+
+
+|=========================================================
+=== Unconfirmed Trips
+Diese Komponente realisiert eine Tabelle mit der Ansicht von Trip-Objekten.
+Zudem kann der User über den jeweiligen Eintrag zur passenden UnconfirmedTrip-Detail Komponente navigieren.
+Die Komponente nutzt den Trip-Service.
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Aufgerufene URL
+
+|getMyUnconfirmedTrips()  | Stelle alle unbestätigten Trips eines Users bereit
+|showMyUnconfirmedTrips()  | Zeige alle unbestätigten Trips eines Users an
+
+
+|=========================================================
+
+=== Unconfirmed Trips-Detail
+Die UnconfirmedTrip-Detail Komponente enthält ein Formular zum besätigen eines Trips. Hier kann der User den Trip bestätigen oder ihn vorher als geschäftlich deklarieren und den zugehörigen Projekt- und Kundenname eintragen.
+Die Komponente nutz den Trip-Service.
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Aufgerufene URL
+
+|putTrip()  | Validiert die Eingaben, baut ein Trip-Objekt zusammen und ruft die entsprechende HTTP-Methode auf.
+|getMyUnconfirmedTrip()  | Stelle den unbestätigten Trip mit einer bestimmten ID bereit und trage die schon vorhandenen Eigenschaften in das Formular ein.
+|setBusinessTrip()  | Setzt "isBusiness" auf "true" und zeigt dem User die Pflichtfelder Customer- und Project-Name an.
+
+
+
+|=========================================================
+
+=== Update Logbook
+
+Die Update-Logbook Komponente realisiert das "updaten" des zugehörigen Drivers eines Logbooks. Hierzu wird ein Formular mit Eingabemöglichkeiten für
+die Black-Box-ID und der Driver-Mail zur Verfügung gestellt.
+Die Komponente nutz den Logbook-Service.
+
+[width="80%",cols="2,^10" options="header"]
+|=========================================================
+| Methode |Aufgerufene URL
+
+|updateLogbook()  | Validiert die Eingaben des Nutzers, baut ein Logbook-Objekt zusammen und ruft die entsprechende HTTP-Methode auf.
+|getrouteparam()  | Entnimmt die Parameter aus der URL und stellt diese zur weiteren Verwendung zu Verfügung.
+
+
+
+|=========================================================
